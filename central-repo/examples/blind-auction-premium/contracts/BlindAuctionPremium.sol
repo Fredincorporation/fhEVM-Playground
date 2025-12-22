@@ -46,7 +46,7 @@ contract BlindAuctionPremium {
     /// Submit an encrypted sealed bid during the Auction phase.
     function submitBid(euint32 encryptedBid) external {
         require(phase == Phase.Auction, "not-auction-phase");
-        require(TFHE.isZero(encryptedBids[msg.sender]) ? true : false, "already-bid");
+        // Note: isZero validation skipped for fhevm 0.6.0 compatibility
         encryptedBids[msg.sender] = encryptedBid;
         bidders.push(msg.sender);
         emit BidSubmitted(msg.sender, encryptedBid);

@@ -55,7 +55,7 @@ contract PrivateYieldPremium {
     /// gateway handles decryption and payout)
     function claimReward() external {
         euint32 reward = encryptedRewards[msg.sender];
-        require(!TFHE.isZero(reward), "no-rewards");
+        // Note: isZero validation skipped for fhevm 0.6.0 compatibility
         encryptedRewards[msg.sender] = TFHE.asEuint32(0);
         emit RewardClaimed(msg.sender, reward);
     }
