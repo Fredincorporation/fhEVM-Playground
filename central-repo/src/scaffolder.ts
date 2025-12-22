@@ -1,4 +1,5 @@
 import path from 'path';
+import { fileURLToPath } from 'url';
 import fs from 'fs-extra';
 import { execSync } from 'child_process';
 import chalk from 'chalk';
@@ -81,12 +82,14 @@ export async function createExample(options: ScaffoldOptions): Promise<void> {
 
   // Copy contract and test files from examples
   console.log(chalk.blue(`🔒 Copying contract templates...`));
-  // Find examples dir relative to this scaffolder.ts file (in dist/src/)
-  // We need to go up to dist/, then up to central-repo root
+  // In ESM, reconstruct __dirname from import.meta.url
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
   const exampleDir = path.resolve(__dirname, '..', '..', 'examples', `${options.category}-premium`);
-  // Example files use "Premium" suffix in contract names
+  // Contract files use format: {ContractName}Premium.sol
+  // Test files use format: {category-id}-premium.test.ts
   const contractFileName = `${categoryData.contractName}Premium.sol`;
-  const testFileName = `${categoryData.contractName}Premium.test.ts`;
+  const testFileName = `${options.category}-premium.test.ts`;
   const contractSrcPath = path.join(exampleDir, 'contracts', contractFileName);
   const testSrcPath = path.join(exampleDir, 'test', testFileName);
   const readmeSrcPath = path.join(exampleDir, 'README.md');
