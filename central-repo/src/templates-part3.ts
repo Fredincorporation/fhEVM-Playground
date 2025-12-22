@@ -7,7 +7,7 @@ export function accessControlContract(): string {
   return \`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "@zama.ai/fhevm/lib/TFHE.sol";
+import "fhevm/lib/TFHE.sol";
 
 contract AccessControl {
     enum Role { NONE, USER, ADMIN, OPERATOR }
@@ -91,7 +91,7 @@ export function inputVerificationProofsContract(): string {
   return \`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "@zama.ai/fhevm/lib/TFHE.sol";
+import "fhevm/lib/TFHE.sol";
 
 contract InputVerificationProofs {
     euint32 private validatedValue;
@@ -152,7 +152,7 @@ export function antiPatternsGuideContract(): string {
   return \`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "@zama.ai/fhevm/lib/TFHE.sol";
+import "fhevm/lib/TFHE.sol";
 
 contract AntiPatternsGuide {
     euint32 private secret;
@@ -207,7 +207,7 @@ export function handlesLifecycleContract(): string {
   return \`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "@zama.ai/fhevm/lib/TFHE.sol";
+import "fhevm/lib/TFHE.sol";
 
 contract HandlesLifecycle {
     struct EncryptedHandle {

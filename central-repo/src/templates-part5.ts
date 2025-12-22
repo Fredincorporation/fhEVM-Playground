@@ -9,7 +9,7 @@ export function daoVotingProContract(): string {
   return \`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "@zama.ai/fhevm/lib/TFHE.sol";
+import "fhevm/lib/TFHE.sol";
 
 contract DAOVotingPro {
     struct Proposal {
@@ -120,7 +120,7 @@ export function privateLendingProContract(): string {
   return \`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "@zama.ai/fhevm/lib/TFHE.sol";
+import "fhevm/lib/TFHE.sol";
 
 contract PrivateLendingPro {
     struct LendingPool {
@@ -218,7 +218,7 @@ export function blindDexProContract(): string {
   return \`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "@zama.ai/fhevm/lib/TFHE.sol";
+import "fhevm/lib/TFHE.sol";
 
 contract BlindDEXPro {
     struct Order {
@@ -312,7 +312,7 @@ export function pokerGameProContract(): string {
   return \`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "@zama.ai/fhevm/lib/TFHE.sol";
+import "fhevm/lib/TFHE.sol";
 
 contract PokerGamePro {
     struct Game {
@@ -402,7 +402,7 @@ export function yieldFarmingProContract(): string {
   return \`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "@zama.ai/fhevm/lib/TFHE.sol";
+import "fhevm/lib/TFHE.sol";
 
 contract YieldFarmingPro {
     struct Farm {
@@ -494,7 +494,7 @@ export function mevArbitrageProContract(): string {
   return \`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "@zama.ai/fhevm/lib/TFHE.sol";
+import "fhevm/lib/TFHE.sol";
 
 contract MEVArbitragePro {
     struct ArbitrageOpportunity {
@@ -592,7 +592,7 @@ export function confidentialStablecoinProContract(): string {
   return \`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "@zama.ai/fhevm/lib/TFHE.sol";
+import "fhevm/lib/TFHE.sol";
 
 contract ConfidentialStablecoinPro {
     string public constant name = "Confidential USD";

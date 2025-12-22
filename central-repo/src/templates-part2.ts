@@ -12,7 +12,7 @@ export function singleEncryptionContract(): string {
   return \`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "@zama.ai/fhevm/lib/TFHE.sol";
+import "fhevm/lib/TFHE.sol";
 
 /**
  * @title SingleEncryption
@@ -106,7 +106,7 @@ export function multipleEncryptionContract(): string {
   return \`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "@zama.ai/fhevm/lib/TFHE.sol";
+import "fhevm/lib/TFHE.sol";
 
 /**
  * @title MultipleEncryption
@@ -198,7 +198,7 @@ export function singleDecryptionUserContract(): string {
   return \`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "@zama.ai/fhevm/lib/TFHE.sol";
+import "fhevm/lib/TFHE.sol";
 
 /**
  * @title SingleDecryptionUser
@@ -295,7 +295,7 @@ export function singleDecryptionPublicContract(): string {
   return \`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "@zama.ai/fhevm/lib/TFHE.sol";
+import "fhevm/lib/TFHE.sol";
 
 /**
  * @title SingleDecryptionPublic
@@ -382,7 +382,7 @@ export function multipleDecryptionContract(): string {
   return \`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "@zama.ai/fhevm/lib/TFHE.sol";
+import "fhevm/lib/TFHE.sol";
 
 /**
  * @title MultipleDecryption

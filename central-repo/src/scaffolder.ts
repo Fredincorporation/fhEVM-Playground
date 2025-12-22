@@ -85,16 +85,17 @@ export async function createExample(options: ScaffoldOptions): Promise<void> {
     author: '',
     license: 'MIT',
     dependencies: {
-      '@zama.ai/fhevm': '^0.9.0',
+      'fhevm': '^0.6.0',
       'ethers': '^6.10.0',
     },
     devDependencies: {
+      '@nomicfoundation/hardhat-chai-matchers': '^2.0.0',
+      '@nomicfoundation/hardhat-toolbox': '^4.0.0',
       '@types/chai': '^4.3.11',
       '@types/mocha': '^10.0.6',
       '@types/node': '^20.10.6',
       'chai': '^4.3.10',
       'hardhat': '^2.19.4',
-      'hardhat-chai-matchers': '^1.0.6',
       'mocha': '^10.2.0',
       'solc': '^0.8.24',
       'ts-node': '^10.9.2',
@@ -107,6 +108,10 @@ export async function createExample(options: ScaffoldOptions): Promise<void> {
   // Create hardhat.config.ts
   console.log(chalk.blue(`⚙️  Creating hardhat configuration...`));
   createHardhatConfig(projectDir);
+
+  // Create tsconfig.json
+  console.log(chalk.blue(`⚙️  Creating TypeScript configuration...`));
+  createTsConfig(projectDir);
 
   // Copy contract and test files from examples
   console.log(chalk.blue(`🔒 Copying contract templates...`));
@@ -168,9 +173,36 @@ export async function createExample(options: ScaffoldOptions): Promise<void> {
 
   if (fs.existsSync(testSrcPath)) {
     fs.copyFileSync(testSrcPath, testPath);
+    
+    // Fix import paths in test file for standalone projects
+    let testContent = fs.readFileSync(testPath, 'utf-8');
+    testContent = testContent.replace(
+      /import\s+{([^}]+)}\s+from\s+"\.\.\/\.\.\/\.\.\/\.\.\/scripts\/test-helpers"/,
+      'import { $1 } from "./test-helpers.js"'
+    );
+    fs.writeFileSync(testPath, testContent);
   } else {
     console.warn(chalk.yellow(`⚠️  Test template not found at ${testSrcPath}`));
   }
+
+  // Create test-helpers file (as .js for compatibility with ESM)
+  const testHelpersPath = path.join(projectDir, 'test', 'test-helpers.js');
+  const testHelpersContent = `export async function initGateway() {
+  // Placeholder for gateway initialization
+  // In a real setup, this would initialize the FHE gateway
+  console.log('Gateway initialized');
+}
+
+export async function getSignatureAndEncryption(data) {
+  // Placeholder for signature and encryption
+  // In a real setup, this would handle cryptographic operations
+  return {
+    signature: '0x',
+    encryption: '0x'
+  };
+}
+`;
+  fs.writeFileSync(testHelpersPath, testHelpersContent);
 
   // Copy or generate README
   console.log(chalk.blue(`📚 Creating README...`));
@@ -220,6 +252,7 @@ export async function createExample(options: ScaffoldOptions): Promise<void> {
 function createHardhatConfig(projectDir: string): void {
   const config = `import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
+import "@nomicfoundation/hardhat-ethers";
 
 const config: HardhatUserConfig = {
   solidity: {
@@ -254,4 +287,30 @@ export default config;
 `;
 
   fs.writeFileSync(path.join(projectDir, 'hardhat.config.ts'), config);
+}
+
+function createTsConfig(projectDir: string): void {
+  const tsConfig = {
+    compilerOptions: {
+      target: 'ES2020',
+      module: 'commonjs',
+      lib: ['ES2020'],
+      moduleResolution: 'node',
+      declaration: true,
+      declarationMap: true,
+      sourceMap: true,
+      outDir: './dist',
+      rootDir: './',
+      resolveJsonModule: true,
+      allowJs: true,
+      strict: true,
+      esModuleInterop: true,
+      skipLibCheck: true,
+      forceConsistentCasingInFileNames: true,
+    },
+    include: ['**/*.ts'],
+    exclude: ['node_modules', 'dist'],
+  };
+
+  fs.writeJsonSync(path.join(projectDir, 'tsconfig.json'), tsConfig, { spaces: 2 });
 }

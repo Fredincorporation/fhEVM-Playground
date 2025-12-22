@@ -7,7 +7,7 @@ export function ozErc20WrapperContract(): string {
   return \`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "@zama.ai/fhevm/lib/TFHE.sol";
+import "fhevm/lib/TFHE.sol";
 
 contract OZErc20Wrapper {
     string public constant name = "Encrypted Token";
@@ -95,7 +95,7 @@ export function ozErc7984BasicContract(): string {
   return \`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "@zama.ai/fhevm/lib/TFHE.sol";
+import "fhevm/lib/TFHE.sol";
 
 contract OZERC7984Basic {
     mapping(string => address) public modules;
@@ -182,7 +182,7 @@ export function swapsContract(): string {
   return \`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "@zama.ai/fhevm/lib/TFHE.sol";
+import "fhevm/lib/TFHE.sol";
 
 contract Swaps {
     euint32 private reserveA;
@@ -257,7 +257,7 @@ export function vestingContract(): string {
   return \`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "@zama.ai/fhevm/lib/TFHE.sol";
+import "fhevm/lib/TFHE.sol";
 
 contract Vesting {
     struct VestingSchedule {
@@ -353,7 +353,7 @@ export function blindAuctionContract(): string {
   return \`// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "@zama.ai/fhevm/lib/TFHE.sol";
+import "fhevm/lib/TFHE.sol";
 
 contract BlindAuction {
     struct Bid {
