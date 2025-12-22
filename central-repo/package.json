@@ -1,0 +1,59 @@
+{
+  "name": "create-fhevm-playground-pro",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Premium CLI scaffolding tool for fhEVM examples - Zama's December 2025 Bounty Track",
+  "main": "dist/src/cli.js",
+  "bin": {
+    "create-fhevm-playground-pro": "./dist/bin/create-fhevm-playground-pro.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "mocha",
+    "start": "node dist/bin/create-fhevm-playground-pro.js",
+    "batch-update": "npx ts-node scripts/batch-update-fhevm-version.ts",
+    "prepack": "npm run build"
+  },
+  "keywords": [
+    "fhEVM",
+    "FHE",
+    "homomorphic encryption",
+    "confidential computing",
+    "Zama",
+    "Hardhat",
+    "scaffolding",
+    "CLI"
+  ],
+  "author": "Zama Community",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^11.1.0",
+    "fs-extra": "^11.2.0"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "@types/chai": "^5.2.3",
+    "@types/fs-extra": "^11.0.4",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^20.10.6",
+    "chai": "^6.2.1",
+    "dotenv": "^17.2.3",
+    "hardhat": "^3.1.0",
+    "mocha": "^11.7.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zama-ai/fhevm-playground-pro.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zama-ai/fhevm-playground-pro/issues"
+  },
+  "homepage": "https://github.com/zama-ai/fhevm-playground-pro#readme"
+}

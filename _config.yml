@@ -1,0 +1,34 @@
+# GitHub Pages Configuration for fhEVM Playground Pro
+
+# This file is optional but helps with GitHub Pages deployment
+# It specifies the build settings for the static site
+
+# Since this is a pure static HTML/CSS/JS site, no build process is needed
+# GitHub Pages will serve files directly from the repository root
+
+# Theme (optional - we're using custom styling)
+# theme: jekyll-theme-minimal
+
+# Plugins (optional)
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Exclude files from GitHub Pages build
+exclude:
+  - .gitignore
+  - LICENSE
+  - CNAME
+  - node_modules
+  - .git
+  - .github
+
+# Markdown processor (if using Markdown in future)
+markdown: kramdown
+
+# URL settings (replace with your domain)
+# url: "https://your-domain.com"
+# baseurl: ""
+
+# Output directory for built site (not used for static sites)
+# destination: _site
