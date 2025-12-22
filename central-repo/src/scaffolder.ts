@@ -85,7 +85,7 @@ export async function createExample(options: ScaffoldOptions): Promise<void> {
     author: '',
     license: 'MIT',
     dependencies: {
-      'fhevm': '^0.4.0',
+      'fhevm': '^0.6.0',
       'ethers': '^6.10.0',
     },
     devDependencies: {
