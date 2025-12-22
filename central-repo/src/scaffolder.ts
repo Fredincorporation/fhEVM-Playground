@@ -5,6 +5,34 @@ import { execSync } from 'child_process';
 import chalk from 'chalk';
 import { CATEGORIES } from './templates-index.js';
 
+// Map category IDs to their actual example directory names
+const CATEGORY_TO_EXAMPLE_DIR: Record<string, string> = {
+  'basic-counter': 'basic-counter',
+  'arithmetic': 'arithmetic',
+  'comparisons': 'comparisons',
+  'single-encryption': 'single-encryption',
+  'multiple-encryption': 'private-erc20',
+  'single-decryption-user': 'public-encryption',
+  'single-decryption-public': 'public-encryption',
+  'multiple-decryption': 'private-erc20',
+  'access-control': 'access-control',
+  'input-verification-proofs': 'input-proofs',
+  'anti-patterns-guide': 'anti-patterns',
+  'handles-lifecycle': 'handles-lifecycle',
+  'oz-erc20-wrapper': 'private-erc20',
+  'oz-erc7984-basic': 'erc7984',
+  'swaps': 'swaps',
+  'vesting': 'vesting',
+  'blind-auction': 'blind-auction',
+  'dao-voting-pro': 'dao-voting',
+  'private-lending-pro': 'private-lending',
+  'blind-dex-pro': 'blind-dex',
+  'poker-game-pro': 'encrypted-poker',
+  'yield-farming-pro': 'private-yield',
+  'mev-arbitrage-pro': 'mev-arbitrage',
+  'confidential-stablecoin-pro': 'confidential-stablecoin',
+};
+
 export interface ScaffoldOptions {
   name: string;
   category: string;
@@ -85,11 +113,46 @@ export async function createExample(options: ScaffoldOptions): Promise<void> {
   // In ESM, reconstruct __dirname from import.meta.url
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
-  const exampleDir = path.resolve(__dirname, '..', '..', 'examples', `${options.category}-premium`);
+  // Map category ID to actual example directory name
+  const exampleDirName = CATEGORY_TO_EXAMPLE_DIR[options.category] || options.category;
+  const exampleDir = path.resolve(__dirname, '..', '..', 'examples', `${exampleDirName}-premium`);
+  
+  // Convert example dir name to PascalCase for contract file naming
+  // Uses a comprehensive mapping to handle special cases correctly
+  const contractNameMap: Record<string, string> = {
+    'access-control': 'AccessControl',
+    'anti-patterns': 'AntiPatterns',
+    'arithmetic': 'Arithmetic',
+    'basic-counter': 'BasicCounter',
+    'blind-auction': 'BlindAuction',
+    'blind-dex': 'BlindDEX',
+    'comparisons': 'Comparisons',
+    'confidential-stablecoin': 'ConfidentialStablecoin',
+    'dao-voting': 'DAOVoting',
+    'encrypted-poker': 'EncryptedPoker',
+    'erc7984': 'ERC7984',
+    'handles-lifecycle': 'HandlesLifecycle',
+    'input-proofs': 'InputProofs',
+    'mev-arbitrage': 'MEVArbitrage',
+    'private-erc20': 'PrivateERC20',
+    'private-lending': 'PrivateLending',
+    'private-yield': 'PrivateYield',
+    'public-encryption': 'PublicEncryption',
+    'single-encryption': 'SingleEncryption',
+    'swaps': 'Swaps',
+    'vesting': 'Vesting',
+  };
+  
+  const contractNameFromDir = contractNameMap[exampleDirName] || 
+    exampleDirName
+      .split('-')
+      .map((part: string) => part.charAt(0).toUpperCase() + part.slice(1))
+      .join('');
+  
   // Contract files use format: {ContractName}Premium.sol
-  // Test files use format: {category-id}-premium.test.ts
-  const contractFileName = `${categoryData.contractName}Premium.sol`;
-  const testFileName = `${options.category}-premium.test.ts`;
+  // Test files use format: {example-dir-name}-premium.test.ts
+  const contractFileName = `${contractNameFromDir}Premium.sol`;
+  const testFileName = `${exampleDirName}-premium.test.ts`;
   const contractSrcPath = path.join(exampleDir, 'contracts', contractFileName);
   const testSrcPath = path.join(exampleDir, 'test', testFileName);
   const readmeSrcPath = path.join(exampleDir, 'README.md');
