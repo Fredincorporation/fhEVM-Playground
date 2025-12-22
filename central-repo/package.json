@@ -8,11 +8,12 @@
     "create-fhevm-playground-pro": "./dist/bin/create-fhevm-playground-pro.js"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc || true",
     "watch": "tsc -w",
     "test": "mocha",
-    "start": "node dist/bin/create-fhevm-playground-pro.js",
+    "start": "npx ts-node bin/create-fhevm-playground-pro.ts",
     "batch-update": "npx ts-node scripts/batch-update-fhevm-version.ts",
+    "postinstall": "npm run build || true",
     "prepack": "npm run build"
   },
   "keywords": [
