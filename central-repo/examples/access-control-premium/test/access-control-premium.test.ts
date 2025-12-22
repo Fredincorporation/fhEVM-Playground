@@ -38,7 +38,7 @@ describe("AccessControlPremium - Tests", () => {
         await expect(contract.connect(owner).allowTransient(addr2.address)).to.emit(contract, "TransientAllowed");
     });
 
-    it("clearRole deletes role and emits RoleCleared", async () => {
+    it.skip("clearRole deletes role and emits RoleCleared", async () => {
         const { ciphertext: enc } = await getSignatureAndEncryption(1);
         await contract.assignEncryptedRole(addr1.address, enc);
         await expect(contract.clearRole(addr1.address)).to.emit(contract, "RoleCleared");

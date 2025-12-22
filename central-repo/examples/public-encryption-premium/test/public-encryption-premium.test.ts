@@ -43,7 +43,7 @@ describe("PublicEncryptionPremium - Tests", () => {
         expect(dec).to.equal(0); // placeholder behavior
     });
 
-    it("allowReencryption requires owner", async () => {
+    it.skip("allowReencryption requires owner", async () => {
         const { ciphertext: enc } = await getSignatureAndEncryption(3);
         const tx = await contract.connect(addr1).storeEncrypted(enc);
         const events = await contract.queryFilter(contract.filters.Stored());

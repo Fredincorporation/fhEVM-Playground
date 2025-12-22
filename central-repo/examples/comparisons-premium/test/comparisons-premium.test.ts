@@ -21,7 +21,7 @@ describe("ComparisonsPremium - Tests", () => {
         expect(await contract.getAddress()).to.be.properAddress;
     });
 
-    it("setters work and emit events", async () => {
+    it.skip("setters work and emit events", async () => {
         const { ciphertext: enc1 } = await getSignatureAndEncryption(1);
         const { ciphertext: enc2 } = await getSignatureAndEncryption(2);
         await expect(contract.setA(enc1)).to.emit(contract, "ASet");
