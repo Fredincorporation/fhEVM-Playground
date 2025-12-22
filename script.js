@@ -449,14 +449,14 @@ function closeCliModal() {
 }
 
 function copyCLI(button, categoryId = null) {
-    // Generate command - clone, install dependencies, then run via bash script
-    let text = 'git clone https://github.com/Fredincorporation/fhEVM-Playground.git && cd fhEVM-Playground/central-repo && npm install && bash run-cli.sh create --name "my-example" --category basic-counter';
+    // Generate command - clone, install dependencies, then run via npm start
+    let text = 'git clone https://github.com/Fredincorporation/fhEVM-Playground.git && cd fhEVM-Playground/central-repo && npm install && npm start -- create --name "my-example" --category basic-counter';
 
     if (categoryId) {
         const example = examplesData.find(ex => ex.id === categoryId);
         if (example) {
             const projectName = example.name.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '').substring(0, 30);
-            text = `git clone https://github.com/Fredincorporation/fhEVM-Playground.git && cd fhEVM-Playground/central-repo && npm install && bash run-cli.sh create --name "${projectName}" --category ${categoryId}`;
+            text = `git clone https://github.com/Fredincorporation/fhEVM-Playground.git && cd fhEVM-Playground/central-repo && npm install && npm start -- create --name "${projectName}" --category ${categoryId}`;
         }
     }
 
