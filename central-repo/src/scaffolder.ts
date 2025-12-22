@@ -81,10 +81,14 @@ export async function createExample(options: ScaffoldOptions): Promise<void> {
 
   // Copy contract and test files from examples
   console.log(chalk.blue(`🔒 Copying contract templates...`));
-  // examplesDir is relative to the current working directory (where CLI is run from)
-  const exampleDir = path.resolve(process.cwd(), 'examples', `${options.category}-premium`);
-  const contractSrcPath = path.join(exampleDir, 'contracts', `${categoryData.contractName}.sol`);
-  const testSrcPath = path.join(exampleDir, 'test', `${categoryData.contractName}.test.ts`);
+  // Find examples dir relative to this scaffolder.ts file (in dist/src/)
+  // We need to go up to dist/, then up to central-repo root
+  const exampleDir = path.resolve(__dirname, '..', '..', 'examples', `${options.category}-premium`);
+  // Example files use "Premium" suffix in contract names
+  const contractFileName = `${categoryData.contractName}Premium.sol`;
+  const testFileName = `${categoryData.contractName}Premium.test.ts`;
+  const contractSrcPath = path.join(exampleDir, 'contracts', contractFileName);
+  const testSrcPath = path.join(exampleDir, 'test', testFileName);
   const readmeSrcPath = path.join(exampleDir, 'README.md');
 
   const contractPath = path.join(projectDir, 'contracts', `${categoryData.contractName}.sol`);
