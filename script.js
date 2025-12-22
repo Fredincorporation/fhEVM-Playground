@@ -20,7 +20,7 @@ const examplesData = [
         tags: ['Counter', 'State', 'Encryption']
     },
     {
-        id: 'arithmetic-operations',
+        id: 'arithmetic',
         name: 'Arithmetic Operations',
         category: 'mandatory',
         complexity: 'beginner',
@@ -40,7 +40,7 @@ const examplesData = [
         tags: ['Comparison', 'Logic', 'FHE']
     },
     {
-        id: 'user-encryption-decryption',
+        id: 'single-encryption',
         name: 'User-Side Encryption & Decryption',
         category: 'mandatory',
         complexity: 'intermediate',
@@ -50,14 +50,44 @@ const examplesData = [
         tags: ['Encryption', 'User', 'Privacy']
     },
     {
-        id: 'public-encryption',
+        id: 'multiple-encryption',
+        name: 'Multiple Encryption',
+        category: 'mandatory',
+        complexity: 'intermediate',
+        description: 'Encrypt and manage multiple encrypted values.',
+        details: 'Handle batches of encrypted values efficiently in your contracts.',
+        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/multiple-encryption-premium',
+        tags: ['Encryption', 'Batch', 'Multiple']
+    },
+    {
+        id: 'single-decryption-public',
         name: 'Public Encryption & Decryption',
         category: 'mandatory',
         complexity: 'intermediate',
         description: 'Encrypt and decrypt values within the contract.',
         details: 'Handle contract-level encryption/decryption for transparent computations.',
-        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/public-encryption-premium',
+        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/single-decryption-public-premium',
         tags: ['Public', 'Encryption', 'Contract']
+    },
+    {
+        id: 'single-decryption-user',
+        name: 'User-Authorized Decryption',
+        category: 'mandatory',
+        complexity: 'intermediate',
+        description: 'User-authorized decryption with FHE.allow().',
+        details: 'Control who can decrypt specific encrypted values securely.',
+        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/single-decryption-user-premium',
+        tags: ['Decryption', 'User', 'Authorization']
+    },
+    {
+        id: 'multiple-decryption',
+        name: 'Multiple Decryption',
+        category: 'mandatory',
+        complexity: 'intermediate',
+        description: 'Decrypt multiple encrypted values efficiently.',
+        details: 'Handle efficient decryption of multiple encrypted values.',
+        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/multiple-decryption-premium',
+        tags: ['Decryption', 'Batch', 'Multiple']
     },
     {
         id: 'access-control',
@@ -70,7 +100,7 @@ const examplesData = [
         tags: ['Access Control', 'Permissions', 'FHE']
     },
     {
-        id: 'input-proofs',
+        id: 'input-verification-proofs',
         name: 'Input Proofs & Verification',
         category: 'mandatory',
         complexity: 'advanced',
@@ -80,7 +110,7 @@ const examplesData = [
         tags: ['Proofs', 'Verification', 'ZK']
     },
     {
-        id: 'anti-patterns',
+        id: 'anti-patterns-guide',
         name: 'Anti-Patterns & Edge Cases',
         category: 'mandatory',
         complexity: 'advanced',
@@ -100,17 +130,7 @@ const examplesData = [
         tags: ['Handles', 'Lifecycle', 'Advanced']
     },
     {
-        id: 'symbolic-execution',
-        name: 'Symbolic Execution & Analysis',
-        category: 'mandatory',
-        complexity: 'advanced',
-        description: 'Analyze contracts using symbolic execution techniques.',
-        details: 'Learn symbolic execution for proving contract correctness under encryption.',
-        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/private-erc20-premium',
-        tags: ['Analysis', 'Verification', 'Testing']
-    },
-    {
-        id: 'oz-confidential-erc7984',
+        id: 'oz-erc7984-basic',
         name: 'OpenZeppelin - ERC7984 Standard',
         category: 'mandatory',
         complexity: 'intermediate',
@@ -120,7 +140,7 @@ const examplesData = [
         tags: ['ERC7984', 'Token', 'Standard']
     },
     {
-        id: 'oz-wrappers',
+        id: 'oz-erc20-wrapper',
         name: 'OpenZeppelin - Wrappers & Utilities',
         category: 'mandatory',
         complexity: 'intermediate',
@@ -130,7 +150,7 @@ const examplesData = [
         tags: ['Utilities', 'Wrappers', 'Libraries']
     },
     {
-        id: 'oz-confidential-swaps',
+        id: 'swaps',
         name: 'OpenZeppelin - Confidential Swaps',
         category: 'mandatory',
         complexity: 'advanced',
@@ -140,7 +160,7 @@ const examplesData = [
         tags: ['Swap', 'DEX', 'Privacy']
     },
     {
-        id: 'oz-confidential-vesting',
+        id: 'vesting',
         name: 'OpenZeppelin - Confidential Vesting Wallet',
         category: 'mandatory',
         complexity: 'advanced',
@@ -150,7 +170,7 @@ const examplesData = [
         tags: ['Vesting', 'Token', 'Schedule']
     },
     {
-        id: 'blind-auction-basic',
+        id: 'blind-auction',
         name: 'Blind Auction Pro',
         category: 'mandatory',
         complexity: 'advanced',
@@ -162,7 +182,7 @@ const examplesData = [
 
     // ===== PRO BONUS / INNOVATIVE REAL-WORLD APPS =====
     {
-        id: 'confidential-dao-voting',
+        id: 'dao-voting-pro',
         name: 'Confidential DAO Voting',
         category: 'bonus',
         complexity: 'pro',
@@ -172,7 +192,7 @@ const examplesData = [
         tags: ['DAO', 'Governance', 'Privacy', 'Voting']
     },
     {
-        id: 'private-lending-pool',
+        id: 'private-lending-pro',
         name: 'Private Lending Pool',
         category: 'bonus',
         complexity: 'pro',
@@ -182,7 +202,7 @@ const examplesData = [
         tags: ['Lending', 'DeFi', 'Collateral', 'Privacy']
     },
     {
-        id: 'blind-dex-orderbook',
+        id: 'blind-dex-pro',
         name: 'Blind DEX Order Book',
         category: 'bonus',
         complexity: 'pro',
@@ -192,7 +212,7 @@ const examplesData = [
         tags: ['DEX', 'MEV', 'Orders', 'Privacy']
     },
     {
-        id: 'encrypted-poker',
+        id: 'poker-game-pro',
         name: 'Encrypted Poker Game',
         category: 'bonus',
         complexity: 'pro',
@@ -202,7 +222,7 @@ const examplesData = [
         tags: ['Gaming', 'Poker', 'Fair Play', 'Privacy']
     },
     {
-        id: 'private-yield-farming',
+        id: 'yield-farming-pro',
         name: 'Private Yield Farming Positions',
         category: 'bonus',
         complexity: 'pro',
@@ -212,7 +232,7 @@ const examplesData = [
         tags: ['Farming', 'Yield', 'DeFi', 'Privacy']
     },
     {
-        id: 'mev-resistant-arbitrage',
+        id: 'mev-arbitrage-pro',
         name: 'MEV-Resistant Arbitrage Demo',
         category: 'bonus',
         complexity: 'pro',
@@ -222,7 +242,7 @@ const examplesData = [
         tags: ['Arbitrage', 'MEV', 'Trading', 'Privacy']
     },
     {
-        id: 'confidential-stablecoin',
+        id: 'confidential-stablecoin-pro',
         name: 'Confidential Stablecoin Mint/Burn',
         category: 'bonus',
         complexity: 'pro',
