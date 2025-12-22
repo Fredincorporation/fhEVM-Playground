@@ -16,19 +16,19 @@ program
   .command('create')
   .description('Create a new fhEVM example project')
   .requiredOption('-n, --name <name>', 'Project name (e.g., my-counter)')
-  .requiredOption('-c, --category <category>', `Category: ${CATEGORIES.map(c => c.id).join(', ')}`)
+  .requiredOption('-c, --category <category>', `Category: ${CATEGORIES.map((c: any) => c.id).join(', ')}`)
   .option('-p, --pro', 'Create PRO bonus example (unlocks pro categories)')
-  .action(async (options) => {
+  .action(async (options: any) => {
     try {
       console.log(chalk.cyan.bold('\n🚀 fhEVM Playground Pro - Project Generator\n'));
       
-      if (!CATEGORIES.find(cat => cat.id === options.category)) {
+      if (!CATEGORIES.find((cat: any) => cat.id === options.category)) {
         console.error(chalk.red(`❌ Unknown category: ${options.category}`));
-        console.log(chalk.yellow(`Available categories:\n${CATEGORIES.map(c => c.id).join(', ')}`));
+        console.log(chalk.yellow(`Available categories:\n${CATEGORIES.map((c: any) => c.id).join(', ')}`));
         process.exit(1);
       }
 
-      const category = CATEGORIES.find(cat => cat.id === options.category);
+      const category = CATEGORIES.find((cat: any) => cat.id === options.category);
       if (category?.isPro && !options.pro) {
         console.error(chalk.red(`❌ Category "${options.category}" is PRO only. Add --pro flag.`));
         process.exit(1);

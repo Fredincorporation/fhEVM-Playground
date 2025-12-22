@@ -2,8 +2,7 @@ import path from 'path';
 import fs from 'fs-extra';
 import { execSync } from 'child_process';
 import chalk from 'chalk';
-import { CATEGORIES, getContractTemplate, getTestTemplate, getReadmeTemplate } from './templates-index';
-import { generateDocumentation } from './doc-generator';
+import { CATEGORIES } from './templates-index.js';
 
 export interface ScaffoldOptions {
   name: string;
@@ -17,7 +16,7 @@ export interface ScaffoldOptions {
  */
 export async function createExample(options: ScaffoldOptions): Promise<void> {
   const projectDir = path.resolve(process.cwd(), options.name);
-  const categoryData = CATEGORIES.find(cat => cat.id === options.category);
+  const categoryData = CATEGORIES.find((cat: any) => cat.id === options.category);
 
   if (!categoryData) {
     throw new Error(`Unknown category: ${options.category}`);
@@ -80,20 +79,36 @@ export async function createExample(options: ScaffoldOptions): Promise<void> {
   console.log(chalk.blue(`⚙️  Creating hardhat configuration...`));
   createHardhatConfig(projectDir);
 
-  // Create contract and test files
-  console.log(chalk.blue(`🔒 Generating contract templates...`));
-  const contractTemplate = getContractTemplate(options.category);
-  const testTemplate = getTestTemplate(options.category);
+  // Copy contract and test files from examples
+  console.log(chalk.blue(`🔒 Copying contract templates...`));
+  const exampleDir = path.resolve(import.meta.url.replace('file://', ''), '..', '..', 'examples', `${options.category}-premium`);
+  const contractSrcPath = path.join(exampleDir, 'contracts', `${categoryData.contractName}.sol`);
+  const testSrcPath = path.join(exampleDir, 'test', `${categoryData.contractName}.test.ts`);
+  const readmeSrcPath = path.join(exampleDir, 'README.md');
 
   const contractPath = path.join(projectDir, 'contracts', `${categoryData.contractName}.sol`);
   const testPath = path.join(projectDir, 'test', `${categoryData.contractName}.test.ts`);
 
-  fs.writeFileSync(contractPath, contractTemplate);
-  fs.writeFileSync(testPath, testTemplate);
+  if (fs.existsSync(contractSrcPath)) {
+    fs.copyFileSync(contractSrcPath, contractPath);
+  } else {
+    console.warn(chalk.yellow(`⚠️  Contract template not found at ${contractSrcPath}`));
+  }
 
-  // Create README
-  console.log(chalk.blue(`📚 Generating README...`));
-  const readmeContent = getReadmeTemplate(options.category, categoryData);
+  if (fs.existsSync(testSrcPath)) {
+    fs.copyFileSync(testSrcPath, testPath);
+  } else {
+    console.warn(chalk.yellow(`⚠️  Test template not found at ${testSrcPath}`));
+  }
+
+  // Copy or generate README
+  console.log(chalk.blue(`📚 Creating README...`));
+  let readmeContent: string;
+  if (fs.existsSync(readmeSrcPath)) {
+    readmeContent = fs.readFileSync(readmeSrcPath, 'utf-8');
+  } else {
+    readmeContent = `# ${categoryData.name}\n\nfhEVM example for ${categoryData.name}`;
+  }
   fs.writeFileSync(path.join(projectDir, 'README.md'), readmeContent);
 
   // Create .env.example

@@ -11,7 +11,7 @@
     "build": "tsc || true",
     "watch": "tsc -w",
     "test": "mocha",
-    "start": "npx ts-node bin/create-fhevm-playground-pro.ts",
+    "start": "npm run build && node dist/bin/create-fhevm-playground-pro.js",
     "batch-update": "npx ts-node scripts/batch-update-fhevm-version.ts",
     "postinstall": "npm run build || true",
     "prepack": "npm run build"
