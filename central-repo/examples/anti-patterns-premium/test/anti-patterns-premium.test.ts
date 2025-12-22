@@ -3,7 +3,7 @@ import { ethers } from "hardhat";
 
 // Helpers used across examples for gateway setup and encryption stubs.
 // The exact path may vary depending on workspace layout; adjust if needed.
-import { initGateway, getSignatureAndEncryption } from "../../../../scripts/test-helpers";
+import { initGateway, getSignatureAndEncryption, isMockedMode } from "../../../../scripts/test-helpers";
 
 describe("AntiPatternsPremium", function () {
   let anti: any;
