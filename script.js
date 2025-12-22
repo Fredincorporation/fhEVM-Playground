@@ -476,7 +476,8 @@ function copyCLI(button, categoryId = null) {
         const example = examplesData.find(ex => ex.id === categoryId);
         if (example) {
             const projectName = example.name.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '').substring(0, 30);
-            text = `git clone https://github.com/Fredincorporation/fhEVM-Playground.git && cd fhEVM-Playground/central-repo && npm install && npm start -- create --name "${projectName}" --category ${categoryId}`;
+            const proFlag = example.complexity === 'pro' ? ' --pro' : '';
+            text = `git clone https://github.com/Fredincorporation/fhEVM-Playground.git && cd fhEVM-Playground/central-repo && npm install && npm start -- create --name "${projectName}" --category ${categoryId}${proFlag}`;
         }
     }
 
