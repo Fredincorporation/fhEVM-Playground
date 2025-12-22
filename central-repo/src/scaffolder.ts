@@ -81,7 +81,8 @@ export async function createExample(options: ScaffoldOptions): Promise<void> {
 
   // Copy contract and test files from examples
   console.log(chalk.blue(`🔒 Copying contract templates...`));
-  const exampleDir = path.resolve(import.meta.url.replace('file://', ''), '..', '..', 'examples', `${options.category}-premium`);
+  // examplesDir is relative to the current working directory (where CLI is run from)
+  const exampleDir = path.resolve(process.cwd(), 'examples', `${options.category}-premium`);
   const contractSrcPath = path.join(exampleDir, 'contracts', `${categoryData.contractName}.sol`);
   const testSrcPath = path.join(exampleDir, 'test', `${categoryData.contractName}.test.ts`);
   const readmeSrcPath = path.join(exampleDir, 'README.md');
