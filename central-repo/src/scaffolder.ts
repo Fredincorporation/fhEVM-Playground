@@ -195,10 +195,12 @@ export async function createExample(options: ScaffoldOptions): Promise<void> {
 
 export async function getSignatureAndEncryption(data) {
   // Placeholder for signature and encryption
-  // In a real setup, this would handle cryptographic operations
+  // In a real setup, this would handle cryptographic operations with actual FHE
+  // For testing purposes, return dummy encrypted values
   return {
-    signature: '0x',
-    encryption: '0x'
+    ciphertext: '0x0000000000000000000000000000000000000000000000000000000000000000',
+    signature: '0x0000000000000000000000000000000000000000000000000000000000000000',
+    encryption: '0x0000000000000000000000000000000000000000000000000000000000000000'
   };
 }
 `;

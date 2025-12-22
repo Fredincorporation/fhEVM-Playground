@@ -14,7 +14,6 @@ describe("DAOVotingPremium", function () {
     [owner, alice, bob, charlie] = await ethers.getSigners();
     const Factory = await ethers.getContractFactory("DAOVotingPremium");
     dao = await Factory.deploy();
-    await dao.deployed();
   });
 
   it("creates a proposal and accepts encrypted votes", async () => {

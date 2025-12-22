@@ -13,7 +13,6 @@ describe("PrivateERC20Premium", function () {
     [owner, alice, bob] = await ethers.getSigners();
     const Factory = await ethers.getContractFactory("PrivateERC20Premium");
     token = await Factory.deploy();
-    await token.deployed();
   });
 
   it("owner can mint encrypted balance and event emitted", async () => {

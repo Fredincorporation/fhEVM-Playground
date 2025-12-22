@@ -12,7 +12,6 @@ describe("MEVArbitragePremium", function () {
     [owner, proposer] = await ethers.getSigners();
     const Factory = await ethers.getContractFactory("MEVArbitragePremium");
     mev = await Factory.deploy();
-    await mev.deployed();
   });
 
   it("submits encrypted prices and records them", async () => {

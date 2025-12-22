@@ -9,7 +9,6 @@ describe("SwapsPremium", function () {
     await initGateway();
     const Factory = await ethers.getContractFactory("SwapsPremium");
     swaps = await Factory.deploy();
-    await swaps.deployed();
   });
 
   it("adds liquidity and updates encrypted reserves", async () => {

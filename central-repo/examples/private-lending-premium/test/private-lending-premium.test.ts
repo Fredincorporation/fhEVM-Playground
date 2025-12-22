@@ -12,7 +12,6 @@ describe("PrivateLendingPremium", function () {
     [lender, borrower] = await ethers.getSigners();
     const Factory = await ethers.getContractFactory("PrivateLendingPremium");
     lending = await Factory.deploy();
-    await lending.deployed();
   });
 
   it("creates an offer and borrower accepts it", async () => {

@@ -13,7 +13,6 @@ describe("ConfidentialStablecoinPremium", function () {
     [owner, alice, bob] = await ethers.getSigners();
     const Factory = await ethers.getContractFactory("ConfidentialStablecoinPremium");
     token = await Factory.deploy();
-    await token.deployed();
   });
 
   it("owner mints encrypted amounts and events emitted", async () => {

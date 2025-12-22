@@ -12,7 +12,6 @@ describe("VestingPremium", function () {
     [creator, beneficiary] = await ethers.getSigners();
     const Factory = await ethers.getContractFactory("VestingPremium");
     vesting = await Factory.deploy();
-    await vesting.deployed();
   });
 
   it("creates a vest and beneficiary can claim after release", async () => {

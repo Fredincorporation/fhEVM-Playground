@@ -13,7 +13,6 @@ describe("EncryptedPokerPremium", function () {
     [owner, alice, bob] = await ethers.getSigners();
     const Factory = await ethers.getContractFactory("EncryptedPokerPremium");
     poker = await Factory.deploy();
-    await poker.deployed();
   });
 
   it("creates a game and players submit encrypted hands", async () => {

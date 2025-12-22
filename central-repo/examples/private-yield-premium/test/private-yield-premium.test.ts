@@ -12,7 +12,6 @@ describe("PrivateYieldPremium", function () {
     [owner, staker] = await ethers.getSigners();
     const Factory = await ethers.getContractFactory("PrivateYieldPremium");
     yieldContract = await Factory.deploy();
-    await yieldContract.deployed();
   });
 
   it("staker can stake encrypted amount and owner can accrue reward", async () => {

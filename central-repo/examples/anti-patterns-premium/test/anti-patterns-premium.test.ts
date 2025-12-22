@@ -12,7 +12,6 @@ describe("AntiPatternsPremium", function () {
     await initGateway();
     const Factory = await ethers.getContractFactory("AntiPatternsPremium");
     anti = await Factory.deploy();
-    await anti.deployed();
   });
 
   it("insecureStore stores raw ciphertext and emits event", async () => {

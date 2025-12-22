@@ -13,7 +13,6 @@ describe("BlindAuctionPremium", function () {
     [owner, alice, bob] = await ethers.getSigners();
     const Factory = await ethers.getContractFactory("BlindAuctionPremium");
     auction = await Factory.deploy();
-    await auction.deployed();
   });
 
   it("accepts encrypted bids and records bidders", async () => {

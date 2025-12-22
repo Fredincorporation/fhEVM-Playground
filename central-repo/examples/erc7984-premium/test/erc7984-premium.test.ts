@@ -14,7 +14,6 @@ describe("ERC7984Premium", function () {
     [owner, module, alice, bob] = await ethers.getSigners();
     const Factory = await ethers.getContractFactory("ERC7984Premium");
     token = await Factory.deploy();
-    await token.deployed();
   });
 
   it("owner registers a module and module can mint", async () => {

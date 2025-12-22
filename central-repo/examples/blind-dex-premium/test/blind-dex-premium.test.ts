@@ -13,7 +13,6 @@ describe("BlindDEXPremium", function () {
     [owner, makerA, makerB] = await ethers.getSigners();
     const Factory = await ethers.getContractFactory("BlindDEXPremium");
     dex = await Factory.deploy();
-    await dex.deployed();
   });
 
   it("places encrypted orders and reports order count", async () => {
