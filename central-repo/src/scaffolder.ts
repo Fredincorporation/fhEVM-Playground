@@ -77,6 +77,7 @@ export async function createExample(options: ScaffoldOptions): Promise<void> {
     main: 'index.js',
     scripts: {
       test: 'hardhat test',
+      'test:mock': 'MOCK=true hardhat test',
       compile: 'hardhat compile',
       deploy: 'hardhat run scripts/deploy.ts',
       coverage: 'hardhat coverage',
@@ -187,21 +188,28 @@ export async function createExample(options: ScaffoldOptions): Promise<void> {
 
   // Create test-helpers file (as .js for compatibility with ESM)
   const testHelpersPath = path.join(projectDir, 'test', 'test-helpers.js');
-  const testHelpersContent = `export async function initGateway() {
-  // Placeholder for gateway initialization
-  // In a real setup, this would initialize the FHE gateway
-  console.log('Gateway initialized');
+  const testHelpersContent = `const isMocked = process.env.MOCK === 'true';
+
+export async function initGateway() {
+  if (isMocked) {
+    console.log('Gateway initialized (mocked mode)');
+  } else {
+    console.log('Gateway initialized');
+  }
 }
 
 export async function getSignatureAndEncryption(data) {
-  // Placeholder for signature and encryption
-  // In a real setup, this would handle cryptographic operations with actual FHE
-  // For testing purposes, return dummy encrypted values
+  // In mocked mode, return dummy encrypted values for fast testing
+  // In real mode, this would handle actual FHE cryptographic operations
   return {
     ciphertext: '0x0000000000000000000000000000000000000000000000000000000000000000',
     signature: '0x0000000000000000000000000000000000000000000000000000000000000000',
     encryption: '0x0000000000000000000000000000000000000000000000000000000000000000'
   };
+}
+
+export function isMockedMode() {
+  return isMocked;
 }
 `;
   fs.writeFileSync(testHelpersPath, testHelpersContent);
