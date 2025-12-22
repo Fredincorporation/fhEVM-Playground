@@ -10,7 +10,7 @@
 
 import fs from 'fs-extra';
 import path from 'path';
-import { execSync } from 'child_process';
+import { execSync as _execSync } from 'child_process';
 import chalk from 'chalk';
 
 interface UpdateResult {

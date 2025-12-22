@@ -2,8 +2,8 @@
 
 import { Command } from 'commander';
 import chalk from 'chalk';
-import { createExample } from '../src/scaffolder';
-import { DEFAULT_CATEGORIES } from '../src/templates';
+import { createExample } from '../src/scaffolder.js';
+import { CATEGORIES } from '../src/templates-index.js';
 
 const program = new Command();
 
@@ -16,19 +16,20 @@ program
   .command('create')
   .description('Create a new fhEVM example project')
   .requiredOption('-n, --name <name>', 'Project name (e.g., my-counter)')
-  .requiredOption('-c, --category <category>', `Category: ${Object.keys(DEFAULT_CATEGORIES).join(', ')}`)
+  .requiredOption('-c, --category <category>', `Category: ${CATEGORIES.map(c => c.id).join(', ')}`)
   .option('-p, --pro', 'Create PRO bonus example (unlocks pro categories)')
   .action(async (options) => {
     try {
       console.log(chalk.cyan.bold('\n🚀 fhEVM Playground Pro - Project Generator\n'));
       
-      if (!DEFAULT_CATEGORIES[options.category]) {
+      if (!CATEGORIES.find(cat => cat.id === options.category)) {
         console.error(chalk.red(`❌ Unknown category: ${options.category}`));
-        console.log(chalk.yellow(`Available categories:\n${Object.keys(DEFAULT_CATEGORIES).join(', ')}`));
+        console.log(chalk.yellow(`Available categories:\n${CATEGORIES.map(c => c.id).join(', ')}`));
         process.exit(1);
       }
 
-      if (DEFAULT_CATEGORIES[options.category].isPro && !options.pro) {
+      const category = CATEGORIES.find(cat => cat.id === options.category);
+      if (category?.isPro && !options.pro) {
         console.error(chalk.red(`❌ Category "${options.category}" is PRO only. Add --pro flag.`));
         process.exit(1);
       }

@@ -16,7 +16,7 @@ const examplesData = [
         complexity: 'beginner',
         description: 'Simple encrypted counter demonstrating fundamental fhEVM operations.',
         details: 'Learn the basics of storing and manipulating encrypted values with Hardhat.',
-        repo: 'https://github.com/YOUR_GITHUB_ORG/fhevm-playground-pro#counter',
+        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/basic-counter-premium',
         tags: ['Counter', 'State', 'Encryption']
     },
     {
@@ -26,7 +26,7 @@ const examplesData = [
         complexity: 'beginner',
         description: 'Add, subtract, multiply encrypted numbers securely.',
         details: 'Master encrypted arithmetic: addition, subtraction, multiplication, and division.',
-        repo: 'https://github.com/YOUR_GITHUB_ORG/fhevm-playground-pro#arithmetic',
+        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/arithmetic-premium',
         tags: ['Math', 'Operations', 'Encryption']
     },
     {
@@ -36,7 +36,7 @@ const examplesData = [
         complexity: 'beginner',
         description: 'Compare encrypted values without decryption.',
         details: 'Perform encrypted comparisons (==, <, >, <=, >=) maintaining confidentiality.',
-        repo: 'https://github.com/YOUR_GITHUB_ORG/fhevm-playground-pro#comparisons',
+        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/comparisons-premium',
         tags: ['Comparison', 'Logic', 'FHE']
     },
     {
@@ -46,7 +46,7 @@ const examplesData = [
         complexity: 'intermediate',
         description: 'Encrypt data client-side before sending to contract.',
         details: 'Learn how users encrypt sensitive data locally and submit proofs to the contract.',
-        repo: 'https://github.com/YOUR_GITHUB_ORG/fhevm-playground-pro#user-encryption',
+        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/single-encryption-premium',
         tags: ['Encryption', 'User', 'Privacy']
     },
     {
@@ -56,7 +56,7 @@ const examplesData = [
         complexity: 'intermediate',
         description: 'Encrypt and decrypt values within the contract.',
         details: 'Handle contract-level encryption/decryption for transparent computations.',
-        repo: 'https://github.com/YOUR_GITHUB_ORG/fhevm-playground-pro#public-encryption',
+        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/public-encryption-premium',
         tags: ['Public', 'Encryption', 'Contract']
     },
     {
@@ -66,7 +66,7 @@ const examplesData = [
         complexity: 'intermediate',
         description: 'Control who can decrypt specific encrypted values.',
         details: 'Use FHE.allow() and allowTransient() to manage decryption permissions securely.',
-        repo: 'https://github.com/YOUR_GITHUB_ORG/fhevm-playground-pro#access-control',
+        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/access-control-premium',
         tags: ['Access Control', 'Permissions', 'FHE']
     },
     {
@@ -76,7 +76,7 @@ const examplesData = [
         complexity: 'advanced',
         description: 'Prove encrypted inputs without revealing them.',
         details: 'Implement zero-knowledge proofs for encrypted input verification.',
-        repo: 'https://github.com/YOUR_GITHUB_ORG/fhevm-playground-pro#input-proofs',
+        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/input-proofs-premium',
         tags: ['Proofs', 'Verification', 'ZK']
     },
     {
@@ -86,7 +86,7 @@ const examplesData = [
         complexity: 'advanced',
         description: 'Learn what NOT to do and why patterns fail.',
         details: 'Comprehensive demonstration of common mistakes and their security implications.',
-        repo: 'https://github.com/YOUR_GITHUB_ORG/fhevm-playground-pro#anti-patterns',
+        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/anti-patterns-premium',
         tags: ['Security', 'Best Practices', 'Pitfalls']
     },
     {
@@ -96,7 +96,7 @@ const examplesData = [
         complexity: 'advanced',
         description: 'Manage encrypted handle lifecycles and expiration.',
         details: 'Understand how encrypted handles work, persist, and expire in fhEVM.',
-        repo: 'https://github.com/YOUR_GITHUB_ORG/fhevm-playground-pro#handles-lifecycle',
+        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/handles-lifecycle-premium',
         tags: ['Handles', 'Lifecycle', 'Advanced']
     },
     {
@@ -106,7 +106,7 @@ const examplesData = [
         complexity: 'advanced',
         description: 'Analyze contracts using symbolic execution techniques.',
         details: 'Learn symbolic execution for proving contract correctness under encryption.',
-        repo: 'https://github.com/YOUR_GITHUB_ORG/fhevm-playground-pro#symbolic-execution',
+        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/private-erc20-premium',
         tags: ['Analysis', 'Verification', 'Testing']
     },
     {
@@ -116,7 +116,7 @@ const examplesData = [
         complexity: 'intermediate',
         description: 'Implement ERC7984 confidential token standard.',
         details: 'Full implementation of OpenZeppelin\'s encrypted token specification.',
-        repo: 'https://github.com/YOUR_GITHUB_ORG/fhevm-playground-pro#oz-erc7984',
+        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/erc7984-premium',
         tags: ['ERC7984', 'Token', 'Standard']
     },
     {
@@ -126,7 +126,7 @@ const examplesData = [
         complexity: 'intermediate',
         description: 'Use OpenZeppelin wrappers for confidential operations.',
         details: 'Leverage pre-built confidential contract utilities and patterns.',
-        repo: 'https://github.com/YOUR_GITHUB_ORG/fhevm-playground-pro#oz-wrappers',
+        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/private-erc20-premium',
         tags: ['Utilities', 'Wrappers', 'Libraries']
     },
     {
@@ -136,7 +136,7 @@ const examplesData = [
         complexity: 'advanced',
         description: 'Privacy-preserving DEX swap implementation.',
         details: 'Private token swaps protecting amounts and counterparties.',
-        repo: 'https://github.com/YOUR_GITHUB_ORG/fhevm-playground-pro#oz-swaps',
+        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/swaps-premium',
         tags: ['Swap', 'DEX', 'Privacy']
     },
     {
@@ -146,7 +146,7 @@ const examplesData = [
         complexity: 'advanced',
         description: 'Privacy-protected token vesting schedule.',
         details: 'Private vesting wallet with encrypted release schedules.',
-        repo: 'https://github.com/YOUR_GITHUB_ORG/fhevm-playground-pro#oz-vesting',
+        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/vesting-premium',
         tags: ['Vesting', 'Token', 'Schedule']
     },
     {
@@ -156,7 +156,7 @@ const examplesData = [
         complexity: 'advanced',
         description: 'Sealed-bid auction with encrypted bids.',
         details: 'Complete blind auction where bid amounts remain confidential throughout.',
-        repo: 'https://github.com/YOUR_GITHUB_ORG/fhevm-playground-pro#blind-auction',
+        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/blind-auction-premium',
         tags: ['Auction', 'Sealed-Bid', 'Privacy']
     },
 
@@ -168,7 +168,7 @@ const examplesData = [
         complexity: 'pro',
         description: 'Private governance with encrypted votes and homomorphic tallying.',
         details: 'DAO voting where individual votes remain private until final tally is revealed. Uses homomorphic encryption for vote aggregation.',
-        repo: 'https://github.com/YOUR_GITHUB_ORG/fhevm-playground-pro#dao-voting-pro',
+        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/dao-voting-premium',
         tags: ['DAO', 'Governance', 'Privacy', 'Voting']
     },
     {
@@ -178,7 +178,7 @@ const examplesData = [
         complexity: 'pro',
         description: 'Confidential DeFi lending with encrypted loan terms.',
         details: 'Lending protocol where loan amounts, collateral, and interest rates remain confidential. Perfect for institutional finance.',
-        repo: 'https://github.com/YOUR_GITHUB_ORG/fhevm-playground-pro#lending-pool-pro',
+        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/private-lending-premium',
         tags: ['Lending', 'DeFi', 'Collateral', 'Privacy']
     },
     {
@@ -188,7 +188,7 @@ const examplesData = [
         complexity: 'pro',
         description: 'MEV-resistant private DEX with encrypted order matching.',
         details: 'Decentralized exchange with encrypted order books preventing MEV attacks and front-running.',
-        repo: 'https://github.com/YOUR_GITHUB_ORG/fhevm-playground-pro#dex-orderbook-pro',
+        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/blind-dex-premium',
         tags: ['DEX', 'MEV', 'Orders', 'Privacy']
     },
     {
@@ -198,7 +198,7 @@ const examplesData = [
         complexity: 'pro',
         description: 'Fair poker game with encrypted hands and provably fair mechanics.',
         details: 'Fully confidential poker where card hands, bets, and outcomes are encrypted and verifiable.',
-        repo: 'https://github.com/YOUR_GITHUB_ORG/fhevm-playground-pro#poker-pro',
+        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/encrypted-poker-premium',
         tags: ['Gaming', 'Poker', 'Fair Play', 'Privacy']
     },
     {
@@ -208,7 +208,7 @@ const examplesData = [
         complexity: 'pro',
         description: 'Confidential liquidity provision and yield tracking.',
         details: 'Yield farming where deposited amounts, earned yields, and position details remain private from other users.',
-        repo: 'https://github.com/YOUR_GITHUB_ORG/fhevm-playground-pro#yield-farming-pro',
+        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/private-yield-premium',
         tags: ['Farming', 'Yield', 'DeFi', 'Privacy']
     },
     {
@@ -218,7 +218,7 @@ const examplesData = [
         complexity: 'pro',
         description: 'Encrypted arbitrage opportunities protected from extractors.',
         details: 'Arbitrage bot with encrypted trade paths preventing sandwich attacks and MEV extraction.',
-        repo: 'https://github.com/YOUR_GITHUB_ORG/fhevm-playground-pro#arbitrage-pro',
+        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/mev-arbitrage-premium',
         tags: ['Arbitrage', 'MEV', 'Trading', 'Privacy']
     },
     {
@@ -228,7 +228,7 @@ const examplesData = [
         complexity: 'pro',
         description: 'Privacy-preserving stablecoin with encrypted issuance and burning.',
         details: 'Stablecoin protocol where mint/burn operations, reserves, and user balances are confidential.',
-        repo: 'https://github.com/YOUR_GITHUB_ORG/fhevm-playground-pro#stablecoin-pro',
+        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/confidential-stablecoin-premium',
         tags: ['Stablecoin', 'Mint', 'Burn', 'Privacy']
     }
 ];
@@ -299,15 +299,36 @@ function getTagColor(tag) {
 }
 
 function copyToClipboard(text, button) {
-    navigator.clipboard.writeText(text).then(() => {
-        const originalText = button.textContent;
-        button.textContent = '✓ Copied!';
-        setTimeout(() => {
-            button.textContent = originalText;
-        }, 2000);
-    }).catch(() => {
-        alert('Failed to copy. Please try again.');
-    });
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+            const originalText = button.textContent;
+            button.textContent = '✓ Copied!';
+            setTimeout(() => {
+                button.textContent = originalText;
+            }, 2000);
+        }).catch((err) => {
+            console.error('Copy failed:', err);
+            alert('Failed to copy. Please try again.');
+        });
+    } else {
+        // Fallback for older browsers
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand('copy');
+            const originalText = button.textContent;
+            button.textContent = '✓ Copied!';
+            setTimeout(() => {
+                button.textContent = originalText;
+            }, 2000);
+        } catch (err) {
+            console.error('Copy failed:', err);
+            alert('Failed to copy. Please try again.');
+        }
+        document.body.removeChild(textarea);
+    }
 }
 
 // ============================================================================
@@ -428,13 +449,14 @@ function closeCliModal() {
 }
 
 function copyCLI(button, categoryId = null) {
-    let text = 'npx create-fhevm-playground-pro create --name my-example --category basic-counter';
+    // Generate command - clone, install dependencies, then run via bash script
+    let text = 'git clone https://github.com/Fredincorporation/fhEVM-Playground.git && cd fhEVM-Playground/central-repo && npm install && bash run-cli.sh create --name "my-example" --category basic-counter';
 
     if (categoryId) {
         const example = examplesData.find(ex => ex.id === categoryId);
         if (example) {
             const projectName = example.name.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '').substring(0, 30);
-            text = `npx create-fhevm-playground-pro create --name ${projectName} --category ${categoryId}`;
+            text = `git clone https://github.com/Fredincorporation/fhEVM-Playground.git && cd fhEVM-Playground/central-repo && npm install && bash run-cli.sh create --name "${projectName}" --category ${categoryId}`;
         }
     }
 
