@@ -20,7 +20,7 @@ This is your complete, production-ready landing website for **fhEVM Playground P
 ```
 fhEVM Playground/
 ├── index.html              ✨ Main website (8 KB)
-├── styles.css              🎨 Complete styling (45 KB)
+├── styles/                 🎨 Split CSS files (see README.css-sections.md)
 ├── script.js               ⚡ JavaScript interactivity (12 KB)
 ├── _config.yml             ⚙️  GitHub Pages config
 └── .gitignore              🔐 Git ignore rules
@@ -152,9 +152,9 @@ All tested and working on:
 ✏️ Update: `repo:` URLs in each object
 
 ### Change Colors
-📝 File: `styles.css`
+📝 File: `styles/01-fhevm-playground-pro--master-stylesheet.css`
 🔍 Look for: `:root {` at top
-✏️ Update: `--color-*` variables
+✏️ Update: `--color-*` variables (or consult README.css-sections.md)
 
 ### Update Navigation
 📝 File: `index.html`
@@ -247,7 +247,7 @@ python -m http.server 8000
 ## 📞 FAQ
 
 ### Q: Can I customize the colors?
-**A:** Yes! Edit the `--color-*` variables in `styles.css`. All colors update automatically.
+**A:** Yes! Edit the `--color-*` variables in `styles/01-fhevm-playground-pro--master-stylesheet.css`. All colors update automatically (or consult README.css-sections.md).
 
 ### Q: How do I add more examples?
 **A:** Add objects to the `examplesData` array in `script.js`. Follow the existing format.
@@ -347,7 +347,7 @@ Your landing website is **complete, documented, and ready to launch**.
 | `QUICK_REFERENCE.md` | Quick lookup reference | As needed |
 | `DESIGN_SYSTEM.md` | Design specifications | 15 min |
 | `index.html` | Website HTML | Technical |
-| `styles.css` | Website styling | Technical |
+| `styles/`     | Website styling (split files) | Technical |
 | `script.js` | Website interactivity | Technical |
 
 ---

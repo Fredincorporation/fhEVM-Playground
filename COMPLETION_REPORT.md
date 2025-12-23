@@ -19,9 +19,9 @@ Status: ✅ **READY FOR DEPLOYMENT**
 - All required content included
 - Ready for GitHub Pages
 
-✅ **styles.css** (45 KB)
-- Complete responsive design
-- Zama official brand colors
+✅ **styles/** (split CSS files, ~45 KB)
+- Complete responsive design (split into section files)
+- Zama official brand colors (edit variables in styles/01-fhevm-playground-pro--master-stylesheet.css)
 - Dark mode theme
 - Smooth animations
 - Mobile breakpoints (320px, 480px, 768px)
@@ -399,7 +399,7 @@ fhEVM Playground/
 ├── QUICK_REFERENCE.md         ← Quick lookup
 ├── DESIGN_SYSTEM.md           ← Design specs
 ├── index.html                 ← Main website
-├── styles.css                 ← Styling (45 KB)
+├── styles/                    ← Styling (split files, ~45 KB)
 ├── script.js                  ← Interactivity (12 KB)
 ├── _config.yml                ← GitHub Pages config
 └── .gitignore                 ← Git ignore rules

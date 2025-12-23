@@ -1,0 +1,32 @@
+/* Demo Section */
+
+.demo {
+    padding: var(--spacing-2xl) 0;
+    background-color: var(--color-charcoal);
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border: 1px solid rgba(0, 209, 255, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    background-color: var(--color-navy);
+    box-shadow: 0 20px 60px rgba(0, 209, 255, 0.1);
+}
+
+.video-container iframe {
+    border-radius: 12px;
+}
+
+.video-note {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-gray-mid);
+    margin-top: var(--spacing-md);
+    font-style: italic;
+}
+

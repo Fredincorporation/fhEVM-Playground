@@ -1,0 +1,51 @@
+/* fhEVM Playground Pro - Master Stylesheet */
+
+/* CSS Variables for Easy Theming */
+:root {
+    /* Color Palette - Golden Yellow, Black & White */
+    --color-gold: #FFD700;
+    --color-gold-dark: #DAA520;
+    --color-gold-light: #FFF8DC;
+    --color-black: #000000;
+    --color-white: #FFFFFF;
+    --color-gray-light: #F5F5F5;
+    --color-gray-medium: #CCCCCC;
+    --color-gray-dark: #333333;
+    --color-charcoal: #1A1A1A;
+    
+    /* Dark Mode Colors */
+    --color-dark-bg: #0D0D0D;
+    --color-dark-surface: #1A1A1A;
+    --color-dark-card: #252525;
+    
+    /* Light Mode Colors */
+    --color-light-bg: #FFFFFF;
+    --color-light-surface: #F9F9F9;
+    --color-light-card: #FFFFFF;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #FFD700 0%, #DAA520 100%);
+    --gradient-hero: linear-gradient(135deg, #000000 0%, #1A1A1A 50%, #FFD700 100%);
+    --gradient-card: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(218, 165, 32, 0.05) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.05) 100%);
+    
+    /* Typography */
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-2xl: 4rem;
+    
+    /* Transitions */
+    --transition-fast: 150ms ease-in-out;
+    --transition-base: 300ms ease-in-out;
+    --transition-slow: 500ms ease-in-out;
+    --nav-height: 72px;
+}
+

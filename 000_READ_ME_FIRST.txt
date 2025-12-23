@@ -12,7 +12,7 @@
 
 ┌─ CORE WEBSITE FILES (Ready to Deploy)
 ├─ ✅ index.html              8 KB   Complete HTML structure with all sections
-├─ ✅ styles.css              45 KB  Responsive design + Zama brand colors
+├─ ✅ styles/                 ~45 KB  Split CSS files (see README.css-sections.md)
 ├─ ✅ script.js               12 KB  Interactive features, 25+ examples
 └─ ✅ _config.yml             <1 KB  GitHub Pages configuration
 
@@ -253,7 +253,7 @@ Accessibility:
 💡 CUSTOMIZATION QUICK TIPS
 
 Change Colors:
-  File: styles.css
+  File: styles/  (split CSS files; edit variables in 01-fhevm-playground-pro--master-stylesheet.css)
   Find: :root { at top
   Edit: --color-* variables
   Result: Entire theme updates!

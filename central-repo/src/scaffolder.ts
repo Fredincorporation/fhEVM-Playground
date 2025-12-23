@@ -248,6 +248,77 @@ export function isMockedMode() {
     console.warn(chalk.yellow(`   ⚠️  Documentation source not found at ${docsSourceDir}`));
   }
 
+  // Copy split styles directory and README snippet if present
+  console.log(chalk.blue(`🎨 Copying styles directory and README snippet...`));
+  const stylesSourceDir = path.resolve(__dirname, '..', '..', 'styles');
+  const stylesTargetDir = path.join(projectDir, 'styles');
+  if (fs.existsSync(stylesSourceDir)) {
+    try {
+      fs.copySync(stylesSourceDir, stylesTargetDir, {
+        overwrite: false,
+        errorOnExist: false,
+      });
+      console.log(chalk.green(`   ✅ Styles copied to styles/`));
+    } catch (error: any) {
+      console.warn(chalk.yellow(`   ⚠️  Could not copy styles: ${error.message}`));
+    }
+  } else {
+    console.warn(chalk.yellow(`   ⚠️  Styles source not found at ${stylesSourceDir}`));
+  }
+
+  const cssReadmeSrc = path.resolve(__dirname, '..', '..', 'README.css-sections.md');
+  if (fs.existsSync(cssReadmeSrc)) {
+    try {
+      fs.copyFileSync(cssReadmeSrc, path.join(projectDir, 'README.css-sections.md'));
+      console.log(chalk.green(`   ✅ README.css-sections.md copied`));
+    } catch (error: any) {
+      console.warn(chalk.yellow(`   ⚠️  Could not copy README.css-sections.md: ${error.message}`));
+    }
+  }
+
+  // Inject ordered CSS link tags into index.html if it exists in the generated project
+  const indexHtmlPath = path.join(projectDir, 'index.html');
+  if (fs.existsSync(indexHtmlPath)) {
+    try {
+      let indexContent = fs.readFileSync(indexHtmlPath, 'utf-8');
+      // Remove any existing monolithic styles.css link
+      indexContent = indexContent.replace(/<link[^>]*href=["'].*styles\.css.*?["'][^>]*>\s*/i, '');
+
+      const cssLinks = [
+        '    <link rel="stylesheet" href="styles/01-fhevm-playground-pro--master-stylesheet.css">',
+        '    <link rel="stylesheet" href="styles/02-global-styles--reset.css">',
+        '    <link rel="stylesheet" href="styles/03-typography.css">',
+        '    <link rel="stylesheet" href="styles/04-navigation-bar.css">',
+        '    <link rel="stylesheet" href="styles/05-hero-section.css">',
+        '    <link rel="stylesheet" href="styles/06-quick-start-section.css">',
+        '    <link rel="stylesheet" href="styles/07-categories-section.css">',
+        '    <link rel="stylesheet" href="styles/08-why-pro-section.css">',
+        '    <link rel="stylesheet" href="styles/09-demo-section.css">',
+        '    <link rel="stylesheet" href="styles/10-modal.css">',
+        '    <link rel="stylesheet" href="styles/11-footer.css">',
+        '    <link rel="stylesheet" href="styles/12-scroll-to-top-button.css">',
+        '    <link rel="stylesheet" href="styles/13-responsive-design--tablets.css">',
+        '    <link rel="stylesheet" href="styles/14-prerequisites-styling-no-section-wrapper.css">',
+        '    <link rel="stylesheet" href="styles/15-responsive-design--mobile.css">',
+        '    <link rel="stylesheet" href="styles/16-accessibility--print-styles.css">',
+        '    <link rel="stylesheet" href="styles/17-codespaces-badge-styles-and-troubleshooting-accordion.css">',
+      ].join('\n');
+
+      // Insert before closing </head>
+      if (indexContent.match(/<\/head>/i)) {
+        indexContent = indexContent.replace(/<\/head>/i, cssLinks + '\n</head>');
+      } else {
+        // Append at top if no head found
+        indexContent = cssLinks + '\n' + indexContent;
+      }
+
+      fs.writeFileSync(indexHtmlPath, indexContent, 'utf-8');
+      console.log(chalk.green('   ✅ Injected CSS link tags into index.html'));
+    } catch (err: any) {
+      console.warn(chalk.yellow(`   ⚠️  Could not inject CSS links into index.html: ${err.message}`));
+    }
+  }
+
   // Create .env.example
   fs.writeFileSync(
     path.join(projectDir, '.env.example'),

@@ -1,0 +1,106 @@
+/* Codespaces badge styles and Troubleshooting accordion */
+.codespaces-card {
+    background: linear-gradient(180deg, rgba(10,29,55,0.6), rgba(26,26,26,0.6));
+    border: 1px solid rgba(0,209,255,0.06);
+    padding: var(--spacing-md);
+    border-radius: 12px;
+    margin: var(--spacing-md) 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    color: var(--color-gold-light);
+}
+.codespaces-card-inner { flex:1 1 320px; min-width: 220px; }
+.codespaces-card-title { font-weight:800; color:var(--color-gold); margin-bottom:6px; }
+.codespaces-card-desc { margin-bottom:8px; color:#EEE; }
+.codespaces-card-list { margin:0 0 12px 1.2rem; color:#ddd; }
+.codespaces-badge-large { height:56px; border-radius:8px; box-shadow: 0 8px 30px rgba(0,209,255,0.06); max-width: 160px; width: 100%; height: auto; }
+.codespaces-badge-wrap { display:flex; align-items:center; justify-content:center; flex: 0 0 160px; }
+.codespaces-powered { font-size:0.85rem; color:#BBB; margin-top:8px; }
+
+.codespaces-hero-absolute { position:absolute; top:18px; right:24px; z-index:150; }
+.codespaces-hero-absolute img { height:56px; border-radius:8px; transition: box-shadow 200ms; }
+.codespaces-hero-absolute img:hover { box-shadow: 0 0 18px rgba(0,209,255,0.45); border:2px solid rgba(0,209,255,0.2); }
+
+.troubleshooting-global { margin: var(--spacing-md) 0 0 0; }
+.troubleshooting-card { background: rgba(255,215,0,0.02); border-radius:10px; padding: var(--spacing-md); border:1px solid rgba(255,215,0,0.04); }
+.troubleshooting-card h3 { color: #FFD700; margin-bottom:8px; }
+.accordion { display:block; }
+.accordion-toggle { display:block; width:100%; text-align:left; background:transparent; color:var(--color-gold-light); border:0; padding:10px 0; font-weight:700; cursor:pointer; border-bottom:1px dashed rgba(255,255,255,0.03); }
+.accordion-toggle:after { content:'▸'; float:right; transition: transform 200ms; }
+.accordion-toggle.active:after { transform: rotate(90deg); }
+.accordion-panel { max-height:0; overflow:hidden; transition:max-height 300ms ease, padding 300ms; color:#ddd; }
+.accordion-panel.open { padding: 10px 0; max-height: 220px; }
+
+.footer-codespaces { display:flex; align-items:center; gap:10px; margin-left:auto; }
+.footer-codespaces img { height:40px; }
+.footer-codespaces-text { color:var(--color-gold-light); font-size:0.9rem; }
+
+@media (max-width: 800px) {
+    .codespaces-hero-absolute { position: static; display:flex; justify-content:center; margin-top:var(--spacing-md); }
+    .codespaces-card { flex-direction:column; align-items:flex-start; }
+    .codespaces-badge-large { width:120px; height:auto; align-self:center; }
+    .codespaces-badge-wrap { width:100%; display:flex; justify-content:center; }
+    .footer-codespaces { margin-top:var(--spacing-md); }
+}
+
+@media (max-width: 420px) {
+    .codespaces-card { padding: var(--spacing-sm); }
+    .codespaces-card-inner { min-width: 0; }
+    .codespaces-card-list { margin-left: 1rem; }
+}
+
+/* Improve touch target and visibility for Codespaces badge on small screens */
+@media (max-width: 420px) {
+    .codespaces-badge-wrap {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 8px;
+    }
+    .codespaces-badge-wrap a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 14px;
+        border-radius: 10px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        background: rgba(255,255,255,0.01);
+    }
+    .codespaces-badge-wrap .codespaces-badge-large {
+        width: 260px;
+        max-width: 95%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+}
+
+/* Stronger fallback for very small screens / stubborn sizing */
+@media (max-width: 360px) {
+    .codespaces-badge-wrap a { padding: 12px 18px; }
+    .codespaces-badge-wrap .codespaces-badge-large { width: 220px; max-width: 92%; }
+}
+
+/* Scale badge to 150% on small screens to improve tap target */
+@media (max-width: 480px) {
+    .codespaces-badge-wrap {
+        overflow: visible;
+    }
+    .codespaces-badge-wrap a {
+        padding: 20px 24px;
+    }
+    .codespaces-badge-wrap .codespaces-badge-large {
+        transform: scale(1.5);
+        transform-origin: center center;
+        display: block;
+        width: auto; /* allow natural image size then scale */
+        max-width: none;
+        height: auto;
+        margin: 0 auto;
+        box-shadow: 0 14px 40px rgba(0,0,0,0.32);
+    }
+}

@@ -1,8 +1,5 @@
-/* ============================================================================
-   fhEVM Playground Pro - Master Stylesheet
-   Color Palette: Zama Brand Colors (Navy #0A1D37, Teal #00D1FF, Purple #4B2E83)
-   Typography: Inter, Space Grotesk, JetBrains Mono
-   ============================================================================ */
+## fhEVM Playground Pro - Master Stylesheet
+```css
 
 /* CSS Variables for Easy Theming */
 :root {
@@ -53,9 +50,8 @@
     --nav-height: 72px;
 }
 
-/* ============================================================================
-   Global Styles & Reset
-   ============================================================================ */
+## Global Styles & Reset
+```css
 
 * {
     margin: 0;
@@ -89,9 +85,8 @@ body.dark-mode {
     padding: 0 var(--spacing-lg);
 }
 
-/* ============================================================================
-   Typography
-   ============================================================================ */
+## Typography
+```css
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
@@ -143,9 +138,8 @@ code {
     font-size: 0.9rem;
 }
 
-/* ============================================================================
-   Navigation Bar
-   ============================================================================ */
+## Navigation Bar
+```css
 
 .navbar {
     position: fixed;
@@ -282,9 +276,8 @@ body.dark-mode .theme-toggle {
 }
 }
 
-/* ============================================================================
-   Hero Section
-   ============================================================================ */
+## Hero Section
+```css
 
 .hero {
     position: relative;
@@ -539,9 +532,8 @@ body.dark-mode .btn-outline {
     }
 }
 
-/* ============================================================================
-   Quick Start Section
-   ============================================================================ */
+## Quick Start Section
+```css
 
 .quick-start {
     padding: var(--spacing-2xl) 0;
@@ -719,9 +711,8 @@ body.dark-mode .cli-box code {
     gap: var(--spacing-xs);
 }
 
-/* ============================================================================
-   Categories Section
-   ============================================================================ */
+## Categories Section
+```css
 
 .categories {
     padding: var(--spacing-2xl) 0;
@@ -941,9 +932,8 @@ body.dark-mode .category-card h3 {
     }
 }
 
-/* ============================================================================
-   Why Pro Section
-   ============================================================================ */
+## Why Pro Section
+```css
 
 .why-pro {
     padding: var(--spacing-2xl) 0;
@@ -991,9 +981,8 @@ body.dark-mode .category-card h3 {
     line-height: 1.7;
 }
 
-/* ============================================================================
-   Demo Section
-   ============================================================================ */
+## Demo Section
+```css
 
 .demo {
     padding: var(--spacing-2xl) 0;
@@ -1025,9 +1014,8 @@ body.dark-mode .category-card h3 {
     font-style: italic;
 }
 
-/* ============================================================================
-   Modal
-   ============================================================================ */
+## Modal
+```css
 
 .modal {
     display: none;
@@ -1249,9 +1237,8 @@ body.dark-mode .category-card h3 {
     color: #FFF8DC;
 }
 
-/* ============================================================================
-   Footer
-   ============================================================================ */
+## Footer
+```css
 
 .footer {
     background: linear-gradient(180deg, var(--color-navy) 0%, var(--color-charcoal) 100%);
@@ -1326,9 +1313,8 @@ body.dark-mode .category-card h3 {
     color: var(--color-gray-mid);
 }
 
-/* ============================================================================
-   Scroll to Top Button
-   ============================================================================ */
+## Scroll to Top Button
+```css
 
 .scroll-top-btn {
     position: fixed;
@@ -1360,9 +1346,8 @@ body.dark-mode .category-card h3 {
     box-shadow: 0 12px 35px rgba(0, 209, 255, 0.4);
 }
 
-/* ============================================================================
-   Responsive Design - Tablets
-   ============================================================================ */
+## Responsive Design - Tablets
+```css
 
 @media (max-width: 768px) {
     h1 { font-size: 2.5rem; }
@@ -1416,9 +1401,8 @@ body.dark-mode .category-card h3 {
     }
 }
 
-/* ============================================================================
-   Prerequisites Styling (No Section Wrapper)
-   ============================================================================ */
+## Prerequisites Styling (No Section Wrapper)
+```css
 
 .section-title {
     margin-bottom: var(--spacing-lg);
@@ -1642,9 +1626,8 @@ body.dark-mode .category-card h3 {
     font-weight: 600;
 }
 
-/* ============================================================================
-   Responsive Design - Mobile
-   ============================================================================ */
+## Responsive Design - Mobile
+```css
 
 @media (max-width: 480px) {
     :root {
@@ -1729,9 +1712,8 @@ body.dark-mode .category-card h3 {
     }
 }
 
-/* ============================================================================
-   Accessibility & Print Styles
-   ============================================================================ */
+## Accessibility & Print Styles
+```css
 
 @media (prefers-reduced-motion: reduce) {
     * {
@@ -1770,9 +1752,8 @@ body.dark-mode .category-card h3 {
     background: var(--color-teal-dark);
 }
 
-/* ============================================================================
-   Codespaces badge styles and Troubleshooting accordion
-   ============================================================================ */
+## Codespaces badge styles and Troubleshooting accordion
+```css
 .codespaces-card {
     background: linear-gradient(180deg, rgba(10,29,55,0.6), rgba(26,26,26,0.6));
     border: 1px solid rgba(0,209,255,0.06);
@@ -1815,3 +1796,4 @@ body.dark-mode .category-card h3 {
     .codespaces-badge-large { align-self:center; }
     .footer-codespaces { margin-top:var(--spacing-md); }
 }
+```

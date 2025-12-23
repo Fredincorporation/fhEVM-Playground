@@ -1,0 +1,34 @@
+/* Global Styles & Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-light-bg);
+    color: var(--color-gray-dark);
+    line-height: 1.6;
+    font-size: 16px;
+    overflow-x: hidden;
+    padding-top: var(--nav-height);
+    transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+body.dark-mode {
+    background-color: var(--color-dark-bg);
+    color: var(--color-gray-light);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+

@@ -39,7 +39,7 @@ This is a **fully responsive, single-page website** featuring:
 ```
 fhEVM Playground/
 ├── index.html          # Main HTML structure
-├── styles.css          # Complete responsive stylesheet
+├── styles/             # Split CSS files (see README.css-sections.md)
 ├── script.js           # JavaScript interactivity & data
 └── README.md           # This file
 ```
@@ -98,7 +98,7 @@ Edit the `examplesData` array in `script.js` to add/modify examples:
 
 ### Change Brand Colors
 
-Edit CSS variables in `styles.css` (`:root` section):
+Edit CSS variables in `styles/01-fhevm-playground-pro--master-stylesheet.css` (the `:root` section), or see `README.css-sections.md`:
 
 ```css
 :root {
@@ -227,6 +227,14 @@ Main gradients in CSS:
 --gradient-card: linear-gradient(135deg, #0F2A4D 0%, rgba(75, 46, 131, 0.3) 100%);
 ```
 
+
+## CSS: Split Sections
+
+- **Summary**: The main stylesheet has been split into section files under the `styles/` directory for maintainability.
+- **Files generated**: see [README.css-sections.md](README.css-sections.md) for extracted snippets and descriptions.
+- **Usage**: either include individual files from `styles/` in your HTML head or concatenate them during build to preserve cascade order.
+
+
 ### Testing Search Functionality
 
 Open browser console and test:
@@ -252,3 +260,4 @@ This landing page template is provided as-is for Zama's fhEVM Playground Pro pro
 
 **Last Updated**: December 22, 2025
 **Version**: 1.0.0 (Production Ready)
+

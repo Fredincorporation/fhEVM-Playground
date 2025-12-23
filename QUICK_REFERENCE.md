@@ -5,7 +5,7 @@
 ```
 fhEVM Playground/
 ├── index.html          # Main landing page (update links here)
-├── styles.css          # Styling & responsive design (change colors here)
+├── styles/             # Split CSS files (edit variables in 01-fhevm-playground-pro--master-stylesheet.css)
 ├── script.js           # Interactivity & data (add/edit examples here)
 ├── README.md           # Complete documentation
 ├── DEPLOYMENT.md       # GitHub Pages setup guide
@@ -17,7 +17,7 @@ fhEVM Playground/
 
 ## 🎨 Colors Reference
 
-Located in `styles.css` at the top (`:root` section):
+Located in `styles/01-fhevm-playground-pro--master-stylesheet.css` at the top (`:root` section) or see `README.css-sections.md`:
 
 ```css
 --color-navy: #0A1D37;           /* Dark backgrounds */
@@ -59,7 +59,7 @@ To change entire theme: Edit these 9 color values only.
 | Search behavior | `setupSearch()` | Update search fields |
 | Modal content | `openCliModal()` | Edit modal HTML structure |
 
-### styles.css Quick Links
+### styles/ (split files) Quick Links
 
 | Element | Class | Location |
 |---------|-------|----------|
@@ -93,7 +93,7 @@ In `script.js`, add to `examplesData` array:
 
 ### Change Primary Color
 
-In `styles.css`, find `:root` and change:
+In `styles/01-fhevm-playground-pro--master-stylesheet.css`, find `:root` and change:
 
 ```css
 --color-teal: #00D1FF;       /* Change this value */

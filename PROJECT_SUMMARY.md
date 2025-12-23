@@ -13,7 +13,7 @@ Your premium landing website for **fhEVM Playground Pro** is complete and produc
 | File | Size | Purpose |
 |------|------|---------|
 | `index.html` | ~8 KB | Complete semantic HTML structure with all sections |
-| `styles.css` | ~45 KB | Full responsive stylesheet with animations |
+| `styles/`     | ~45 KB | Split CSS files (see README.css-sections.md) |
 | `script.js` | ~12 KB | Interactive features, search, filtering, modal |
 | `README.md` | ~8 KB | Full documentation and feature guide |
 | `DEPLOYMENT.md` | ~10 KB | GitHub Pages setup and customization guide |

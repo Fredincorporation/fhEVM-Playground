@@ -222,7 +222,7 @@ your-custom-domain.com
 
 ### Styles not loading
 
-1. Check that `styles.css` is in same directory as `index.html`
+1. Check that the `styles/` directory exists and that `index.html` references the split files (or concatenate them before deploy).
 2. Verify file paths use relative paths (not absolute)
 3. Clear browser cache
 
@@ -245,7 +245,8 @@ your-custom-domain.com
 
 1. **Minify CSS/JS** (for production):
    ```bash
-   # Using Node.js tools
+   # Concatenate split CSS files (keeps cascade order by filename) and minify
+   cat styles/*.css > styles.css
    npm install -g cssnano terser
    cssnano styles.css > styles.min.css
    terser script.js > script.min.js
