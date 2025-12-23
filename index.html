@@ -49,239 +49,244 @@
             <div class="hero-graphic">
                 <div class="code-preview">
                     <div class="code-header">Terminal</div>
-                    <code>$ npx create-fhevm-playground-pro@latest<br>&nbsp;&nbsp;--name my-example<br>&nbsp;&nbsp;--category access-control</code>
+                    <pre class="terminal-code"><code>git clone https://github.com/Fredincorporation/fhEVM-Playground.git \
+&& cd fhEVM-Playground/central-repo \
+&& npm install \
+&& npm start -- create --name "my-example" --category basic-counter</code></pre>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Prerequisites & Setup Guide -->
-    <section class="prerequisites" id="prerequisites">
-        <div class="container">
-            <h2 class="section-title">Prerequisites & Setup Guide</h2>
-            <p class="section-subtitle">Get your environment ready in minutes</p>
-            
-            <!-- OS Tabs -->
-            <div class="os-tabs">
-                <button class="os-tab active" onclick="showTab('windows')">Windows</button>
-                <button class="os-tab" onclick="showTab('macos')">macOS</button>
-                <button class="os-tab" onclick="showTab('linux')">Linux</button>
-            </div>
+    <div class="container">
+        <h2 class="section-title">Prerequisites & Setup Guide</h2>
+        <p class="section-subtitle">Get your environment ready in minutes</p>
+        
+        <!-- OS Tabs -->
+        <div class="os-tabs">
+            <button class="os-tab-btn active" data-os="windows">Windows</button>
+            <button class="os-tab-btn" data-os="macos">macOS</button>
+            <button class="os-tab-btn" data-os="linux">Linux</button>
+        </div>
 
-            <!-- Windows Setup -->
-            <div class="os-content active" id="windows-setup">
-                <div class="setup-grid">
-                    <div class="setup-card">
-                        <div class="setup-step">1</div>
-                        <h3>Node.js & npm</h3>
-                        <p><strong>Why:</strong> Node.js is the JavaScript runtime that powers Hardhat, the development framework for Ethereum smart contracts.</p>
-                        <ol class="setup-list">
-                            <li>Visit <a href="https://nodejs.org/" target="_blank">nodejs.org</a> and download the LTS version (v20+)</li>
-                            <li>Run the installer and follow the setup wizard</li>
-                            <li>Verify installation by opening PowerShell and typing:
-                                <div class="code-box"><code>node --version && npm --version</code></div>
-                            </li>
-                        </ol>
-                        <p class="setup-note">✓ npm is included with Node.js automatically</p>
-                    </div>
-
-                    <div class="setup-card">
-                        <div class="setup-step">2</div>
-                        <h3>Git</h3>
-                        <p><strong>Why:</strong> Git is needed to clone the fhEVM Playground repository and manage version control.</p>
-                        <ol class="setup-list">
-                            <li>Download Git from <a href="https://git-scm.com/download/win" target="_blank">git-scm.com</a></li>
-                            <li>Run the installer with default settings (or customize as needed)</li>
-                            <li>Verify installation by opening PowerShell and typing:
-                                <div class="code-box"><code>git --version</code></div>
-                            </li>
-                        </ol>
-                        <p class="setup-note">✓ Use Git Bash for a better terminal experience on Windows</p>
-                    </div>
-
-                    <div class="setup-card">
-                        <div class="setup-step">3</div>
-                        <h3>Docker (Optional)</h3>
-                        <p><strong>Why:</strong> Docker isolates your environment, preventing conflicts with other projects and ensuring consistency.</p>
-                        <ol class="setup-list">
-                            <li>Download <a href="https://www.docker.com/products/docker-desktop" target="_blank">Docker Desktop for Windows</a></li>
-                            <li>Install and enable WSL 2 backend (recommended)</li>
-                            <li>Verify installation:
-                                <div class="code-box"><code>docker --version</code></div>
-                            </li>
-                        </ol>
-                        <p class="setup-note">⚠️ Optional but recommended for containerized development</p>
-                    </div>
-
-                    <div class="setup-card full-width">
-                        <h3>Verify All Prerequisites</h3>
-                        <p>Run this command in PowerShell to check everything at once:</p>
-                        <div class="code-box">
-                            <code>$env:NODE_VERSION = node --version; $env:NPM_VERSION = npm --version; $env:GIT_VERSION = git --version; Write-Host "Node: $env:NODE_VERSION`nNPM: $env:NPM_VERSION`nGit: $env:GIT_VERSION"</code>
+        <!-- Tab Container with nested divs -->
+        <div class="tab-container">
+                <!-- Windows Setup -->
+                <div class="tab-pane active" data-os="windows">
+                    <div class="setup-grid">
+                        <div class="setup-card">
+                            <div class="setup-step">1</div>
+                            <h3>Node.js & npm</h3>
+                            <p><strong>Why:</strong> Node.js is the JavaScript runtime that powers Hardhat, the development framework for Ethereum smart contracts.</p>
+                            <ol class="setup-list">
+                                <li>Visit <a href="https://nodejs.org/" target="_blank">nodejs.org</a> and download the LTS version (v20+)</li>
+                                <li>Run the installer and follow the setup wizard</li>
+                                <li>Verify installation by opening PowerShell and typing:
+                                    <div class="code-box"><code>node --version && npm --version</code></div>
+                                </li>
+                            </ol>
+                            <p class="setup-note">✓ npm is included with Node.js automatically</p>
                         </div>
-                        <p class="setup-success">✅ If all show versions, you're ready to proceed!</p>
+
+                        <div class="setup-card">
+                            <div class="setup-step">2</div>
+                            <h3>Git</h3>
+                            <p><strong>Why:</strong> Git is needed to clone the fhEVM Playground repository and manage version control.</p>
+                            <ol class="setup-list">
+                                <li>Download Git from <a href="https://git-scm.com/download/win" target="_blank">git-scm.com</a></li>
+                                <li>Run the installer with default settings (or customize as needed)</li>
+                                <li>Verify installation by opening PowerShell and typing:
+                                    <div class="code-box"><code>git --version</code></div>
+                                </li>
+                            </ol>
+                            <p class="setup-note">✓ Use Git Bash for a better terminal experience on Windows</p>
+                        </div>
+
+                        <div class="setup-card">
+                            <div class="setup-step">3</div>
+                            <h3>Docker (Optional)</h3>
+                            <p><strong>Why:</strong> Docker isolates your environment, preventing conflicts with other projects and ensuring consistency.</p>
+                            <ol class="setup-list">
+                                <li>Download <a href="https://www.docker.com/products/docker-desktop" target="_blank">Docker Desktop for Windows</a></li>
+                                <li>Install and enable WSL 2 backend (recommended)</li>
+                                <li>Verify installation:
+                                    <div class="code-box"><code>docker --version</code></div>
+                                </li>
+                            </ol>
+                            <p class="setup-note">⚠️ Optional but recommended for containerized development</p>
+                        </div>
+
+                        <div class="setup-card full-width">
+                            <h3>Verify All Prerequisites</h3>
+                            <p>Run this command in PowerShell to check everything at once:</p>
+                            <div class="code-box">
+                                <code>$env:NODE_VERSION = node --version; $env:NPM_VERSION = npm --version; $env:GIT_VERSION = git --version; Write-Host "Node: $env:NODE_VERSION`nNPM: $env:NPM_VERSION`nGit: $env:GIT_VERSION"</code>
+                            </div>
+                            <p class="setup-success">✅ If all show versions, you're ready to proceed!</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- macOS Setup -->
-            <div class="os-content" id="macos-setup">
-                <div class="setup-grid">
-                    <div class="setup-card">
-                        <div class="setup-step">1</div>
-                        <h3>Xcode Command Line Tools</h3>
-                        <p><strong>Why:</strong> Required for compiling native modules and using git on macOS.</p>
-                        <ol class="setup-list">
-                            <li>Open Terminal and run:
-                                <div class="code-box"><code>xcode-select --install</code></div>
-                            </li>
-                            <li>Follow the prompts to install the tools (takes ~5 minutes)</li>
-                            <li>Verify installation:
-                                <div class="code-box"><code>xcode-select -p</code></div>
-                            </li>
-                        </ol>
-                    </div>
-
-                    <div class="setup-card">
-                        <div class="setup-step">2</div>
-                        <h3>Node.js & npm (via Homebrew)</h3>
-                        <p><strong>Why:</strong> Node.js powers the development environment and Hardhat framework for smart contracts.</p>
-                        <ol class="setup-list">
-                            <li>Install Homebrew if not already installed:
-                                <div class="code-box"><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></div>
-                            </li>
-                            <li>Install Node.js:
-                                <div class="code-box"><code>brew install node</code></div>
-                            </li>
-                            <li>Verify:
-                                <div class="code-box"><code>node --version && npm --version</code></div>
-                            </li>
-                        </ol>
-                    </div>
-
-                    <div class="setup-card">
-                        <div class="setup-step">3</div>
-                        <h3>Git</h3>
-                        <p><strong>Why:</strong> Essential for cloning repositories and version control.</p>
-                        <ol class="setup-list">
-                            <li>Install via Homebrew:
-                                <div class="code-box"><code>brew install git</code></div>
-                            </li>
-                            <li>Configure your identity:
-                                <div class="code-box"><code>git config --global user.name "Your Name"<br>git config --global user.email "your@email.com"</code></div>
-                            </li>
-                            <li>Verify:
-                                <div class="code-box"><code>git --version</code></div>
-                            </li>
-                        </ol>
-                    </div>
-
-                    <div class="setup-card">
-                        <div class="setup-step">4</div>
-                        <h3>Docker (Optional)</h3>
-                        <p><strong>Why:</strong> Containerize your environment for consistency across machines.</p>
-                        <ol class="setup-list">
-                            <li>Download <a href="https://www.docker.com/products/docker-desktop" target="_blank">Docker Desktop for Mac</a></li>
-                            <li>Install and launch the application</li>
-                            <li>Verify:
-                                <div class="code-box"><code>docker --version</code></div>
-                            </li>
-                        </ol>
-                        <p class="setup-note">⚠️ Optional but recommended for containerized development</p>
-                    </div>
-
-                    <div class="setup-card full-width">
-                        <h3>Verify All Prerequisites</h3>
-                        <p>Run this in Terminal:</p>
-                        <div class="code-box">
-                            <code>echo "Node: $(node --version)" && echo "NPM: $(npm --version)" && echo "Git: $(git --version)"</code>
+                <!-- macOS Setup -->
+                <div class="tab-pane" data-os="macos">
+                    <div class="setup-grid">
+                        <div class="setup-card">
+                            <div class="setup-step">1</div>
+                            <h3>Xcode Command Line Tools</h3>
+                            <p><strong>Why:</strong> Required for compiling native modules and using git on macOS.</p>
+                            <ol class="setup-list">
+                                <li>Open Terminal and run:
+                                    <div class="code-box"><code>xcode-select --install</code></div>
+                                </li>
+                                <li>Follow the prompts to install the tools (takes ~5 minutes)</li>
+                                <li>Verify installation:
+                                    <div class="code-box"><code>xcode-select -p</code></div>
+                                </li>
+                            </ol>
                         </div>
-                        <p class="setup-success">✅ If all show versions, you're ready to proceed!</p>
+
+                        <div class="setup-card">
+                            <div class="setup-step">2</div>
+                            <h3>Node.js & npm (via Homebrew)</h3>
+                            <p><strong>Why:</strong> Node.js powers the development environment and Hardhat framework for smart contracts.</p>
+                            <ol class="setup-list">
+                                <li>Install Homebrew if not already installed:
+                                    <div class="code-box"><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></div>
+                                </li>
+                                <li>Install Node.js:
+                                    <div class="code-box"><code>brew install node</code></div>
+                                </li>
+                                <li>Verify:
+                                    <div class="code-box"><code>node --version && npm --version</code></div>
+                                </li>
+                            </ol>
+                        </div>
+
+                        <div class="setup-card">
+                            <div class="setup-step">3</div>
+                            <h3>Git</h3>
+                            <p><strong>Why:</strong> Essential for cloning repositories and version control.</p>
+                            <ol class="setup-list">
+                                <li>Install via Homebrew:
+                                    <div class="code-box"><code>brew install git</code></div>
+                                </li>
+                                <li>Configure your identity:
+                                    <div class="code-box"><code>git config --global user.name "Your Name"<br>git config --global user.email "your@email.com"</code></div>
+                                </li>
+                                <li>Verify:
+                                    <div class="code-box"><code>git --version</code></div>
+                                </li>
+                            </ol>
+                        </div>
+
+                        <div class="setup-card">
+                            <div class="setup-step">4</div>
+                            <h3>Docker (Optional)</h3>
+                            <p><strong>Why:</strong> Containerize your environment for consistency across machines.</p>
+                            <ol class="setup-list">
+                                <li>Download <a href="https://www.docker.com/products/docker-desktop" target="_blank">Docker Desktop for Mac</a></li>
+                                <li>Install and launch the application</li>
+                                <li>Verify:
+                                    <div class="code-box"><code>docker --version</code></div>
+                                </li>
+                            </ol>
+                            <p class="setup-note">⚠️ Optional but recommended for containerized development</p>
+                        </div>
+
+                        <div class="setup-card full-width">
+                            <h3>Verify All Prerequisites</h3>
+                            <p>Run this in Terminal:</p>
+                            <div class="code-box">
+                                <code>echo "Node: $(node --version)" && echo "NPM: $(npm --version)" && echo "Git: $(git --version)"</code>
+                            </div>
+                            <p class="setup-success">✅ If all show versions, you're ready to proceed!</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Linux Setup -->
-            <div class="os-content" id="linux-setup">
-                <div class="setup-grid">
-                    <div class="setup-card">
-                        <div class="setup-step">1</div>
-                        <h3>Node.js & npm</h3>
-                        <p><strong>Why:</strong> Node.js runtime for Hardhat and fhEVM development environment.</p>
-                        <ol class="setup-list">
-                            <li><strong>Ubuntu/Debian:</strong>
-                                <div class="code-box"><code>curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -<br>sudo apt-get install -y nodejs</code></div>
-                            </li>
-                            <li><strong>Fedora/RHEL:</strong>
-                                <div class="code-box"><code>sudo dnf install nodejs npm</code></div>
-                            </li>
-                            <li>Verify:
-                                <div class="code-box"><code>node --version && npm --version</code></div>
-                            </li>
-                        </ol>
-                    </div>
-
-                    <div class="setup-card">
-                        <div class="setup-step">2</div>
-                        <h3>Git</h3>
-                        <p><strong>Why:</strong> Clone repositories and manage version control.</p>
-                        <ol class="setup-list">
-                            <li><strong>Ubuntu/Debian:</strong>
-                                <div class="code-box"><code>sudo apt-get install -y git</code></div>
-                            </li>
-                            <li><strong>Fedora/RHEL:</strong>
-                                <div class="code-box"><code>sudo dnf install -y git</code></div>
-                            </li>
-                            <li>Configure:
-                                <div class="code-box"><code>git config --global user.name "Your Name"<br>git config --global user.email "your@email.com"</code></div>
-                            </li>
-                        </ol>
-                    </div>
-
-                    <div class="setup-card">
-                        <div class="setup-step">3</div>
-                        <h3>Build Tools</h3>
-                        <p><strong>Why:</strong> Required for compiling native modules used by some npm packages.</p>
-                        <ol class="setup-list">
-                            <li><strong>Ubuntu/Debian:</strong>
-                                <div class="code-box"><code>sudo apt-get install -y build-essential python3</code></div>
-                            </li>
-                            <li><strong>Fedora/RHEL:</strong>
-                                <div class="code-box"><code>sudo dnf groupinstall "Development Tools" && sudo dnf install python3</code></div>
-                            </li>
-                        </ol>
-                    </div>
-
-                    <div class="setup-card">
-                        <div class="setup-step">4</div>
-                        <h3>Docker (Optional)</h3>
-                        <p><strong>Why:</strong> Run isolated containerized environments.</p>
-                        <ol class="setup-list">
-                            <li><strong>Ubuntu/Debian:</strong>
-                                <div class="code-box"><code>sudo apt-get install -y docker.io<br>sudo usermod -aG docker $USER</code></div>
-                            </li>
-                            <li><strong>Fedora/RHEL:</strong>
-                                <div class="code-box"><code>sudo dnf install -y docker<br>sudo usermod -aG docker $USER</code></div>
-                            </li>
-                            <li>Verify:
-                                <div class="code-box"><code>docker --version</code></div>
-                            </li>
-                        </ol>
-                        <p class="setup-note">⚠️ Optional but recommended</p>
-                    </div>
-
-                    <div class="setup-card full-width">
-                        <h3>Verify All Prerequisites</h3>
-                        <p>Run this in your terminal:</p>
-                        <div class="code-box">
-                            <code>echo "Node: $(node --version)" && echo "NPM: $(npm --version)" && echo "Git: $(git --version)"</code>
+                <!-- Linux Setup -->
+                <div class="tab-pane" data-os="linux">
+                    <div class="setup-grid">
+                        <div class="setup-card">
+                            <div class="setup-step">1</div>
+                            <h3>Node.js & npm</h3>
+                            <p><strong>Why:</strong> Node.js runtime for Hardhat and fhEVM development environment.</p>
+                            <ol class="setup-list">
+                                <li><strong>Ubuntu/Debian:</strong>
+                                    <div class="code-box"><code>curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -<br>sudo apt-get install -y nodejs</code></div>
+                                </li>
+                                <li><strong>Fedora/RHEL:</strong>
+                                    <div class="code-box"><code>sudo dnf install nodejs npm</code></div>
+                                </li>
+                                <li>Verify:
+                                    <div class="code-box"><code>node --version && npm --version</code></div>
+                                </li>
+                            </ol>
                         </div>
-                        <p class="setup-success">✅ If all show versions, you're ready to proceed!</p>
+
+                        <div class="setup-card">
+                            <div class="setup-step">2</div>
+                            <h3>Git</h3>
+                            <p><strong>Why:</strong> Clone repositories and manage version control.</p>
+                            <ol class="setup-list">
+                                <li><strong>Ubuntu/Debian:</strong>
+                                    <div class="code-box"><code>sudo apt-get install -y git</code></div>
+                                </li>
+                                <li><strong>Fedora/RHEL:</strong>
+                                    <div class="code-box"><code>sudo dnf install -y git</code></div>
+                                </li>
+                                <li>Configure:
+                                    <div class="code-box"><code>git config --global user.name "Your Name"<br>git config --global user.email "your@email.com"</code></div>
+                                </li>
+                            </ol>
+                        </div>
+
+                        <div class="setup-card">
+                            <div class="setup-step">3</div>
+                            <h3>Build Tools</h3>
+                            <p><strong>Why:</strong> Required for compiling native modules used by some npm packages.</p>
+                            <ol class="setup-list">
+                                <li><strong>Ubuntu/Debian:</strong>
+                                    <div class="code-box"><code>sudo apt-get install -y build-essential python3</code></div>
+                                </li>
+                                <li><strong>Fedora/RHEL:</strong>
+                                    <div class="code-box"><code>sudo dnf groupinstall "Development Tools" && sudo dnf install python3</code></div>
+                                </li>
+                            </ol>
+                        </div>
+
+                        <div class="setup-card">
+                            <div class="setup-step">4</div>
+                            <h3>Docker (Optional)</h3>
+                            <p><strong>Why:</strong> Run isolated containerized environments.</p>
+                            <ol class="setup-list">
+                                <li><strong>Ubuntu/Debian:</strong>
+                                    <div class="code-box"><code>sudo apt-get install -y docker.io<br>sudo usermod -aG docker $USER</code></div>
+                                </li>
+                                <li><strong>Fedora/RHEL:</strong>
+                                    <div class="code-box"><code>sudo dnf install -y docker<br>sudo usermod -aG docker $USER</code></div>
+                                </li>
+                                <li>Verify:
+                                    <div class="code-box"><code>docker --version</code></div>
+                                </li>
+                            </ol>
+                            <p class="setup-note">⚠️ Optional but recommended</p>
+                        </div>
+
+                        <div class="setup-card full-width">
+                            <h3>Verify All Prerequisites</h3>
+                            <p>Run this in your terminal:</p>
+                            <div class="code-box">
+                                <code>echo "Node: $(node --version)" && echo "NPM: $(npm --version)" && echo "Git: $(git --version)"</code>
+                            </div>
+                            <p class="setup-success">✅ If all show versions, you're ready to proceed!</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Quick Start Section -->
     <section class="quick-start" id="quick-start">

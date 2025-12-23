@@ -643,27 +643,27 @@ document.addEventListener('DOMContentLoaded', () => {
 // Prerequisites Tab Switching
 // ============================================================================
 
-function showTab(tabName) {
-    // Hide all tabs
-    document.getElementById('windows-setup').classList.remove('active');
-    document.getElementById('macos-setup').classList.remove('active');
-    document.getElementById('linux-setup').classList.remove('active');
-    
-    // Remove active from all buttons
-    document.querySelectorAll('.os-tab').forEach(btn => {
-        btn.classList.remove('active');
-    });
-    
-    // Show selected tab
-    document.getElementById(tabName + '-setup').classList.add('active');
-    
-    // Mark button as active
-    event.target.classList.add('active');
-}
+document.addEventListener('DOMContentLoaded', function() {
+    const tabButtons = document.querySelectorAll('.os-tab-btn');
+    const tabPanes = document.querySelectorAll('.tab-pane');
 
-function setupPrerequisitesTabs() {
-    // No longer needed - using inline onclick handlers
-}
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const os = this.getAttribute('data-os');
+            
+            // Remove active from all buttons and panes
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabPanes.forEach(pane => pane.classList.remove('active'));
+            
+            // Add active to clicked button and corresponding pane
+            this.classList.add('active');
+            const activePane = document.querySelector(`.tab-pane[data-os="${os}"]`);
+            if (activePane) {
+                activePane.classList.add('active');
+            }
+        });
+    });
+});
 
 // ============================================================================
 // Dark Mode (Always On)
@@ -677,10 +677,6 @@ function initThemeToggle() {
 // ============================================================================
 // Preload animations for better performance
 // ============================================================================
-
-document.addEventListener('DOMContentLoaded', () => {
-    setupPrerequisitesTabs();
-});
 
 window.addEventListener('load', () => {
     initThemeToggle();
