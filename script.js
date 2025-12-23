@@ -50,46 +50,6 @@ const examplesData = [
         tags: ['Encryption', 'User', 'Privacy']
     },
     {
-        id: 'multiple-encryption',
-        name: 'Multiple Encryption',
-        category: 'mandatory',
-        complexity: 'intermediate',
-        description: 'Encrypt and manage multiple encrypted values.',
-        details: 'Handle batches of encrypted values efficiently in your contracts.',
-        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/multiple-encryption-premium',
-        tags: ['Encryption', 'Batch', 'Multiple']
-    },
-    {
-        id: 'single-decryption-public',
-        name: 'Public Encryption & Decryption',
-        category: 'mandatory',
-        complexity: 'intermediate',
-        description: 'Encrypt and decrypt values within the contract.',
-        details: 'Handle contract-level encryption/decryption for transparent computations.',
-        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/single-decryption-public-premium',
-        tags: ['Public', 'Encryption', 'Contract']
-    },
-    {
-        id: 'single-decryption-user',
-        name: 'User-Authorized Decryption',
-        category: 'mandatory',
-        complexity: 'intermediate',
-        description: 'User-authorized decryption with FHE.allow().',
-        details: 'Control who can decrypt specific encrypted values securely.',
-        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/single-decryption-user-premium',
-        tags: ['Decryption', 'User', 'Authorization']
-    },
-    {
-        id: 'multiple-decryption',
-        name: 'Multiple Decryption',
-        category: 'mandatory',
-        complexity: 'intermediate',
-        description: 'Decrypt multiple encrypted values efficiently.',
-        details: 'Handle efficient decryption of multiple encrypted values.',
-        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/multiple-decryption-premium',
-        tags: ['Decryption', 'Batch', 'Multiple']
-    },
-    {
         id: 'access-control',
         name: 'Access Control (FHE.allow)',
         category: 'mandatory',
@@ -349,6 +309,26 @@ function copyToClipboard(text, button) {
         }
         document.body.removeChild(textarea);
     }
+}
+
+function copyCodeBlock(button) {
+    const codeBox = button.closest('.code-box');
+    const codeElement = codeBox.querySelector('code');
+    
+    // Extract text and replace <br> tags with newlines
+    let text = '';
+    const childNodes = codeElement.childNodes;
+    
+    for (let node of childNodes) {
+        if (node.nodeType === Node.TEXT_NODE) {
+            text += node.textContent;
+        } else if (node.nodeName === 'BR') {
+            text += '\n';
+        }
+    }
+    
+    text = text.trim();
+    copyToClipboard(text, button);
 }
 
 // ============================================================================
@@ -612,6 +592,35 @@ function setupScrollAnimations() {
 }
 
 // ============================================================================
+// Troubleshooting Accordion
+// ============================================================================
+function setupAccordions() {
+    document.querySelectorAll('.accordion').forEach(accordion => {
+        const toggles = accordion.querySelectorAll('.accordion-toggle');
+        toggles.forEach(btn => {
+            // Ensure panels are initially collapsed
+            const panel = btn.nextElementSibling;
+            if (panel) {
+                panel.classList.remove('open');
+                panel.style.maxHeight = null;
+            }
+
+            btn.addEventListener('click', (e) => {
+                const isActive = btn.classList.toggle('active');
+                if (panel) {
+                    panel.classList.toggle('open', isActive);
+                    if (isActive) {
+                        panel.style.maxHeight = panel.scrollHeight + 'px';
+                    } else {
+                        panel.style.maxHeight = null;
+                    }
+                }
+            });
+        });
+    });
+}
+
+// ============================================================================
 // Navigation Active State
 // ============================================================================
 
@@ -653,6 +662,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupScrollToTop();
     setupSmoothScroll();
     setupScrollAnimations();
+    setupAccordions();
     setupNavigation();
 
     console.log('fhEVM Playground Pro initialized! 🎉');

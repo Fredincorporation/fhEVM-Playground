@@ -224,6 +224,30 @@ export function isMockedMode() {
   }
   fs.writeFileSync(path.join(projectDir, 'README.md'), readmeContent);
 
+  // Copy GitBook documentation
+  console.log(chalk.blue(`📖 Setting up GitBook documentation...`));
+  const docsSourceDir = path.resolve(__dirname, '..', '..', 'docs');
+  const docsTargetDir = path.join(projectDir, 'docs');
+  
+  if (fs.existsSync(docsSourceDir)) {
+    try {
+      fs.copySync(docsSourceDir, docsTargetDir, {
+        overwrite: false,
+        errorOnExist: false,
+      });
+      // Also copy book.json if it exists
+      const bookJsonSrc = path.resolve(__dirname, '..', '..', 'book.json');
+      if (fs.existsSync(bookJsonSrc)) {
+        fs.copyFileSync(bookJsonSrc, path.join(projectDir, 'book.json'));
+      }
+      console.log(chalk.green(`   ✅ Documentation copied to docs/`));
+    } catch (error: any) {
+      console.warn(chalk.yellow(`   ⚠️  Could not copy documentation: ${error.message}`));
+    }
+  } else {
+    console.warn(chalk.yellow(`   ⚠️  Documentation source not found at ${docsSourceDir}`));
+  }
+
   // Create .env.example
   fs.writeFileSync(
     path.join(projectDir, '.env.example'),

@@ -1,0 +1,26 @@
+{
+  "root": "./docs",
+  "title": "fhEVM Playground Pro - Documentation",
+  "author": "Zama",
+  "description": "Complete guide to building FHE applications with Zama's fhEVM",
+  "language": "en",
+  "gitbook": ">=4.0.0",
+  "structure": {
+    "readme": "README.md",
+    "summary": "SUMMARY.md"
+  },
+  "plugins": [
+    "-lunr",
+    "search",
+    "highlight",
+    "theme-default"
+  ],
+  "pluginsConfig": {
+    "highlight": {
+      "highlightLanguages": ["solidity", "typescript", "javascript", "bash", "json"]
+    },
+    "theme-default": {
+      "showLevel": true
+    }
+  }
+}

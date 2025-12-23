@@ -55,6 +55,7 @@
 && npm start -- create --name "my-example" --category basic-counter</code></pre>
                 </div>
             </div>
+            <!-- Hero codespaces badge removed per request -->
         </div>
     </section>
 
@@ -62,7 +63,27 @@
     <div class="container">
         <h2 class="section-title">Prerequisites & Setup Guide</h2>
         <p class="section-subtitle">Get your environment ready in minutes</p>
-        
+
+        <!-- Codespaces Zero-Install Card -->
+        <div class="codespaces-card">
+            <div class="codespaces-card-inner">
+                <div class="codespaces-card-title">⚡ Zero-Install Option (Best for Beginners & Fresh PCs)</div>
+                <div class="codespaces-card-desc">Try fhEVM Playground Pro instantly in your browser — no Node.js, Git, or Docker required. Click below to launch a full dev environment in seconds:</div>
+                <ul class="codespaces-card-list">
+                    <li>Node.js & Hardhat pre-installed</li>
+                    <li>All dependencies ready</li>
+                    <li>Generate examples and run tests immediately</li>
+                    <li>Perfect for learning or quick review</li>
+                </ul>
+                <div class="codespaces-badge-wrap">
+                    <a href="https://codespaces.new/Fredincorporation/fhEVM-Playground?quickstart=1" target="_blank" title="Instant browser environment – no install needed!">
+                        <img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces" class="codespaces-badge-large" />
+                    </a>
+                </div>
+                <div class="codespaces-powered">Powered by GitHub Codespaces</div>
+            </div>
+        </div>
+
         <!-- OS Tabs -->
         <div class="os-tabs">
             <button class="os-tab-btn active" data-os="windows">Windows</button>
@@ -83,7 +104,7 @@
                                 <li>Visit <a href="https://nodejs.org/" target="_blank">nodejs.org</a> and download the LTS version (v20+)</li>
                                 <li>Run the installer and follow the setup wizard</li>
                                 <li>Verify installation by opening PowerShell and typing:
-                                    <div class="code-box"><code>node --version && npm --version</code></div>
+                                    <div class="code-box"><code>node --version && npm --version</code><button class="copy-btn" onclick="copyCodeBlock(this)" title="Copy command">📋</button></div>
                                 </li>
                             </ol>
                             <p class="setup-note">✓ npm is included with Node.js automatically</p>
@@ -97,7 +118,7 @@
                                 <li>Download Git from <a href="https://git-scm.com/download/win" target="_blank">git-scm.com</a></li>
                                 <li>Run the installer with default settings (or customize as needed)</li>
                                 <li>Verify installation by opening PowerShell and typing:
-                                    <div class="code-box"><code>git --version</code></div>
+                                    <div class="code-box"><code>git --version</code><button class="copy-btn" onclick="copyCodeBlock(this)" title="Copy command">📋</button></div>
                                 </li>
                             </ol>
                             <p class="setup-note">✓ Use Git Bash for a better terminal experience on Windows</p>
@@ -111,7 +132,7 @@
                                 <li>Download <a href="https://www.docker.com/products/docker-desktop" target="_blank">Docker Desktop for Windows</a></li>
                                 <li>Install and enable WSL 2 backend (recommended)</li>
                                 <li>Verify installation:
-                                    <div class="code-box"><code>docker --version</code></div>
+                                    <div class="code-box"><code>docker --version</code><button class="copy-btn" onclick="copyCodeBlock(this)" title="Copy command">📋</button></div>
                                 </li>
                             </ol>
                             <p class="setup-note">⚠️ Optional but recommended for containerized development</p>
@@ -137,11 +158,11 @@
                             <p><strong>Why:</strong> Required for compiling native modules and using git on macOS.</p>
                             <ol class="setup-list">
                                 <li>Open Terminal and run:
-                                    <div class="code-box"><code>xcode-select --install</code></div>
+                                    <div class="code-box"><code>xcode-select --install</code><button class="copy-btn" onclick="copyCodeBlock(this)" title="Copy command">📋</button></div>
                                 </li>
                                 <li>Follow the prompts to install the tools (takes ~5 minutes)</li>
                                 <li>Verify installation:
-                                    <div class="code-box"><code>xcode-select -p</code></div>
+                                    <div class="code-box"><code>xcode-select -p</code><button class="copy-btn" onclick="copyCodeBlock(this)" title="Copy command">📋</button></div>
                                 </li>
                             </ol>
                         </div>
@@ -152,13 +173,13 @@
                             <p><strong>Why:</strong> Node.js powers the development environment and Hardhat framework for smart contracts.</p>
                             <ol class="setup-list">
                                 <li>Install Homebrew if not already installed:
-                                    <div class="code-box"><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></div>
+                                    <div class="code-box"><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code><button class="copy-btn" onclick="copyCodeBlock(this)" title="Copy command">📋</button></div>
                                 </li>
                                 <li>Install Node.js:
-                                    <div class="code-box"><code>brew install node</code></div>
+                                    <div class="code-box"><code>brew install node</code><button class="copy-btn" onclick="copyCodeBlock(this)" title="Copy command">📋</button></div>
                                 </li>
                                 <li>Verify:
-                                    <div class="code-box"><code>node --version && npm --version</code></div>
+                                    <div class="code-box"><code>node --version && npm --version</code><button class="copy-btn" onclick="copyCodeBlock(this)" title="Copy command">📋</button></div>
                                 </li>
                             </ol>
                         </div>
@@ -169,13 +190,13 @@
                             <p><strong>Why:</strong> Essential for cloning repositories and version control.</p>
                             <ol class="setup-list">
                                 <li>Install via Homebrew:
-                                    <div class="code-box"><code>brew install git</code></div>
+                                    <div class="code-box"><code>brew install git</code><button class="copy-btn" onclick="copyCodeBlock(this)" title="Copy command">📋</button></div>
                                 </li>
                                 <li>Configure your identity:
-                                    <div class="code-box"><code>git config --global user.name "Your Name"<br>git config --global user.email "your@email.com"</code></div>
+                                    <div class="code-box"><code>git config --global user.name "Your Name"<br>git config --global user.email "your@email.com"</code><button class="copy-btn" onclick="copyCodeBlock(this)" title="Copy command">📋</button></div>
                                 </li>
                                 <li>Verify:
-                                    <div class="code-box"><code>git --version</code></div>
+                                    <div class="code-box"><code>git --version</code><button class="copy-btn" onclick="copyCodeBlock(this)" title="Copy command">📋</button></div>
                                 </li>
                             </ol>
                         </div>
@@ -188,7 +209,7 @@
                                 <li>Download <a href="https://www.docker.com/products/docker-desktop" target="_blank">Docker Desktop for Mac</a></li>
                                 <li>Install and launch the application</li>
                                 <li>Verify:
-                                    <div class="code-box"><code>docker --version</code></div>
+                                    <div class="code-box"><code>docker --version</code><button class="copy-btn" onclick="copyCodeBlock(this)" title="Copy command">📋</button></div>
                                 </li>
                             </ol>
                             <p class="setup-note">⚠️ Optional but recommended for containerized development</p>
@@ -198,7 +219,7 @@
                             <h3>Verify All Prerequisites</h3>
                             <p>Run this in Terminal:</p>
                             <div class="code-box">
-                                <code>echo "Node: $(node --version)" && echo "NPM: $(npm --version)" && echo "Git: $(git --version)"</code>
+                                <code>echo "Node: $(node --version)" && echo "NPM: $(npm --version)" && echo "Git: $(git --version)"</code><button class="copy-btn" onclick="copyCodeBlock(this)" title="Copy command">📋</button>
                             </div>
                             <p class="setup-success">✅ If all show versions, you're ready to proceed!</p>
                         </div>
@@ -214,13 +235,13 @@
                             <p><strong>Why:</strong> Node.js runtime for Hardhat and fhEVM development environment.</p>
                             <ol class="setup-list">
                                 <li><strong>Ubuntu/Debian:</strong>
-                                    <div class="code-box"><code>curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -<br>sudo apt-get install -y nodejs</code></div>
+                                    <div class="code-box"><code>curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -<br>sudo apt-get install -y nodejs</code><button class="copy-btn" onclick="copyCodeBlock(this)" title="Copy command">📋</button></div>
                                 </li>
                                 <li><strong>Fedora/RHEL:</strong>
-                                    <div class="code-box"><code>sudo dnf install nodejs npm</code></div>
+                                    <div class="code-box"><code>sudo dnf install nodejs npm</code><button class="copy-btn" onclick="copyCodeBlock(this)" title="Copy command">📋</button></div>
                                 </li>
                                 <li>Verify:
-                                    <div class="code-box"><code>node --version && npm --version</code></div>
+                                    <div class="code-box"><code>node --version && npm --version</code><button class="copy-btn" onclick="copyCodeBlock(this)" title="Copy command">📋</button></div>
                                 </li>
                             </ol>
                         </div>
@@ -231,13 +252,13 @@
                             <p><strong>Why:</strong> Clone repositories and manage version control.</p>
                             <ol class="setup-list">
                                 <li><strong>Ubuntu/Debian:</strong>
-                                    <div class="code-box"><code>sudo apt-get install -y git</code></div>
+                                    <div class="code-box"><code>sudo apt-get install -y git</code><button class="copy-btn" onclick="copyCodeBlock(this)" title="Copy command">📋</button></div>
                                 </li>
                                 <li><strong>Fedora/RHEL:</strong>
-                                    <div class="code-box"><code>sudo dnf install -y git</code></div>
+                                    <div class="code-box"><code>sudo dnf install -y git</code><button class="copy-btn" onclick="copyCodeBlock(this)" title="Copy command">📋</button></div>
                                 </li>
                                 <li>Configure:
-                                    <div class="code-box"><code>git config --global user.name "Your Name"<br>git config --global user.email "your@email.com"</code></div>
+                                    <div class="code-box"><code>git config --global user.name "Your Name"<br>git config --global user.email "your@email.com"</code><button class="copy-btn" onclick="copyCodeBlock(this)" title="Copy command">📋</button></div>
                                 </li>
                             </ol>
                         </div>
@@ -248,10 +269,10 @@
                             <p><strong>Why:</strong> Required for compiling native modules used by some npm packages.</p>
                             <ol class="setup-list">
                                 <li><strong>Ubuntu/Debian:</strong>
-                                    <div class="code-box"><code>sudo apt-get install -y build-essential python3</code></div>
+                                    <div class="code-box"><code>sudo apt-get install -y build-essential python3</code><button class="copy-btn" onclick="copyCodeBlock(this)" title="Copy command">📋</button></div>
                                 </li>
                                 <li><strong>Fedora/RHEL:</strong>
-                                    <div class="code-box"><code>sudo dnf groupinstall "Development Tools" && sudo dnf install python3</code></div>
+                                    <div class="code-box"><code>sudo dnf groupinstall "Development Tools" && sudo dnf install python3</code><button class="copy-btn" onclick="copyCodeBlock(this)" title="Copy command">📋</button></div>
                                 </li>
                             </ol>
                         </div>
@@ -262,13 +283,13 @@
                             <p><strong>Why:</strong> Run isolated containerized environments.</p>
                             <ol class="setup-list">
                                 <li><strong>Ubuntu/Debian:</strong>
-                                    <div class="code-box"><code>sudo apt-get install -y docker.io<br>sudo usermod -aG docker $USER</code></div>
+                                    <div class="code-box"><code>sudo apt-get install -y docker.io<br>sudo usermod -aG docker $USER</code><button class="copy-btn" onclick="copyCodeBlock(this)" title="Copy command">📋</button></div>
                                 </li>
                                 <li><strong>Fedora/RHEL:</strong>
-                                    <div class="code-box"><code>sudo dnf install -y docker<br>sudo usermod -aG docker $USER</code></div>
+                                    <div class="code-box"><code>sudo dnf install -y docker<br>sudo usermod -aG docker $USER</code><button class="copy-btn" onclick="copyCodeBlock(this)" title="Copy command">📋</button></div>
                                 </li>
                                 <li>Verify:
-                                    <div class="code-box"><code>docker --version</code></div>
+                                    <div class="code-box"><code>docker --version</code><button class="copy-btn" onclick="copyCodeBlock(this)" title="Copy command">📋</button></div>
                                 </li>
                             </ol>
                             <p class="setup-note">⚠️ Optional but recommended</p>
@@ -278,7 +299,7 @@
                             <h3>Verify All Prerequisites</h3>
                             <p>Run this in your terminal:</p>
                             <div class="code-box">
-                                <code>echo "Node: $(node --version)" && echo "NPM: $(npm --version)" && echo "Git: $(git --version)"</code>
+                                <code>echo "Node: $(node --version)" && echo "NPM: $(npm --version)" && echo "Git: $(git --version)"</code><button class="copy-btn" onclick="copyCodeBlock(this)" title="Copy command">📋</button>
                             </div>
                             <p class="setup-success">✅ If all show versions, you're ready to proceed!</p>
                         </div>
@@ -286,6 +307,7 @@
                 </div>
             </div>
         </div>
+        <!-- Troubleshooting removed per request -->
     </div>
 
     <!-- Quick Start Section -->
@@ -360,39 +382,33 @@
             <h2 class="section-title">Why fhEVM Playground Pro?</h2>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">✓</div>
-                    <h3>100% Test Coverage</h3>
-                    <p>Every contract fully tested with comprehensive edge cases and anti-pattern demonstrations.</p>
+                    <div class="feature-icon">📚</div>
+                    <h3><strong>Covers all required fhEVM concepts</strong></h3>
+                    <p>Includes the mandatory concepts required by Zama's bounty plus <strong>7 innovative Pro apps</strong>: confidential DeFi, MEV resistance, private voting, encrypted gaming, and more.</p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Gas Optimized</h3>
-                    <p>Production-ready contracts optimized for minimal gas consumption and maximum efficiency.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Real-World Privacy</h3>
-                    <p>Practical confidential applications: DeFi, governance, gaming, and MEV-resistant solutions.</p>
+                    <div class="feature-icon">⚙️</div>
+                    <h3><strong>True one-command automation</strong></h3>
+                    <p>TypeScript CLI scaffolds complete examples with one command; batch maintenance scripts keep dependencies and tests up-to-date across all repos.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">📖</div>
-                    <h3>Auto-Generated Docs</h3>
-                    <p>GitBook-ready documentation with explanations, security notes, and deployment guides.</p>
+                    <h3><strong>Full GitBook-ready docs</strong></h3>
+                    <p>Auto-generated, GitBook-ready documentation shipped with every standalone repository (includes walkthroughs, security notes, and deployment guides).</p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">🛠️</div>
-                    <h3>Easy Maintenance</h3>
-                    <p>Batch update tools, automated testing, and scaffolding templates for consistency.</p>
+                    <div class="feature-icon">🧪</div>
+                    <h3><strong>100% Test Coverage</strong></h3>
+                    <p>Comprehensive tests covering correct usage, edge cases, and anti-pattern demonstrations for reviewer confidence.</p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Complete Bounty Coverage</h3>
-                    <p>Mandatory examples + standout innovation features built to win Zama's December 2025 bounty.</p>
+                    <div class="feature-icon">💡</div>
+                    <h3><strong>Production-ready & Gas Aware</strong></h3>
+                    <p>Clean, commented Solidity code with gas-awareness and optimizations suitable for production audit and deployment.</p>
                 </div>
             </div>
         </div>
@@ -402,7 +418,7 @@
     <section class="demo" id="demo">
         <div class="container">
             <h2 class="section-title">See It In Action</h2>
-            <p class="section-subtitle">Watch a professional walkthrough of fhEVM Playground Pro (8-10 minutes)</p>
+            <p class="section-subtitle">Watch a professional walkthrough of fhEVM Playground Pro</p>
             <div class="video-container">
                 <iframe 
                     width="100%" 
@@ -425,7 +441,8 @@
             <h2>Get Started in Seconds</h2>
             <div class="cli-full-box">
                 <div>
-                    <p class="cli-instruction"><span style="margin-right: 0.5rem;">1.</span>Create your example project:</p>
+                <!-- Troubleshooting removed per request -->
+                <!-- Tab Container with nested divs -->
                     <div class="cli-command">
                         <pre class="terminal-code"><code>git clone https://github.com/Fredincorporation/fhEVM-Playground.git && cd fhEVM-Playground/central-repo && npm install && npm start -- create --name "my-example" --category basic-counter</code></pre>
                         <button class="copy-btn-large" onclick="copyCLI(this)">📋 Copy</button>
@@ -496,6 +513,12 @@ npm run test</code>
                 <div class="footer-credit">
                     <p>Built for the December 2025 Bounty Track | © 2025 Zama AI</p>
                 </div>
+                    <div class="footer-codespaces">
+                        <a href="https://codespaces.new/Fredincorporation/fhEVM-Playground?quickstart=1" target="_blank">
+                            <img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces" />
+                        </a>
+                        <div class="footer-codespaces-text"></div>
+                    </div>
             </div>
         </div>
     </footer>
