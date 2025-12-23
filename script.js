@@ -469,15 +469,34 @@ function closeCliModal() {
 }
 
 function copyCLI(button, categoryId = null) {
-    // Generate command - clone, install dependencies, then run via npm start
-    let text = 'git clone https://github.com/Fredincorporation/fhEVM-Playground.git && cd fhEVM-Playground/central-repo && npm install && npm start -- create --name "my-example" --category basic-counter';
+    // Get the closest cli-command parent to extract the exact code text
+    const cliCommand = button.closest('.cli-command');
+    let text = '';
 
-    if (categoryId) {
-        const example = examplesData.find(ex => ex.id === categoryId);
-        if (example) {
-            const projectName = example.name.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '').substring(0, 30);
-            const proFlag = example.complexity === 'pro' ? ' --pro' : '';
-            text = `git clone https://github.com/Fredincorporation/fhEVM-Playground.git && cd fhEVM-Playground/central-repo && npm install && npm start -- create --name "${projectName}" --category ${categoryId}${proFlag}`;
+    if (cliCommand) {
+        // Extract text from code block within this command
+        const codeBlock = cliCommand.querySelector('code');
+        if (codeBlock) {
+            text = codeBlock.textContent.trim();
+        } else {
+            const preBlock = cliCommand.querySelector('pre.terminal-code code');
+            if (preBlock) {
+                text = preBlock.textContent.trim();
+            }
+        }
+    }
+
+    // Fallback to default commands if no text found
+    if (!text) {
+        if (categoryId) {
+            const example = examplesData.find(ex => ex.id === categoryId);
+            if (example) {
+                const projectName = example.name.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '').substring(0, 30);
+                const proFlag = example.complexity === 'pro' ? ' --pro' : '';
+                text = `git clone https://github.com/Fredincorporation/fhEVM-Playground.git && cd fhEVM-Playground/central-repo && npm install && npm start -- create --name "${projectName}" --category ${categoryId}${proFlag}`;
+            }
+        } else {
+            text = 'git clone https://github.com/Fredincorporation/fhEVM-Playground.git && cd fhEVM-Playground/central-repo && npm install && npm start -- create --name "my-example" --category basic-counter';
         }
     }
 
