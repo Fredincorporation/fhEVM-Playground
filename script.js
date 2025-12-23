@@ -640,10 +640,50 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ============================================================================
+// Prerequisites Tab Switching
+// ============================================================================
+
+function showTab(tabName) {
+    // Hide all tabs
+    document.getElementById('windows-setup').classList.remove('active');
+    document.getElementById('macos-setup').classList.remove('active');
+    document.getElementById('linux-setup').classList.remove('active');
+    
+    // Remove active from all buttons
+    document.querySelectorAll('.os-tab').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    // Show selected tab
+    document.getElementById(tabName + '-setup').classList.add('active');
+    
+    // Mark button as active
+    event.target.classList.add('active');
+}
+
+function setupPrerequisitesTabs() {
+    // No longer needed - using inline onclick handlers
+}
+
+// ============================================================================
+// Dark Mode (Always On)
+// ============================================================================
+
+function initThemeToggle() {
+    // Force dark mode permanently
+    document.body.classList.add('dark-mode');
+}
+
+// ============================================================================
 // Preload animations for better performance
 // ============================================================================
 
+document.addEventListener('DOMContentLoaded', () => {
+    setupPrerequisitesTabs();
+});
+
 window.addEventListener('load', () => {
-    // Optional: Add any post-load optimizations here
+    initThemeToggle();
     document.body.style.opacity = '1';
 });
+
