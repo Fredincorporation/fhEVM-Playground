@@ -468,16 +468,7 @@ function copyCLI(button, categoryId = null) {
 
     // Fallback to default commands if no text found
     if (!text) {
-        if (categoryId) {
-            const example = examplesData.find(ex => ex.id === categoryId);
-            if (example) {
-                const projectName = example.name.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '').substring(0, 30);
-                const proFlag = example.complexity === 'pro' ? ' --pro' : '';
-                text = `git clone https://github.com/Fredincorporation/fhEVM-Playground.git && cd fhEVM-Playground/central-repo && npm install && npm start -- create --name "${projectName}" --category ${categoryId}${proFlag}`;
-            }
-        } else {
-            text = 'git clone https://github.com/Fredincorporation/fhEVM-Playground.git && cd fhEVM-Playground/central-repo && npm install && npm start -- create --name "my-example" --category basic-counter';
-        }
+        text = 'npx create-fhevm-playground-pro guided';
     }
 
     copyToClipboard(text, button);
