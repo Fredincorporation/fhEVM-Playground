@@ -1,0 +1,15 @@
+{
+  "name": "fhEVM Playground Devcontainer",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "forwardPorts": [],
+  "postCreateCommand": "npm config set yes true && npm install -g create-fhevm-playground-pro@latest || true",
+  "postStartCommand": "bash -lc 'if [ \"$CODESPACE_SKIP_GUIDED\" != \"true\" ]; then echo "Starting interactive guided onboarding..." && npx create-fhevm-playground-pro guided; else echo "Skipping guided autorun (CODESPACE_SKIP_GUIDED=true)"; fi'",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  }
+}

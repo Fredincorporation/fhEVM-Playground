@@ -1,0 +1,227 @@
+/**
+ * Documentation Generator
+ * Parses JSDoc comments from Solidity contracts and converts to Markdown
+ * Generates GitBook-compatible documentation
+ */
+
+import fs from 'fs-extra';
+import path from 'path';
+
+export interface DocBlock {
+  name: string;
+  description: string;
+  params: Array<{ name: string; type: string; description: string }>;
+  returns: { type: string; description: string } | null;
+  example?: string;
+  deprecated?: boolean;
+}
+
+/**
+ * Extract JSDoc blocks from Solidity code
+ */
+export function extractJSDocBlocks(solidityCode: string): DocBlock[] {
+  const blocks: DocBlock[] = [];
+  const docRegex = /\/\*\*\n([\s\S]*?)\n\s*\*\//g;
+  
+  let match;
+  while ((match = docRegex.exec(solidityCode)) !== null) {
+    const docContent = match[1];
+    const block = parseDocBlock(docContent);
+    if (block) blocks.push(block);
+  }
+  
+  return blocks;
+}
+
+/**
+ * Parse individual JSDoc block
+ */
+function parseDocBlock(docContent: string): DocBlock | null {
+  const lines = docContent.split('\n').map(line => line.trim().replace(/^\*\s?/, ''));
+  
+  const block: DocBlock = {
+    name: '',
+    description: '',
+    params: [],
+    returns: null,
+  };
+
+  let currentSection = 'description';
+  let descriptionLines: string[] = [];
+
+  for (const line of lines) {
+    if (line.startsWith('@param')) {
+      currentSection = 'param';
+      const paramMatch = line.match(/@param\s+(\{[\w\[\],\s]+\})?\s+(\w+)\s+(.*)/);
+      if (paramMatch) {
+        block.params.push({
+          name: paramMatch[2],
+          type: paramMatch[1] || 'unknown',
+          description: paramMatch[3] || '',
+        });
+      }
+    } else if (line.startsWith('@return')) {
+      currentSection = 'return';
+      const returnMatch = line.match(/@return(?:s)?\s+(\{[\w\[\],\s]+\})?\s+(.*)/);
+      if (returnMatch) {
+        block.returns = {
+          type: returnMatch[1] || 'unknown',
+          description: returnMatch[2] || '',
+        };
+      }
+    } else if (line.startsWith('@notice')) {
+      block.name = line.replace('@notice', '').trim();
+    } else if (line.startsWith('@dev')) {
+      if (descriptionLines.length === 0) {
+        descriptionLines.push(line.replace('@dev', '').trim());
+      }
+    } else if (line.startsWith('@deprecated')) {
+      block.deprecated = true;
+    } else if (line && !line.startsWith('@')) {
+      if (currentSection === 'description') {
+        descriptionLines.push(line);
+      }
+    }
+  }
+
+  block.description = descriptionLines.join(' ').trim();
+
+  return block.description || block.name ? block : null;
+}
+
+/**
+ * Convert doc blocks to Markdown
+ */
+export function docBlocksToMarkdown(blocks: DocBlock[]): string {
+  let markdown = '';
+
+  for (const block of blocks) {
+    if (block.name) {
+      markdown += `### ${block.name}\n\n`;
+    }
+
+    if (block.description) {
+      markdown += `${block.description}\n\n`;
+    }
+
+    if (block.params.length > 0) {
+      markdown += '**Parameters:**\n\n';
+      for (const param of block.params) {
+        markdown += `- \
+`${param.name}\
+ (${param.type}): ${param.description}\n`;
+      }
+      markdown += '\n';
+    }
+
+    if (block.returns) {
+      markdown += `**Returns:** ${block.returns.type} - ${block.returns.description}\n\n`;
+    }
+
+    if (block.deprecated) {
+      markdown += '> ⚠️ **Deprecated**\n\n';
+    }
+  }
+
+  return markdown;
+}
+
+/**
+ * Generate complete README from contract
+ */
+export function generateContractMarkdown(
+  contractName: string,
+  solidityCode: string,
+  categoryDescription?: string
+): string {
+  const docBlocks = extractJSDocBlocks(solidityCode);
+  const docMarkdown = docBlocksToMarkdown(docBlocks);
+
+  let markdown = `# ${contractName}\n\n`;
+
+  if (categoryDescription) {
+    markdown += `## Overview\n\n${categoryDescription}\n\n`;
+  }
+
+  markdown += `## API Reference\n\n${docMarkdown}`;
+
+  markdown += `## Key Features\n\n`;
+  markdown += `- FHE-encrypted state management\n`;
+  markdown += `- Comprehensive test coverage\n`;
+  markdown += `- Security best practices\n`;
+  markdown += `- Gas-efficient operations\n\n`;
+
+  markdown += `## Usage\n\n`;
+  markdown += '```solidity\n';
+  markdown += `// Import the contract\n`;
+  markdown += `import "./${contractName}.sol";\n`;
+  markdown += '```\n\n';
+
+  markdown += `## Testing\n\n`;
+  markdown += '```bash\n';
+  markdown += 'npm test\n';
+  markdown += '```\n\n';
+
+  markdown += `## Security Considerations\n\n`;
+  markdown += `- All state is encrypted using TFHE\n`;
+  markdown += `- Operations follow fhEVM best practices\n`;
+  markdown += `- Comprehensive test suite validates correctness\n`;
+  markdown += `- See anti-patterns guide for common mistakes to avoid\n`;
+
+  return markdown;
+}
+
+/**
+ * Generate README for entire project
+ */
+export function generateProjectReadme(
+  projectName: string,
+  category: string,
+  contractNames: string[]
+): string {
+  let markdown = `# ${projectName}\n\n`;
+
+  markdown += `> A reference implementation of the **${category}** example from fhEVM Playground Pro.\n\n`;
+
+  markdown += `## Quick Start\n\n`;
+  markdown += '```bash\n';
+  markdown += 'npm install\n';
+  markdown += 'npm run compile\n';
+  markdown += 'npm test\n';
+  markdown += '```\n\n';
+
+  markdown += `## Structure\n\n`;
+  markdown += `- **contracts/**: Smart contract source files\n`;
+  markdown += `- **test/**: Test suites (Mocha + Chai)\n`;
+  markdown += `- **hardhat.config.ts**: Hardhat configuration with fhEVM network\n`;
+  markdown += `- **package.json**: Project dependencies and scripts\n\n`;
+
+  markdown += `## Contracts\n\n`;
+  for (const contractName of contractNames) {
+    markdown += `- 
+`${contractName}.sol
+`
+: Main implementation\n`;
+  }
+  markdown += '\n';
+
+  markdown += `## Development\n\n`;
+  markdown += '### Compile\n\n';
+  markdown += '```bash\n';
+  markdown += 'npm run compile\n';
+  markdown += '```\n\n';
+
+  markdown += '### Test\n\n';
+  markdown += '```bash\n';
+  markdown += 'npm test\n';
+  markdown += '```\n\n';
+
+  markdown += '### Format\n\n';
+  markdown += '```bash\n';
+  markdown += 'npm run format\n';
+  markdown += '```\n\n';
+
+  markdown += `## References\n\n`;
+  markdown += `- [fhEVM Documentation](https://docs.zama.ai/fhevm)\n`;
+  markdown += `- [TFHE.sol API](https://github.com/zama-ai/fhevm/tree/main/lib)\n`;
+  markdown += `- [fhEVM Playground Pro](https://github.com/YOUR_GITHU

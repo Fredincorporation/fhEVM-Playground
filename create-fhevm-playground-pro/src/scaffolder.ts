@@ -185,14 +185,160 @@ export function isMockedMode() {
     }
   }
 
-  // Update package.json name and description
+  // Update package.json name and description, and add postinstall script
   const pkgPath = path.join(projectDir, 'package.json');
   if (fs.existsSync(pkgPath)) {
     const pkg = fs.readJsonSync(pkgPath);
     pkg.name = options.name;
     pkg.description = `${options.category} - fhEVM example (scaffolded)`;
+    // Add postinstall script to inject fhEVM shims after npm install
+    if (!pkg.scripts) pkg.scripts = {};
+    pkg.scripts.postinstall = 'node -e "require(\'./scripts/inject-shims.js\')()"';
     fs.writeJsonSync(pkgPath, pkg, { spaces: 2 });
   }
+
+  // Create scripts/inject-shims.js to run after npm install
+  const scriptsDir = path.join(projectDir, 'scripts');
+  if (!fs.existsSync(scriptsDir)) {
+    fs.mkdirSync(scriptsDir, { recursive: true });
+  }
+  const injectShimsPath = path.join(scriptsDir, 'inject-shims.js');
+  const injectShimsContent = `const fs = require('fs');
+const path = require('path');
+
+module.exports = function() {
+  const projectDir = path.dirname(path.dirname(__filename));
+  const fhevmDir = path.join(projectDir, 'node_modules', 'fhevm');
+  const abstractsDir = path.join(fhevmDir, 'abstracts');
+  const libDir = path.join(fhevmDir, 'lib');
+
+  // Create directory structure
+  if (!fs.existsSync(abstractsDir)) {
+    fs.mkdirSync(abstractsDir, { recursive: true });
+  }
+  if (!fs.existsSync(libDir)) {
+    fs.mkdirSync(libDir, { recursive: true });
+  }
+
+  // EIP712WithModifier.sol
+  const eip712Content = \`// SPDX-License-Identifier: MIT
+pragma solidity 0.8.24;
+
+/**
+ * Minimal shim of EIP712WithModifier for local compilation/testing only.
+ * Provides a constructor and a \\\`onlySignedPublicKey\\\` modifier used by examples.
+ */
+abstract contract EIP712WithModifier {
+    constructor(string memory /*name*/, string memory /*version*/) {}
+
+    modifier onlySignedPublicKey(bytes calldata /*signature*/) {
+        _;
+    }
+}
+\`;
+  fs.writeFileSync(path.join(abstractsDir, 'EIP712WithModifier.sol'), eip712Content, 'utf-8');
+
+  // Reencrypt.sol
+  const reencryptContent = \`// SPDX-License-Identifier: MIT
+pragma solidity 0.8.24;
+
+/**
+ * Minimal Reencrypt shim used by example contracts. In the real fhEVM
+ * this contract provides reencryption utilities and modifiers. For local
+ * testing we provide a no-op placeholder.
+ */
+abstract contract Reencrypt {
+    // Placeholder hook for reencryption initialization if examples call it
+    function _reencryptHook() internal virtual {}
+}
+\`;
+  fs.writeFileSync(path.join(abstractsDir, 'Reencrypt.sol'), reencryptContent, 'utf-8');
+
+  // TFHE.sol
+  const tfheContent = \`// SPDX-License-Identifier: MIT
+pragma solidity 0.8.24;
+
+// Minimal shim for fhevm TFHE types and functions so examples compile locally.
+// Mirrors the \\\`fhEVM\\\` shim but placed at \\\`fhevm/lib/TFHE.sol\\\` to match imports.
+
+type euint32 is uint32;
+type ebool is bool;
+
+library TFHE {
+    function asEuint32(uint32 x) internal pure returns (euint32) {
+        return euint32.wrap(x);
+    }
+
+    function add(euint32 a, euint32 b) internal pure returns (euint32) {
+        return euint32.wrap(euint32.unwrap(a) + euint32.unwrap(b));
+    }
+
+    function add(euint32 a, uint32 b) internal pure returns (euint32) {
+        return euint32.wrap(euint32.unwrap(a) + b);
+    }
+
+    function sub(euint32 a, euint32 b) internal pure returns (euint32) {
+        return euint32.wrap(euint32.unwrap(a) - euint32.unwrap(b));
+    }
+
+    function sub(euint32 a, uint32 b) internal pure returns (euint32) {
+        return euint32.wrap(euint32.unwrap(a) - b);
+    }
+
+    function mul(euint32 a, euint32 b) internal pure returns (euint32) {
+        return euint32.wrap(euint32.unwrap(a) * euint32.unwrap(b));
+    }
+
+    function mul(euint32 a, uint32 b) internal pure returns (euint32) {
+        return euint32.wrap(euint32.unwrap(a) * b);
+    }
+
+    function gt(euint32 a, euint32 b) internal pure returns (ebool) {
+        return ebool.wrap(euint32.unwrap(a) > euint32.unwrap(b));
+    }
+
+    function ge(euint32 a, euint32 b) internal pure returns (ebool) {
+        return ebool.wrap(euint32.unwrap(a) >= euint32.unwrap(b));
+    }
+
+    function lt(euint32 a, euint32 b) internal pure returns (ebool) {
+        return ebool.wrap(euint32.unwrap(a) < euint32.unwrap(b));
+    }
+
+    function le(euint32 a, euint32 b) internal pure returns (ebool) {
+        return ebool.wrap(euint32.unwrap(a) <= euint32.unwrap(b));
+    }
+
+    function eq(euint32 a, euint32 b) internal pure returns (ebool) {
+        return ebool.wrap(euint32.unwrap(a) == euint32.unwrap(b));
+    }
+
+    function and(ebool a, ebool b) internal pure returns (ebool) {
+        return ebool.wrap(ebool.unwrap(a) && ebool.unwrap(b));
+    }
+
+    function or(ebool a, ebool b) internal pure returns (ebool) {
+        return ebool.wrap(ebool.unwrap(a) || ebool.unwrap(b));
+    }
+
+    // Helper for tests: treat encrypted zero as plaintext zero (not secure)
+    function isZero(euint32 a) internal pure returns (bool) {
+        return euint32.unwrap(a) == 0;
+    }
+
+    function select(ebool cond, euint32 a, euint32 b) internal pure returns (euint32) {
+        return ebool.unwrap(cond) ? a : b;
+    }
+
+    function decrypt(euint32 a) internal pure returns (uint32) {
+        return euint32.unwrap(a);
+    }
+}
+\`;
+  fs.writeFileSync(path.join(libDir, 'TFHE.sol'), tfheContent, 'utf-8');
+};
+`;
+  fs.writeFileSync(injectShimsPath, injectShimsContent, 'utf-8');
 
   // Update README to mention category
   const readmePath = path.join(projectDir, 'README.md');

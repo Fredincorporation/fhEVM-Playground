@@ -535,6 +535,8 @@ function setupScrollToTop() {
     });
 }
 
+// Codespaces badge uses direct GitHub Codespaces URL; no local autorun interception.
+
 // ============================================================================
 // Smooth Scroll for Internal Links
 // ============================================================================
