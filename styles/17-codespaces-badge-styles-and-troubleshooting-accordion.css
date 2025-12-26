@@ -11,6 +11,33 @@
     gap: var(--spacing-md);
     color: var(--color-gold-light);
 }
+
+/* Desktop-only: align left and scale badge to 150% */
+@media (min-width: 801px) {
+    .codespaces-card { align-items:flex-start; }
+    .codespaces-card-inner { display: flex; flex-direction: column; align-items: flex-start; text-align: left; }
+    .codespaces-badge-wrap {
+        justify-content: flex-start;
+        width: auto;
+        margin-top: 0;
+        align-self:flex-start;
+        margin-left: 0;
+    }
+    .codespaces-badge-wrap a {
+        padding: 8px 10px;
+        display:inline-flex;
+    }
+    .codespaces-badge-wrap .codespaces-badge-large {
+        transform: scale(1.5);
+        transform-origin: left center;
+        width: auto;
+        max-width: none;
+        height: auto;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+        margin: 0;
+        display:block;
+    }
+}
 .codespaces-card-inner { flex:1 1 320px; min-width: 220px; }
 .codespaces-card-title { font-weight:800; color:var(--color-gold); margin-bottom:6px; }
 .codespaces-card-desc { margin-bottom:8px; color:#EEE; }
