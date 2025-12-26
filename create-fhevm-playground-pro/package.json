@@ -1,0 +1,48 @@
+{
+  "name": "create-fhevm-playground-pro",
+  "version": "1.0.41",
+  "description": "Premium scaffolding CLI for fhEVM Playground Pro – Zama bounty",
+  "main": "dist/create-example.js",
+  "bin": {
+    "create-fhevm-playground-pro": "./dist/create-example.js"
+  },
+  "files": [
+    "dist/",
+    "base-template/"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "test": "hardhat test"
+  },
+  "keywords": [
+    "fhEVM",
+    "FHE",
+    "scaffold",
+    "cli",
+    "zama"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^11.0.0",
+    "fs-extra": "^11.1.1",
+    "inquirer": "^9.2.7"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.1.0",
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "@types/fs-extra": "^11.0.1",
+    "@types/inquirer": "^9.0.6",
+    "@types/node": "^20.19.27",
+    "chai": "^4.5.0",
+    "ethers": "^6.16.0",
+    "hardhat": "^3.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

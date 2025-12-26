@@ -1,0 +1,30 @@
+{
+  "name": "fhEVM-example-template",
+  "version": "0.1.0",
+  "description": "Base template for fhEVM example projects",
+  "scripts": {
+    "test": "hardhat compile && (ls test/*.test.* >/dev/null 2>&1 && NODE_NO_WARNINGS=1 TS_NODE_TRANSPILE_ONLY=true mocha -r ts-node/register/transpile-only -r hardhat/register 'test/**/*.test.ts' 2>&1 | grep -v MODULE_TYPELESS || echo 'No test files found')",
+    "compile": "hardhat compile"
+  },
+  "dependencies": {
+    "fhevm": "^0.6.2"
+  },
+  "devDependencies": {
+    "hardhat": "^2.19.4",
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
+    "@nomicfoundation/hardhat-ethers": "^3.0.0",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.0",
+    "@typechain/ethers-v6": "^0.5.0",
+    "@typechain/hardhat": "^9.0.0",
+    "@types/mocha": ">=9.1.0",
+    "chai": "^4.3.10",
+    "ethers": "^6.10.0",
+    "hardhat-gas-reporter": "^1.0.8",
+    "solidity-coverage": "^0.8.1",
+    "typechain": "^8.3.0",
+    "typescript": "^5.5.0",
+    "ts-node": "^10.9.1"
+  }
+}

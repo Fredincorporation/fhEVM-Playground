@@ -1,0 +1,456 @@
+Manual smoke test run started: Fri 26 Dec 2025 04:27:23 PM WAT
+\n=== access-control-premium -> temp-access-control ===
+[temp-access-control] 
+[temp-access-control] 🚀 fhEVM Playground Pro - Project Generator
+[temp-access-control] 
+[temp-access-control] Found central-repo example at /home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/access-control-premium
+[temp-access-control] Overlaid contracts from access-control-premium
+[temp-access-control] Overlaid tests from access-control-premium
+[temp-access-control] Project scaffolded at /home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-access-control
+[temp-access-control] 
+[temp-access-control] ✅ Project created successfully!
+[temp-access-control] 
+[temp-access-control] Next steps:
+[temp-access-control]   cd temp-access-control
+[temp-access-control]   npm install
+[temp-access-control]   npm run test
+[temp-access-control] 
+[temp-access-control] npm install
+[temp-access-control] npm warn deprecated @npmcli/move-file@1.1.2: This functionality has been moved to @npmcli/fs
+[temp-access-control] npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+[temp-access-control] npm warn deprecated npmlog@6.0.2: This package is no longer supported.
+[temp-access-control] npm warn deprecated lodash.isequal@4.5.0: This package is deprecated. Use require('node:util').isDeepStrictEqual instead.
+[temp-access-control] npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+[temp-access-control] npm warn deprecated glob@8.1.0: Glob versions prior to v9 are no longer supported
+[temp-access-control] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-access-control] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-access-control] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-access-control] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-access-control] npm warn deprecated glob@5.0.15: Glob versions prior to v9 are no longer supported
+[temp-access-control] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-access-control] npm warn deprecated glob@7.1.7: Glob versions prior to v9 are no longer supported
+[temp-access-control] npm warn deprecated are-we-there-yet@3.0.1: This package is no longer supported.
+[temp-access-control] npm warn deprecated fhevm@0.6.2: Deprecated: use @fhevm/solidity instead.
+[temp-access-control] npm warn deprecated gauge@4.0.4: This package is no longer supported.
+[temp-access-control] 
+[temp-access-control] added 679 packages in 55s
+[temp-access-control] npm test
+[temp-access-control] Error HH404: File fhevm/abstracts/EIP712WithModifier.sol, imported from contracts/AccessControlPremium.sol, not found.
+[temp-access-control] 
+[temp-access-control] For more info go to https://v2.hardhat.org/HH404 or run Hardhat with --show-stack-traces
+\n=== anti-patterns-premium -> temp-anti-patterns ===
+[temp-anti-patterns] 
+[temp-anti-patterns] 🚀 fhEVM Playground Pro - Project Generator
+[temp-anti-patterns] 
+[temp-anti-patterns] ❌ Unknown category: anti-patterns
+[temp-anti-patterns] Available categories:
+[temp-anti-patterns] basic-counter, arithmetic, comparisons, single-encryption, access-control, input-verification-proofs, anti-patterns-guide, handles-lifecycle, oz-erc7984-basic, oz-erc20-wrapper, vesting, blind-auction, dao-voting-pro, private-lending-pro, blind-dex-pro, poker-game-pro, yield-farming-pro, mev-arbitrage-pro, confidential-stablecoin-pro
+[temp-anti-patterns] Scaffold failed, skipping install/test
+\n=== arithmetic-premium -> temp-arithmetic ===
+[temp-arithmetic] 
+[temp-arithmetic] 🚀 fhEVM Playground Pro - Project Generator
+[temp-arithmetic] 
+[temp-arithmetic] Found central-repo example at /home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/arithmetic-premium
+[temp-arithmetic] Overlaid contracts from arithmetic-premium
+[temp-arithmetic] Overlaid tests from arithmetic-premium
+[temp-arithmetic] Project scaffolded at /home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-arithmetic
+[temp-arithmetic] 
+[temp-arithmetic] ✅ Project created successfully!
+[temp-arithmetic] 
+[temp-arithmetic] Next steps:
+[temp-arithmetic]   cd temp-arithmetic
+[temp-arithmetic]   npm install
+[temp-arithmetic]   npm run test
+[temp-arithmetic] 
+[temp-arithmetic] npm install
+[temp-arithmetic] npm warn deprecated @npmcli/move-file@1.1.2: This functionality has been moved to @npmcli/fs
+[temp-arithmetic] npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+[temp-arithmetic] npm warn deprecated npmlog@6.0.2: This package is no longer supported.
+[temp-arithmetic] npm warn deprecated lodash.isequal@4.5.0: This package is deprecated. Use require('node:util').isDeepStrictEqual instead.
+[temp-arithmetic] npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+[temp-arithmetic] npm warn deprecated glob@8.1.0: Glob versions prior to v9 are no longer supported
+[temp-arithmetic] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-arithmetic] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-arithmetic] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-arithmetic] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-arithmetic] npm warn deprecated glob@5.0.15: Glob versions prior to v9 are no longer supported
+[temp-arithmetic] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-arithmetic] npm warn deprecated glob@7.1.7: Glob versions prior to v9 are no longer supported
+[temp-arithmetic] npm warn deprecated are-we-there-yet@3.0.1: This package is no longer supported.
+[temp-arithmetic] npm warn deprecated fhevm@0.6.2: Deprecated: use @fhevm/solidity instead.
+[temp-arithmetic] npm warn deprecated gauge@4.0.4: This package is no longer supported.
+[temp-arithmetic] 
+[temp-arithmetic] added 679 packages in 20s
+[temp-arithmetic] npm test
+[temp-arithmetic] Error HH404: File fhevm/abstracts/EIP712WithModifier.sol, imported from contracts/ArithmeticPremium.sol, not found.
+[temp-arithmetic] 
+[temp-arithmetic] For more info go to https://v2.hardhat.org/HH404 or run Hardhat with --show-stack-traces
+\n=== basic-counter-premium -> temp-basic-counter ===
+[temp-basic-counter] 
+[temp-basic-counter] 🚀 fhEVM Playground Pro - Project Generator
+[temp-basic-counter] 
+[temp-basic-counter] Found central-repo example at /home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/basic-counter-premium
+[temp-basic-counter] Overlaid contracts from basic-counter-premium
+[temp-basic-counter] Overlaid tests from basic-counter-premium
+[temp-basic-counter] Project scaffolded at /home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-basic-counter
+[temp-basic-counter] 
+[temp-basic-counter] ✅ Project created successfully!
+[temp-basic-counter] 
+[temp-basic-counter] Next steps:
+[temp-basic-counter]   cd temp-basic-counter
+[temp-basic-counter]   npm install
+[temp-basic-counter]   npm run test
+[temp-basic-counter] 
+[temp-basic-counter] npm install
+[temp-basic-counter] npm warn deprecated @npmcli/move-file@1.1.2: This functionality has been moved to @npmcli/fs
+[temp-basic-counter] npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+[temp-basic-counter] npm warn deprecated npmlog@6.0.2: This package is no longer supported.
+[temp-basic-counter] npm warn deprecated lodash.isequal@4.5.0: This package is deprecated. Use require('node:util').isDeepStrictEqual instead.
+[temp-basic-counter] npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+[temp-basic-counter] npm warn deprecated glob@8.1.0: Glob versions prior to v9 are no longer supported
+[temp-basic-counter] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-basic-counter] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-basic-counter] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-basic-counter] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-basic-counter] npm warn deprecated glob@5.0.15: Glob versions prior to v9 are no longer supported
+[temp-basic-counter] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-basic-counter] npm warn deprecated glob@7.1.7: Glob versions prior to v9 are no longer supported
+[temp-basic-counter] npm warn deprecated are-we-there-yet@3.0.1: This package is no longer supported.
+[temp-basic-counter] npm warn deprecated fhevm@0.6.2: Deprecated: use @fhevm/solidity instead.
+[temp-basic-counter] npm warn deprecated gauge@4.0.4: This package is no longer supported.
+[temp-basic-counter] 
+[temp-basic-counter] added 679 packages in 19s
+[temp-basic-counter] npm test
+[temp-basic-counter] Error HH404: File fhevm/abstracts/EIP712WithModifier.sol, imported from contracts/BasicCounterPremium.sol, not found.
+[temp-basic-counter] 
+[temp-basic-counter] For more info go to https://v2.hardhat.org/HH404 or run Hardhat with --show-stack-traces
+\n=== blind-auction-premium -> temp-blind-auction ===
+[temp-blind-auction] 
+[temp-blind-auction] 🚀 fhEVM Playground Pro - Project Generator
+[temp-blind-auction] 
+[temp-blind-auction] Found central-repo example at /home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/blind-auction-premium
+[temp-blind-auction] Overlaid contracts from blind-auction-premium
+[temp-blind-auction] Overlaid tests from blind-auction-premium
+[temp-blind-auction] Project scaffolded at /home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-blind-auction
+[temp-blind-auction] 
+[temp-blind-auction] ✅ Project created successfully!
+[temp-blind-auction] 
+[temp-blind-auction] Next steps:
+[temp-blind-auction]   cd temp-blind-auction
+[temp-blind-auction]   npm install
+[temp-blind-auction]   npm run test
+[temp-blind-auction] 
+[temp-blind-auction] npm install
+[temp-blind-auction] npm warn deprecated @npmcli/move-file@1.1.2: This functionality has been moved to @npmcli/fs
+[temp-blind-auction] npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+[temp-blind-auction] npm warn deprecated npmlog@6.0.2: This package is no longer supported.
+[temp-blind-auction] npm warn deprecated lodash.isequal@4.5.0: This package is deprecated. Use require('node:util').isDeepStrictEqual instead.
+[temp-blind-auction] npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+[temp-blind-auction] npm warn deprecated glob@8.1.0: Glob versions prior to v9 are no longer supported
+[temp-blind-auction] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-blind-auction] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-blind-auction] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-blind-auction] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-blind-auction] npm warn deprecated glob@5.0.15: Glob versions prior to v9 are no longer supported
+[temp-blind-auction] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-blind-auction] npm warn deprecated glob@7.1.7: Glob versions prior to v9 are no longer supported
+[temp-blind-auction] npm warn deprecated are-we-there-yet@3.0.1: This package is no longer supported.
+[temp-blind-auction] npm warn deprecated fhevm@0.6.2: Deprecated: use @fhevm/solidity instead.
+[temp-blind-auction] npm warn deprecated gauge@4.0.4: This package is no longer supported.
+[temp-blind-auction] 
+[temp-blind-auction] added 679 packages in 20s
+[temp-blind-auction] npm test
+[temp-blind-auction] Compiled 4 Solidity files successfully (evm target: paris).
+[temp-blind-auction] (node:2420390) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/bigfred/Documents/GitHub/fhEVM%20Playground/create-fhevm-playground-pro/temp-blind-auction/test/blind-auction-premium.test.ts is not specified and it doesn't parse as CommonJS.
+[temp-blind-auction] Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+[temp-blind-auction] To eliminate this warning, add "type": "module" to /home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-blind-auction/package.json.
+[temp-blind-auction] (Use `node --trace-warnings ...` to show where the warning was created)
+[temp-blind-auction] 
+[temp-blind-auction] 
+[temp-blind-auction]   BlindAuctionPremium
+[temp-blind-auction]     - accepts encrypted bids and records bidders
+[temp-blind-auction]     - owner can close bidding and finalize with a provided winner
+[temp-blind-auction] 
+[temp-blind-auction] 
+[temp-blind-auction]   0 passing (4ms)
+[temp-blind-auction]   2 pending
+[temp-blind-auction] 
+\n=== blind-dex-premium -> temp-blind-dex ===
+[temp-blind-dex] 
+[temp-blind-dex] 🚀 fhEVM Playground Pro - Project Generator
+[temp-blind-dex] 
+[temp-blind-dex] ❌ Unknown category: blind-dex
+[temp-blind-dex] Available categories:
+[temp-blind-dex] basic-counter, arithmetic, comparisons, single-encryption, access-control, input-verification-proofs, anti-patterns-guide, handles-lifecycle, oz-erc7984-basic, oz-erc20-wrapper, vesting, blind-auction, dao-voting-pro, private-lending-pro, blind-dex-pro, poker-game-pro, yield-farming-pro, mev-arbitrage-pro, confidential-stablecoin-pro
+[temp-blind-dex] Scaffold failed, skipping install/test
+\n=== comparisons-premium -> temp-comparisons ===
+[temp-comparisons] 
+[temp-comparisons] 🚀 fhEVM Playground Pro - Project Generator
+[temp-comparisons] 
+[temp-comparisons] Found central-repo example at /home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/comparisons-premium
+[temp-comparisons] Overlaid contracts from comparisons-premium
+[temp-comparisons] Overlaid tests from comparisons-premium
+[temp-comparisons] Project scaffolded at /home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-comparisons
+[temp-comparisons] 
+[temp-comparisons] ✅ Project created successfully!
+[temp-comparisons] 
+[temp-comparisons] Next steps:
+[temp-comparisons]   cd temp-comparisons
+[temp-comparisons]   npm install
+[temp-comparisons]   npm run test
+[temp-comparisons] 
+[temp-comparisons] npm install
+[temp-comparisons] npm warn deprecated @npmcli/move-file@1.1.2: This functionality has been moved to @npmcli/fs
+[temp-comparisons] npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+[temp-comparisons] npm warn deprecated npmlog@6.0.2: This package is no longer supported.
+[temp-comparisons] npm warn deprecated lodash.isequal@4.5.0: This package is deprecated. Use require('node:util').isDeepStrictEqual instead.
+[temp-comparisons] npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+[temp-comparisons] npm warn deprecated glob@8.1.0: Glob versions prior to v9 are no longer supported
+[temp-comparisons] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-comparisons] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-comparisons] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-comparisons] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-comparisons] npm warn deprecated glob@5.0.15: Glob versions prior to v9 are no longer supported
+[temp-comparisons] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-comparisons] npm warn deprecated glob@7.1.7: Glob versions prior to v9 are no longer supported
+[temp-comparisons] npm warn deprecated are-we-there-yet@3.0.1: This package is no longer supported.
+[temp-comparisons] npm warn deprecated fhevm@0.6.2: Deprecated: use @fhevm/solidity instead.
+[temp-comparisons] npm warn deprecated gauge@4.0.4: This package is no longer supported.
+[temp-comparisons] 
+[temp-comparisons] added 679 packages in 19s
+[temp-comparisons] npm test
+[temp-comparisons] Error HH404: File fhevm/abstracts/EIP712WithModifier.sol, imported from contracts/ComparisonsPremium.sol, not found.
+[temp-comparisons] 
+[temp-comparisons] For more info go to https://v2.hardhat.org/HH404 or run Hardhat with --show-stack-traces
+\n=== confidential-stablecoin-premium -> temp-confidential-stablecoin ===
+[temp-confidential-stablecoin] 
+[temp-confidential-stablecoin] 🚀 fhEVM Playground Pro - Project Generator
+[temp-confidential-stablecoin] 
+[temp-confidential-stablecoin] ❌ Unknown category: confidential-stablecoin
+[temp-confidential-stablecoin] Available categories:
+[temp-confidential-stablecoin] basic-counter, arithmetic, comparisons, single-encryption, access-control, input-verification-proofs, anti-patterns-guide, handles-lifecycle, oz-erc7984-basic, oz-erc20-wrapper, vesting, blind-auction, dao-voting-pro, private-lending-pro, blind-dex-pro, poker-game-pro, yield-farming-pro, mev-arbitrage-pro, confidential-stablecoin-pro
+[temp-confidential-stablecoin] Scaffold failed, skipping install/test
+\n=== dao-voting-premium -> temp-dao-voting ===
+[temp-dao-voting] 
+[temp-dao-voting] 🚀 fhEVM Playground Pro - Project Generator
+[temp-dao-voting] 
+[temp-dao-voting] ❌ Unknown category: dao-voting
+[temp-dao-voting] Available categories:
+[temp-dao-voting] basic-counter, arithmetic, comparisons, single-encryption, access-control, input-verification-proofs, anti-patterns-guide, handles-lifecycle, oz-erc7984-basic, oz-erc20-wrapper, vesting, blind-auction, dao-voting-pro, private-lending-pro, blind-dex-pro, poker-game-pro, yield-farming-pro, mev-arbitrage-pro, confidential-stablecoin-pro
+[temp-dao-voting] Scaffold failed, skipping install/test
+\n=== encrypted-poker-premium -> temp-encrypted-poker ===
+[temp-encrypted-poker] 
+[temp-encrypted-poker] 🚀 fhEVM Playground Pro - Project Generator
+[temp-encrypted-poker] 
+[temp-encrypted-poker] ❌ Unknown category: encrypted-poker
+[temp-encrypted-poker] Available categories:
+[temp-encrypted-poker] basic-counter, arithmetic, comparisons, single-encryption, access-control, input-verification-proofs, anti-patterns-guide, handles-lifecycle, oz-erc7984-basic, oz-erc20-wrapper, vesting, blind-auction, dao-voting-pro, private-lending-pro, blind-dex-pro, poker-game-pro, yield-farming-pro, mev-arbitrage-pro, confidential-stablecoin-pro
+[temp-encrypted-poker] Scaffold failed, skipping install/test
+\n=== erc7984-premium -> temp-erc7984 ===
+[temp-erc7984] 
+[temp-erc7984] 🚀 fhEVM Playground Pro - Project Generator
+[temp-erc7984] 
+[temp-erc7984] ❌ Unknown category: erc7984
+[temp-erc7984] Available categories:
+[temp-erc7984] basic-counter, arithmetic, comparisons, single-encryption, access-control, input-verification-proofs, anti-patterns-guide, handles-lifecycle, oz-erc7984-basic, oz-erc20-wrapper, vesting, blind-auction, dao-voting-pro, private-lending-pro, blind-dex-pro, poker-game-pro, yield-farming-pro, mev-arbitrage-pro, confidential-stablecoin-pro
+[temp-erc7984] Scaffold failed, skipping install/test
+\n=== handles-lifecycle-premium -> temp-handles-lifecycle ===
+[temp-handles-lifecycle] 
+[temp-handles-lifecycle] 🚀 fhEVM Playground Pro - Project Generator
+[temp-handles-lifecycle] 
+[temp-handles-lifecycle] Found central-repo example at /home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/handles-lifecycle-premium
+[temp-handles-lifecycle] Overlaid contracts from handles-lifecycle-premium
+[temp-handles-lifecycle] Overlaid tests from handles-lifecycle-premium
+[temp-handles-lifecycle] Project scaffolded at /home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-handles-lifecycle
+[temp-handles-lifecycle] 
+[temp-handles-lifecycle] ✅ Project created successfully!
+[temp-handles-lifecycle] 
+[temp-handles-lifecycle] Next steps:
+[temp-handles-lifecycle]   cd temp-handles-lifecycle
+[temp-handles-lifecycle]   npm install
+[temp-handles-lifecycle]   npm run test
+[temp-handles-lifecycle] 
+[temp-handles-lifecycle] npm install
+[temp-handles-lifecycle] npm warn deprecated @npmcli/move-file@1.1.2: This functionality has been moved to @npmcli/fs
+[temp-handles-lifecycle] npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+[temp-handles-lifecycle] npm warn deprecated npmlog@6.0.2: This package is no longer supported.
+[temp-handles-lifecycle] npm warn deprecated lodash.isequal@4.5.0: This package is deprecated. Use require('node:util').isDeepStrictEqual instead.
+[temp-handles-lifecycle] npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+[temp-handles-lifecycle] npm warn deprecated glob@8.1.0: Glob versions prior to v9 are no longer supported
+[temp-handles-lifecycle] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-handles-lifecycle] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-handles-lifecycle] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-handles-lifecycle] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-handles-lifecycle] npm warn deprecated glob@5.0.15: Glob versions prior to v9 are no longer supported
+[temp-handles-lifecycle] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-handles-lifecycle] npm warn deprecated glob@7.1.7: Glob versions prior to v9 are no longer supported
+[temp-handles-lifecycle] npm warn deprecated are-we-there-yet@3.0.1: This package is no longer supported.
+[temp-handles-lifecycle] npm warn deprecated fhevm@0.6.2: Deprecated: use @fhevm/solidity instead.
+[temp-handles-lifecycle] npm warn deprecated gauge@4.0.4: This package is no longer supported.
+[temp-handles-lifecycle] 
+[temp-handles-lifecycle] added 679 packages in 20s
+[temp-handles-lifecycle] npm test
+[temp-handles-lifecycle] Compiled 4 Solidity files successfully (evm target: paris).
+[temp-handles-lifecycle] (node:2422862) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/bigfred/Documents/GitHub/fhEVM%20Playground/create-fhevm-playground-pro/temp-handles-lifecycle/test/handles-lifecycle-premium.test.ts is not specified and it doesn't parse as CommonJS.
+[temp-handles-lifecycle] Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+[temp-handles-lifecycle] To eliminate this warning, add "type": "module" to /home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-handles-lifecycle/package.json.
+[temp-handles-lifecycle] (Use `node --trace-warnings ...` to show where the warning was created)
+[temp-handles-lifecycle] 
+[temp-handles-lifecycle] 
+[temp-handles-lifecycle]   HandlesLifecyclePremium
+[temp-handles-lifecycle]     - creates a handle and exposes owner before expiry
+[temp-handles-lifecycle]     - transfers a handle to another owner
+[temp-handles-lifecycle]     - expires handle after ttl and metadata becomes inaccessible
+[temp-handles-lifecycle] 
+[temp-handles-lifecycle] 
+[temp-handles-lifecycle]   0 passing (4ms)
+[temp-handles-lifecycle]   3 pending
+[temp-handles-lifecycle] 
+\n=== input-proofs-premium -> temp-input-proofs ===
+[temp-input-proofs] 
+[temp-input-proofs] 🚀 fhEVM Playground Pro - Project Generator
+[temp-input-proofs] 
+[temp-input-proofs] ❌ Unknown category: input-proofs
+[temp-input-proofs] Available categories:
+[temp-input-proofs] basic-counter, arithmetic, comparisons, single-encryption, access-control, input-verification-proofs, anti-patterns-guide, handles-lifecycle, oz-erc7984-basic, oz-erc20-wrapper, vesting, blind-auction, dao-voting-pro, private-lending-pro, blind-dex-pro, poker-game-pro, yield-farming-pro, mev-arbitrage-pro, confidential-stablecoin-pro
+[temp-input-proofs] Scaffold failed, skipping install/test
+\n=== mev-arbitrage-premium -> temp-mev-arbitrage ===
+[temp-mev-arbitrage] 
+[temp-mev-arbitrage] 🚀 fhEVM Playground Pro - Project Generator
+[temp-mev-arbitrage] 
+[temp-mev-arbitrage] ❌ Unknown category: mev-arbitrage
+[temp-mev-arbitrage] Available categories:
+[temp-mev-arbitrage] basic-counter, arithmetic, comparisons, single-encryption, access-control, input-verification-proofs, anti-patterns-guide, handles-lifecycle, oz-erc7984-basic, oz-erc20-wrapper, vesting, blind-auction, dao-voting-pro, private-lending-pro, blind-dex-pro, poker-game-pro, yield-farming-pro, mev-arbitrage-pro, confidential-stablecoin-pro
+[temp-mev-arbitrage] Scaffold failed, skipping install/test
+\n=== private-erc20-premium -> temp-private-erc20 ===
+[temp-private-erc20] 
+[temp-private-erc20] 🚀 fhEVM Playground Pro - Project Generator
+[temp-private-erc20] 
+[temp-private-erc20] ❌ Unknown category: private-erc20
+[temp-private-erc20] Available categories:
+[temp-private-erc20] basic-counter, arithmetic, comparisons, single-encryption, access-control, input-verification-proofs, anti-patterns-guide, handles-lifecycle, oz-erc7984-basic, oz-erc20-wrapper, vesting, blind-auction, dao-voting-pro, private-lending-pro, blind-dex-pro, poker-game-pro, yield-farming-pro, mev-arbitrage-pro, confidential-stablecoin-pro
+[temp-private-erc20] Scaffold failed, skipping install/test
+\n=== private-lending-premium -> temp-private-lending ===
+[temp-private-lending] 
+[temp-private-lending] 🚀 fhEVM Playground Pro - Project Generator
+[temp-private-lending] 
+[temp-private-lending] ❌ Unknown category: private-lending
+[temp-private-lending] Available categories:
+[temp-private-lending] basic-counter, arithmetic, comparisons, single-encryption, access-control, input-verification-proofs, anti-patterns-guide, handles-lifecycle, oz-erc7984-basic, oz-erc20-wrapper, vesting, blind-auction, dao-voting-pro, private-lending-pro, blind-dex-pro, poker-game-pro, yield-farming-pro, mev-arbitrage-pro, confidential-stablecoin-pro
+[temp-private-lending] Scaffold failed, skipping install/test
+\n=== private-yield-premium -> temp-private-yield ===
+[temp-private-yield] 
+[temp-private-yield] 🚀 fhEVM Playground Pro - Project Generator
+[temp-private-yield] 
+[temp-private-yield] ❌ Unknown category: private-yield
+[temp-private-yield] Available categories:
+[temp-private-yield] basic-counter, arithmetic, comparisons, single-encryption, access-control, input-verification-proofs, anti-patterns-guide, handles-lifecycle, oz-erc7984-basic, oz-erc20-wrapper, vesting, blind-auction, dao-voting-pro, private-lending-pro, blind-dex-pro, poker-game-pro, yield-farming-pro, mev-arbitrage-pro, confidential-stablecoin-pro
+[temp-private-yield] Scaffold failed, skipping install/test
+\n=== public-encryption-premium -> temp-public-encryption ===
+[temp-public-encryption] 
+[temp-public-encryption] 🚀 fhEVM Playground Pro - Project Generator
+[temp-public-encryption] 
+[temp-public-encryption] ❌ Unknown category: public-encryption
+[temp-public-encryption] Available categories:
+[temp-public-encryption] basic-counter, arithmetic, comparisons, single-encryption, access-control, input-verification-proofs, anti-patterns-guide, handles-lifecycle, oz-erc7984-basic, oz-erc20-wrapper, vesting, blind-auction, dao-voting-pro, private-lending-pro, blind-dex-pro, poker-game-pro, yield-farming-pro, mev-arbitrage-pro, confidential-stablecoin-pro
+[temp-public-encryption] Scaffold failed, skipping install/test
+\n=== single-encryption-premium -> temp-single-encryption ===
+[temp-single-encryption] 
+[temp-single-encryption] 🚀 fhEVM Playground Pro - Project Generator
+[temp-single-encryption] 
+[temp-single-encryption] Found central-repo example at /home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/single-encryption-premium
+[temp-single-encryption] Overlaid contracts from single-encryption-premium
+[temp-single-encryption] Overlaid tests from single-encryption-premium
+[temp-single-encryption] Project scaffolded at /home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-single-encryption
+[temp-single-encryption] 
+[temp-single-encryption] ✅ Project created successfully!
+[temp-single-encryption] 
+[temp-single-encryption] Next steps:
+[temp-single-encryption]   cd temp-single-encryption
+[temp-single-encryption]   npm install
+[temp-single-encryption]   npm run test
+[temp-single-encryption] 
+[temp-single-encryption] npm install
+[temp-single-encryption] npm warn deprecated @npmcli/move-file@1.1.2: This functionality has been moved to @npmcli/fs
+[temp-single-encryption] npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+[temp-single-encryption] npm warn deprecated npmlog@6.0.2: This package is no longer supported.
+[temp-single-encryption] npm warn deprecated lodash.isequal@4.5.0: This package is deprecated. Use require('node:util').isDeepStrictEqual instead.
+[temp-single-encryption] npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+[temp-single-encryption] npm warn deprecated glob@8.1.0: Glob versions prior to v9 are no longer supported
+[temp-single-encryption] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-single-encryption] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-single-encryption] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-single-encryption] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-single-encryption] npm warn deprecated glob@5.0.15: Glob versions prior to v9 are no longer supported
+[temp-single-encryption] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-single-encryption] npm warn deprecated glob@7.1.7: Glob versions prior to v9 are no longer supported
+[temp-single-encryption] npm warn deprecated are-we-there-yet@3.0.1: This package is no longer supported.
+[temp-single-encryption] npm warn deprecated fhevm@0.6.2: Deprecated: use @fhevm/solidity instead.
+[temp-single-encryption] npm warn deprecated gauge@4.0.4: This package is no longer supported.
+[temp-single-encryption] 
+[temp-single-encryption] added 679 packages in 19s
+[temp-single-encryption] npm test
+[temp-single-encryption] Error HH404: File fhevm/abstracts/EIP712WithModifier.sol, imported from contracts/SingleEncryptionPremium.sol, not found.
+[temp-single-encryption] 
+[temp-single-encryption] For more info go to https://v2.hardhat.org/HH404 or run Hardhat with --show-stack-traces
+\n=== swaps-premium -> temp-swaps ===
+[temp-swaps] 
+[temp-swaps] 🚀 fhEVM Playground Pro - Project Generator
+[temp-swaps] 
+[temp-swaps] ❌ Unknown category: swaps
+[temp-swaps] Available categories:
+[temp-swaps] basic-counter, arithmetic, comparisons, single-encryption, access-control, input-verification-proofs, anti-patterns-guide, handles-lifecycle, oz-erc7984-basic, oz-erc20-wrapper, vesting, blind-auction, dao-voting-pro, private-lending-pro, blind-dex-pro, poker-game-pro, yield-farming-pro, mev-arbitrage-pro, confidential-stablecoin-pro
+[temp-swaps] Scaffold failed, skipping install/test
+\n=== vesting-premium -> temp-vesting ===
+[temp-vesting] 
+[temp-vesting] 🚀 fhEVM Playground Pro - Project Generator
+[temp-vesting] 
+[temp-vesting] Found central-repo example at /home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/vesting-premium
+[temp-vesting] Overlaid contracts from vesting-premium
+[temp-vesting] Overlaid tests from vesting-premium
+[temp-vesting] Project scaffolded at /home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-vesting
+[temp-vesting] 
+[temp-vesting] ✅ Project created successfully!
+[temp-vesting] 
+[temp-vesting] Next steps:
+[temp-vesting]   cd temp-vesting
+[temp-vesting]   npm install
+[temp-vesting]   npm run test
+[temp-vesting] 
+[temp-vesting] npm install
+[temp-vesting] npm warn deprecated @npmcli/move-file@1.1.2: This functionality has been moved to @npmcli/fs
+[temp-vesting] npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+[temp-vesting] npm warn deprecated npmlog@6.0.2: This package is no longer supported.
+[temp-vesting] npm warn deprecated lodash.isequal@4.5.0: This package is deprecated. Use require('node:util').isDeepStrictEqual instead.
+[temp-vesting] npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+[temp-vesting] npm warn deprecated glob@8.1.0: Glob versions prior to v9 are no longer supported
+[temp-vesting] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-vesting] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-vesting] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-vesting] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-vesting] npm warn deprecated glob@5.0.15: Glob versions prior to v9 are no longer supported
+[temp-vesting] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[temp-vesting] npm warn deprecated glob@7.1.7: Glob versions prior to v9 are no longer supported
+[temp-vesting] npm warn deprecated are-we-there-yet@3.0.1: This package is no longer supported.
+[temp-vesting] npm warn deprecated fhevm@0.6.2: Deprecated: use @fhevm/solidity instead.
+[temp-vesting] npm warn deprecated gauge@4.0.4: This package is no longer supported.
+[temp-vesting] 
+[temp-vesting] added 679 packages in 19s
+[temp-vesting] npm test
+[temp-vesting] Compiled 4 Solidity files successfully (evm target: paris).
+[temp-vesting] (node:2425322) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/bigfred/Documents/GitHub/fhEVM%20Playground/create-fhevm-playground-pro/temp-vesting/test/vesting-premium.test.ts is not specified and it doesn't parse as CommonJS.
+[temp-vesting] Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+[temp-vesting] To eliminate this warning, add "type": "module" to /home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-vesting/package.json.
+[temp-vesting] (Use `node --trace-warnings ...` to show where the warning was created)
+[temp-vesting] 
+[temp-vesting] 
+[temp-vesting]   VestingPremium
+[temp-vesting]     - creates a vest and beneficiary can claim after release
+[temp-vesting]     - reverts if non-beneficiary tries to claim
+[temp-vesting] 
+[temp-vesting] 
+[temp-vesting]   0 passing (4ms)
+[temp-vesting]   2 pending
+[temp-vesting] 
+Manual smoke test run finished: Fri 26 Dec 2025 04:31:26 PM WAT
+-rw-rw-r-- 1 bigfred bigfred 36145 Dec 26 16:31 /home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/smoke-tests-manual.log

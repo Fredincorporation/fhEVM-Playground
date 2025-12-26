@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { ethers } from "hardhat";
 import type { AccessControlPremium } from "../typechain-types";
-import { getSignatureAndEncryption, initGateway, isMockedMode } from "../../../../scripts/test-helpers";
+import { getSignatureAndEncryption, initGateway, isMockedMode } from "../scripts/test-helpers";
 
 describe("AccessControlPremium - Tests", () => {
     let contract: AccessControlPremium;

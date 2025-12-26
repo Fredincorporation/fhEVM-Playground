@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import { ethers } from "hardhat";
-import { initGateway, getSignatureAndEncryption, isMockedMode } from "../../../../scripts/test-helpers";
+import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers";
 
 describe("VestingPremium", function () {
   let vesting: any;

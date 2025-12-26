@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { ethers } from "hardhat";
 import type { PublicEncryption } from "../typechain-types";
-import { getSignatureAndEncryption, initGateway, isMockedMode } from "../../../../scripts/test-helpers";
+import { getSignatureAndEncryption, initGateway, isMockedMode } from "../scripts/test-helpers";
 
 describe("PublicEncryptionPremium - Tests", () => {
     let contract: PublicEncryptionPremium;

@@ -1,10 +1,13 @@
 #!/usr/bin/env node
-
+/**
+ * CLI entry for create-fhevm-playground-pro
+ * Provides `create` and `guided` commands.
+ */
 import { Command } from 'commander';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
-import { createExample } from '../src/scaffolder.js';
-import { CATEGORIES } from '../src/templates-index.js';
+import { createExample } from './scaffolder.js';
+import { CATEGORIES } from './templates-index.js';
 
 const program = new Command();
 
@@ -22,7 +25,7 @@ program
   .action(async (options: any) => {
     try {
       console.log(chalk.cyan.bold('\n🚀 fhEVM Playground Pro - Project Generator\n'));
-      
+
       if (!CATEGORIES.find((cat: any) => cat.id === options.category)) {
         console.error(chalk.red(`❌ Unknown category: ${options.category}`));
         console.log(chalk.yellow(`Available categories:\n${CATEGORIES.map((c: any) => c.id).join(', ')}`));
@@ -35,40 +38,36 @@ program
         process.exit(1);
       }
 
-      await createExample({
-        name: options.name,
-        category: options.category,
-        isPro: options.pro || false,
-      });
+      await createExample({ name: options.name, category: options.category, isPro: !!options.pro });
 
       console.log(chalk.green.bold('\n✅ Project created successfully!\n'));
-      console.log(chalk.cyan(`Next steps:`));
+      console.log(chalk.cyan('Next steps:'));
       console.log(chalk.white(`  cd ${options.name}`));
-      console.log(chalk.white(`  npm install`));
-      console.log(chalk.white(`  npm run test\n`));
-    } catch (error) {
+      console.log(chalk.white('  npm install'));
+      console.log(chalk.white('  npm run test\n'));
+    } catch (error: any) {
       console.error(chalk.red(`\n❌ Error: ${error instanceof Error ? error.message : String(error)}\n`));
       process.exit(1);
     }
   });
 
+// Guided command per specification
 program
   .command('guided')
   .description('Interactive guided onboarding for fhEVM Playground Pro')
   .action(async () => {
     try {
-      // Clear and welcome
       console.clear();
       console.log(chalk.cyan.bold('🔒 Welcome to fhEVM Playground Pro 🔒'));
 
-      // Educational paragraph (exact text required)
+      // Exact educational paragraph
       console.log(
         chalk.white(
           "Fully Homomorphic Encryption (FHE) enables computation on encrypted data without decryption — a breakthrough for blockchain privacy. Zama's fhEVM brings this power to Ethereum-compatible chains, allowing confidential balances, private voting, blind auctions, MEV-resistant DeFi, and more, all while preserving verifiability. fhEVM Playground Pro is the premium, fully automated example hub built for Zama's December 2025 bounty: 12 core concept examples covering every fundamental + 7 innovative real-world Pro applications in confidential finance, governance, and gaming. Let's dive in and build something private!"
         )
       );
 
-      // Path selection
+      // Ask which path
       const { pathChoice } = await inquirer.prompt([
         {
           type: 'list',
@@ -76,12 +75,11 @@ program
           message: 'What would you like to explore first?',
           choices: [
             '1. Core Concepts (Master fhEVM fundamentals – 12 examples)',
-            '2. Innovative Pro Apps (Real-world confidential apps – 7 examples)',
-          ],
-        },
+            '2. Innovative Pro Apps (Real-world confidential apps – 7 examples)'
+          ]
+        }
       ]);
 
-      // Define example lists (display text + category id)
       const coreList = [
         { title: 'Basic Counter – Encrypted increment & view', id: 'basic-counter' },
         { title: 'Arithmetic Operations – Add, sub, mul on encrypted values', id: 'arithmetic' },
@@ -94,7 +92,7 @@ program
         { title: 'OpenZeppelin ERC7984 – Confidential tokens standard', id: 'oz-erc7984-basic' },
         { title: 'OZ Wrappers & Swaps – ERC20 ↔ Confidential conversions', id: 'oz-erc20-wrapper' },
         { title: 'Confidential Vesting Wallet', id: 'vesting' },
-        { title: 'Blind Auction Pro – Sealed encrypted bids', id: 'blind-auction' },
+        { title: 'Blind Auction Pro – Sealed encrypted bids', id: 'blind-auction' }
       ];
 
       const proList = [
@@ -104,10 +102,9 @@ program
         { title: 'Encrypted Poker Game – Hidden hands, fair on-chain play', id: 'poker-game-pro' },
         { title: 'Private Yield Farming – Confidential positions & rewards', id: 'yield-farming-pro' },
         { title: 'MEV-Resistant Arbitrage – Blind opportunity execution', id: 'mev-arbitrage-pro' },
-        { title: 'Confidential Stablecoin – Private mint/burn with compliance', id: 'confidential-stablecoin-pro' },
+        { title: 'Confidential Stablecoin – Private mint/burn with compliance', id: 'confidential-stablecoin-pro' }
       ];
 
-      // Show chosen list
       const chosenList = pathChoice.startsWith('1') ? coreList : proList;
 
       console.log('\n');
@@ -116,7 +113,6 @@ program
         console.log(`${chalk.cyan(num + '.')} ${chalk.white(item.title)}`);
       });
 
-      // Ask for selection by number
       const { selection } = await inquirer.prompt([
         {
           type: 'input',
@@ -125,13 +121,11 @@ program
           validate: (input: string) => {
             const n = Number(input);
             if (!Number.isInteger(n) || n < 1 || n > chosenList.length) {
-              return chalk.red(
-                `Please enter a number between 1 and ${chosenList.length}`
-              );
+              return `Please enter a number between 1 and ${chosenList.length}`;
             }
             return true;
-          },
-        },
+          }
+        }
       ]);
 
       const idx = Number(selection) - 1;
@@ -141,26 +135,37 @@ program
         process.exit(1);
       }
 
-      // Auto-generate project name from category id
       const projectName = `${chosen.id.replace(/[^a-z0-9-]/g, '')}-example`;
       const isPro = pathChoice.startsWith('2');
 
-      // Inform user and create
       console.log(chalk.cyan(`\nCreating example: ${chosen.title}`));
       try {
         await createExample({ name: projectName, category: chosen.id, isPro });
         console.log(chalk.green.bold(`\n✅ Created ${projectName}`));
-        console.log(chalk.cyan('\nNext steps:'));
-        console.log(chalk.white(`  cd ${projectName}`));
-        console.log(chalk.white('  npm install'));
-        console.log(chalk.white('  npm test  (use MOCK=true for mocked mode)'));
-        console.log(chalk.white('\n  To run with a real fhEVM node, see the project README or run the provided Docker script.'));
-        console.log(chalk.white('\nRun `npx create-fhevm-playground-pro guided` again to create another example.'));
-        console.log(chalk.white('\nProject site: https://example.com/fhevm-playground-pro (placeholder)\n'));
+        console.log(chalk.cyan('\nInstalling dependencies and running tests...\n'));
+        
+        // Import child_process to run commands
+        const { execSync } = await import('child_process');
+        
+        try {
+          // Change to project directory and run npm install + npm test
+          const cwd = projectName;
+          console.log(chalk.gray(`📦 Installing npm packages...`));
+          execSync('npm install', { cwd, stdio: 'inherit' });
+          
+          console.log(chalk.gray(`\n🧪 Running tests...\n`));
+          execSync('npm test', { cwd, stdio: 'inherit' });
+          
+          console.log(chalk.green.bold(`\n✅ All done! Your project is ready at: ${projectName}\n`));
+        } catch (err: any) {
+          console.error(chalk.yellow(`\n⚠️  Installation/test encountered an issue, but your project is created at: ${projectName}`));
+          console.error(chalk.gray(`You can manually run: cd ${projectName} && npm install && npm test\n`));
+        }
       } catch (err: any) {
         console.error(chalk.red.bold(`\n❌ Creation failed: ${err?.message || String(err)}`));
         process.exit(1);
       }
+
     } catch (err: any) {
       console.error(chalk.red(`\n❌ Error: ${err?.message || String(err)}`));
       process.exit(1);

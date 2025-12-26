@@ -1,0 +1,423 @@
+Smoke test run started: Fri 26 Dec 2025 04:26:35 PM WAT
+\n=== access-control-premium -> temp-access-control ===
+[temp-access-control] node:internal/modules/cjs/loader:1423
+[temp-access-control]   throw err;
+[temp-access-control]   ^
+[temp-access-control] 
+[temp-access-control] Error: Cannot find module '/home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-poker/dist/create-example.js'
+[temp-access-control]     at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)
+[temp-access-control]     at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)
+[temp-access-control]     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)
+[temp-access-control]     at Module._load (node:internal/modules/cjs/loader:1226:37)
+[temp-access-control]     at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+[temp-access-control]     at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+[temp-access-control]     at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+[temp-access-control]     at node:internal/main/run_main_module:33:47 {
+[temp-access-control]   code: 'MODULE_NOT_FOUND',
+[temp-access-control]   requireStack: []
+[temp-access-control] }
+[temp-access-control] 
+[temp-access-control] Node.js v24.11.0
+[temp-access-control] Scaffold failed, skipping install/test
+\n=== anti-patterns-premium -> temp-anti-patterns ===
+[temp-anti-patterns] node:internal/modules/cjs/loader:1423
+[temp-anti-patterns]   throw err;
+[temp-anti-patterns]   ^
+[temp-anti-patterns] 
+[temp-anti-patterns] Error: Cannot find module '/home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-poker/dist/create-example.js'
+[temp-anti-patterns]     at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)
+[temp-anti-patterns]     at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)
+[temp-anti-patterns]     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)
+[temp-anti-patterns]     at Module._load (node:internal/modules/cjs/loader:1226:37)
+[temp-anti-patterns]     at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+[temp-anti-patterns]     at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+[temp-anti-patterns]     at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+[temp-anti-patterns]     at node:internal/main/run_main_module:33:47 {
+[temp-anti-patterns]   code: 'MODULE_NOT_FOUND',
+[temp-anti-patterns]   requireStack: []
+[temp-anti-patterns] }
+[temp-anti-patterns] 
+[temp-anti-patterns] Node.js v24.11.0
+[temp-anti-patterns] Scaffold failed, skipping install/test
+\n=== arithmetic-premium -> temp-arithmetic ===
+[temp-arithmetic] node:internal/modules/cjs/loader:1423
+[temp-arithmetic]   throw err;
+[temp-arithmetic]   ^
+[temp-arithmetic] 
+[temp-arithmetic] Error: Cannot find module '/home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-poker/dist/create-example.js'
+[temp-arithmetic]     at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)
+[temp-arithmetic]     at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)
+[temp-arithmetic]     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)
+[temp-arithmetic]     at Module._load (node:internal/modules/cjs/loader:1226:37)
+[temp-arithmetic]     at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+[temp-arithmetic]     at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+[temp-arithmetic]     at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+[temp-arithmetic]     at node:internal/main/run_main_module:33:47 {
+[temp-arithmetic]   code: 'MODULE_NOT_FOUND',
+[temp-arithmetic]   requireStack: []
+[temp-arithmetic] }
+[temp-arithmetic] 
+[temp-arithmetic] Node.js v24.11.0
+[temp-arithmetic] Scaffold failed, skipping install/test
+\n=== basic-counter-premium -> temp-basic-counter ===
+[temp-basic-counter] node:internal/modules/cjs/loader:1423
+[temp-basic-counter]   throw err;
+[temp-basic-counter]   ^
+[temp-basic-counter] 
+[temp-basic-counter] Error: Cannot find module '/home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-poker/dist/create-example.js'
+[temp-basic-counter]     at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)
+[temp-basic-counter]     at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)
+[temp-basic-counter]     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)
+[temp-basic-counter]     at Module._load (node:internal/modules/cjs/loader:1226:37)
+[temp-basic-counter]     at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+[temp-basic-counter]     at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+[temp-basic-counter]     at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+[temp-basic-counter]     at node:internal/main/run_main_module:33:47 {
+[temp-basic-counter]   code: 'MODULE_NOT_FOUND',
+[temp-basic-counter]   requireStack: []
+[temp-basic-counter] }
+[temp-basic-counter] 
+[temp-basic-counter] Node.js v24.11.0
+[temp-basic-counter] Scaffold failed, skipping install/test
+\n=== blind-auction-premium -> temp-blind-auction ===
+[temp-blind-auction] node:internal/modules/cjs/loader:1423
+[temp-blind-auction]   throw err;
+[temp-blind-auction]   ^
+[temp-blind-auction] 
+[temp-blind-auction] Error: Cannot find module '/home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-poker/dist/create-example.js'
+[temp-blind-auction]     at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)
+[temp-blind-auction]     at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)
+[temp-blind-auction]     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)
+[temp-blind-auction]     at Module._load (node:internal/modules/cjs/loader:1226:37)
+[temp-blind-auction]     at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+[temp-blind-auction]     at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+[temp-blind-auction]     at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+[temp-blind-auction]     at node:internal/main/run_main_module:33:47 {
+[temp-blind-auction]   code: 'MODULE_NOT_FOUND',
+[temp-blind-auction]   requireStack: []
+[temp-blind-auction] }
+[temp-blind-auction] 
+[temp-blind-auction] Node.js v24.11.0
+[temp-blind-auction] Scaffold failed, skipping install/test
+\n=== blind-dex-premium -> temp-blind-dex ===
+[temp-blind-dex] node:internal/modules/cjs/loader:1423
+[temp-blind-dex]   throw err;
+[temp-blind-dex]   ^
+[temp-blind-dex] 
+[temp-blind-dex] Error: Cannot find module '/home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-poker/dist/create-example.js'
+[temp-blind-dex]     at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)
+[temp-blind-dex]     at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)
+[temp-blind-dex]     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)
+[temp-blind-dex]     at Module._load (node:internal/modules/cjs/loader:1226:37)
+[temp-blind-dex]     at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+[temp-blind-dex]     at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+[temp-blind-dex]     at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+[temp-blind-dex]     at node:internal/main/run_main_module:33:47 {
+[temp-blind-dex]   code: 'MODULE_NOT_FOUND',
+[temp-blind-dex]   requireStack: []
+[temp-blind-dex] }
+[temp-blind-dex] 
+[temp-blind-dex] Node.js v24.11.0
+[temp-blind-dex] Scaffold failed, skipping install/test
+\n=== comparisons-premium -> temp-comparisons ===
+[temp-comparisons] node:internal/modules/cjs/loader:1423
+[temp-comparisons]   throw err;
+[temp-comparisons]   ^
+[temp-comparisons] 
+[temp-comparisons] Error: Cannot find module '/home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-poker/dist/create-example.js'
+[temp-comparisons]     at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)
+[temp-comparisons]     at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)
+[temp-comparisons]     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)
+[temp-comparisons]     at Module._load (node:internal/modules/cjs/loader:1226:37)
+[temp-comparisons]     at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+[temp-comparisons]     at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+[temp-comparisons]     at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+[temp-comparisons]     at node:internal/main/run_main_module:33:47 {
+[temp-comparisons]   code: 'MODULE_NOT_FOUND',
+[temp-comparisons]   requireStack: []
+[temp-comparisons] }
+[temp-comparisons] 
+[temp-comparisons] Node.js v24.11.0
+[temp-comparisons] Scaffold failed, skipping install/test
+\n=== confidential-stablecoin-premium -> temp-confidential-stablecoin ===
+[temp-confidential-stablecoin] node:internal/modules/cjs/loader:1423
+[temp-confidential-stablecoin]   throw err;
+[temp-confidential-stablecoin]   ^
+[temp-confidential-stablecoin] 
+[temp-confidential-stablecoin] Error: Cannot find module '/home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-poker/dist/create-example.js'
+[temp-confidential-stablecoin]     at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)
+[temp-confidential-stablecoin]     at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)
+[temp-confidential-stablecoin]     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)
+[temp-confidential-stablecoin]     at Module._load (node:internal/modules/cjs/loader:1226:37)
+[temp-confidential-stablecoin]     at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+[temp-confidential-stablecoin]     at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+[temp-confidential-stablecoin]     at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+[temp-confidential-stablecoin]     at node:internal/main/run_main_module:33:47 {
+[temp-confidential-stablecoin]   code: 'MODULE_NOT_FOUND',
+[temp-confidential-stablecoin]   requireStack: []
+[temp-confidential-stablecoin] }
+[temp-confidential-stablecoin] 
+[temp-confidential-stablecoin] Node.js v24.11.0
+[temp-confidential-stablecoin] Scaffold failed, skipping install/test
+\n=== dao-voting-premium -> temp-dao-voting ===
+[temp-dao-voting] node:internal/modules/cjs/loader:1423
+[temp-dao-voting]   throw err;
+[temp-dao-voting]   ^
+[temp-dao-voting] 
+[temp-dao-voting] Error: Cannot find module '/home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-poker/dist/create-example.js'
+[temp-dao-voting]     at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)
+[temp-dao-voting]     at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)
+[temp-dao-voting]     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)
+[temp-dao-voting]     at Module._load (node:internal/modules/cjs/loader:1226:37)
+[temp-dao-voting]     at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+[temp-dao-voting]     at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+[temp-dao-voting]     at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+[temp-dao-voting]     at node:internal/main/run_main_module:33:47 {
+[temp-dao-voting]   code: 'MODULE_NOT_FOUND',
+[temp-dao-voting]   requireStack: []
+[temp-dao-voting] }
+[temp-dao-voting] 
+[temp-dao-voting] Node.js v24.11.0
+[temp-dao-voting] Scaffold failed, skipping install/test
+\n=== encrypted-poker-premium -> temp-encrypted-poker ===
+[temp-encrypted-poker] node:internal/modules/cjs/loader:1423
+[temp-encrypted-poker]   throw err;
+[temp-encrypted-poker]   ^
+[temp-encrypted-poker] 
+[temp-encrypted-poker] Error: Cannot find module '/home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-poker/dist/create-example.js'
+[temp-encrypted-poker]     at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)
+[temp-encrypted-poker]     at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)
+[temp-encrypted-poker]     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)
+[temp-encrypted-poker]     at Module._load (node:internal/modules/cjs/loader:1226:37)
+[temp-encrypted-poker]     at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+[temp-encrypted-poker]     at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+[temp-encrypted-poker]     at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+[temp-encrypted-poker]     at node:internal/main/run_main_module:33:47 {
+[temp-encrypted-poker]   code: 'MODULE_NOT_FOUND',
+[temp-encrypted-poker]   requireStack: []
+[temp-encrypted-poker] }
+[temp-encrypted-poker] 
+[temp-encrypted-poker] Node.js v24.11.0
+[temp-encrypted-poker] Scaffold failed, skipping install/test
+\n=== erc7984-premium -> temp-erc7984 ===
+[temp-erc7984] node:internal/modules/cjs/loader:1423
+[temp-erc7984]   throw err;
+[temp-erc7984]   ^
+[temp-erc7984] 
+[temp-erc7984] Error: Cannot find module '/home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-poker/dist/create-example.js'
+[temp-erc7984]     at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)
+[temp-erc7984]     at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)
+[temp-erc7984]     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)
+[temp-erc7984]     at Module._load (node:internal/modules/cjs/loader:1226:37)
+[temp-erc7984]     at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+[temp-erc7984]     at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+[temp-erc7984]     at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+[temp-erc7984]     at node:internal/main/run_main_module:33:47 {
+[temp-erc7984]   code: 'MODULE_NOT_FOUND',
+[temp-erc7984]   requireStack: []
+[temp-erc7984] }
+[temp-erc7984] 
+[temp-erc7984] Node.js v24.11.0
+[temp-erc7984] Scaffold failed, skipping install/test
+\n=== handles-lifecycle-premium -> temp-handles-lifecycle ===
+[temp-handles-lifecycle] node:internal/modules/cjs/loader:1423
+[temp-handles-lifecycle]   throw err;
+[temp-handles-lifecycle]   ^
+[temp-handles-lifecycle] 
+[temp-handles-lifecycle] Error: Cannot find module '/home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-poker/dist/create-example.js'
+[temp-handles-lifecycle]     at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)
+[temp-handles-lifecycle]     at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)
+[temp-handles-lifecycle]     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)
+[temp-handles-lifecycle]     at Module._load (node:internal/modules/cjs/loader:1226:37)
+[temp-handles-lifecycle]     at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+[temp-handles-lifecycle]     at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+[temp-handles-lifecycle]     at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+[temp-handles-lifecycle]     at node:internal/main/run_main_module:33:47 {
+[temp-handles-lifecycle]   code: 'MODULE_NOT_FOUND',
+[temp-handles-lifecycle]   requireStack: []
+[temp-handles-lifecycle] }
+[temp-handles-lifecycle] 
+[temp-handles-lifecycle] Node.js v24.11.0
+[temp-handles-lifecycle] Scaffold failed, skipping install/test
+\n=== input-proofs-premium -> temp-input-proofs ===
+[temp-input-proofs] node:internal/modules/cjs/loader:1423
+[temp-input-proofs]   throw err;
+[temp-input-proofs]   ^
+[temp-input-proofs] 
+[temp-input-proofs] Error: Cannot find module '/home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-poker/dist/create-example.js'
+[temp-input-proofs]     at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)
+[temp-input-proofs]     at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)
+[temp-input-proofs]     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)
+[temp-input-proofs]     at Module._load (node:internal/modules/cjs/loader:1226:37)
+[temp-input-proofs]     at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+[temp-input-proofs]     at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+[temp-input-proofs]     at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+[temp-input-proofs]     at node:internal/main/run_main_module:33:47 {
+[temp-input-proofs]   code: 'MODULE_NOT_FOUND',
+[temp-input-proofs]   requireStack: []
+[temp-input-proofs] }
+[temp-input-proofs] 
+[temp-input-proofs] Node.js v24.11.0
+[temp-input-proofs] Scaffold failed, skipping install/test
+\n=== mev-arbitrage-premium -> temp-mev-arbitrage ===
+[temp-mev-arbitrage] node:internal/modules/cjs/loader:1423
+[temp-mev-arbitrage]   throw err;
+[temp-mev-arbitrage]   ^
+[temp-mev-arbitrage] 
+[temp-mev-arbitrage] Error: Cannot find module '/home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-poker/dist/create-example.js'
+[temp-mev-arbitrage]     at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)
+[temp-mev-arbitrage]     at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)
+[temp-mev-arbitrage]     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)
+[temp-mev-arbitrage]     at Module._load (node:internal/modules/cjs/loader:1226:37)
+[temp-mev-arbitrage]     at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+[temp-mev-arbitrage]     at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+[temp-mev-arbitrage]     at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+[temp-mev-arbitrage]     at node:internal/main/run_main_module:33:47 {
+[temp-mev-arbitrage]   code: 'MODULE_NOT_FOUND',
+[temp-mev-arbitrage]   requireStack: []
+[temp-mev-arbitrage] }
+[temp-mev-arbitrage] 
+[temp-mev-arbitrage] Node.js v24.11.0
+[temp-mev-arbitrage] Scaffold failed, skipping install/test
+\n=== private-erc20-premium -> temp-private-erc20 ===
+[temp-private-erc20] node:internal/modules/cjs/loader:1423
+[temp-private-erc20]   throw err;
+[temp-private-erc20]   ^
+[temp-private-erc20] 
+[temp-private-erc20] Error: Cannot find module '/home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-poker/dist/create-example.js'
+[temp-private-erc20]     at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)
+[temp-private-erc20]     at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)
+[temp-private-erc20]     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)
+[temp-private-erc20]     at Module._load (node:internal/modules/cjs/loader:1226:37)
+[temp-private-erc20]     at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+[temp-private-erc20]     at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+[temp-private-erc20]     at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+[temp-private-erc20]     at node:internal/main/run_main_module:33:47 {
+[temp-private-erc20]   code: 'MODULE_NOT_FOUND',
+[temp-private-erc20]   requireStack: []
+[temp-private-erc20] }
+[temp-private-erc20] 
+[temp-private-erc20] Node.js v24.11.0
+[temp-private-erc20] Scaffold failed, skipping install/test
+\n=== private-lending-premium -> temp-private-lending ===
+[temp-private-lending] node:internal/modules/cjs/loader:1423
+[temp-private-lending]   throw err;
+[temp-private-lending]   ^
+[temp-private-lending] 
+[temp-private-lending] Error: Cannot find module '/home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-poker/dist/create-example.js'
+[temp-private-lending]     at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)
+[temp-private-lending]     at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)
+[temp-private-lending]     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)
+[temp-private-lending]     at Module._load (node:internal/modules/cjs/loader:1226:37)
+[temp-private-lending]     at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+[temp-private-lending]     at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+[temp-private-lending]     at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+[temp-private-lending]     at node:internal/main/run_main_module:33:47 {
+[temp-private-lending]   code: 'MODULE_NOT_FOUND',
+[temp-private-lending]   requireStack: []
+[temp-private-lending] }
+[temp-private-lending] 
+[temp-private-lending] Node.js v24.11.0
+[temp-private-lending] Scaffold failed, skipping install/test
+\n=== private-yield-premium -> temp-private-yield ===
+[temp-private-yield] node:internal/modules/cjs/loader:1423
+[temp-private-yield]   throw err;
+[temp-private-yield]   ^
+[temp-private-yield] 
+[temp-private-yield] Error: Cannot find module '/home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-poker/dist/create-example.js'
+[temp-private-yield]     at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)
+[temp-private-yield]     at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)
+[temp-private-yield]     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)
+[temp-private-yield]     at Module._load (node:internal/modules/cjs/loader:1226:37)
+[temp-private-yield]     at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+[temp-private-yield]     at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+[temp-private-yield]     at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+[temp-private-yield]     at node:internal/main/run_main_module:33:47 {
+[temp-private-yield]   code: 'MODULE_NOT_FOUND',
+[temp-private-yield]   requireStack: []
+[temp-private-yield] }
+[temp-private-yield] 
+[temp-private-yield] Node.js v24.11.0
+[temp-private-yield] Scaffold failed, skipping install/test
+\n=== public-encryption-premium -> temp-public-encryption ===
+[temp-public-encryption] node:internal/modules/cjs/loader:1423
+[temp-public-encryption]   throw err;
+[temp-public-encryption]   ^
+[temp-public-encryption] 
+[temp-public-encryption] Error: Cannot find module '/home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-poker/dist/create-example.js'
+[temp-public-encryption]     at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)
+[temp-public-encryption]     at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)
+[temp-public-encryption]     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)
+[temp-public-encryption]     at Module._load (node:internal/modules/cjs/loader:1226:37)
+[temp-public-encryption]     at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+[temp-public-encryption]     at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+[temp-public-encryption]     at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+[temp-public-encryption]     at node:internal/main/run_main_module:33:47 {
+[temp-public-encryption]   code: 'MODULE_NOT_FOUND',
+[temp-public-encryption]   requireStack: []
+[temp-public-encryption] }
+[temp-public-encryption] 
+[temp-public-encryption] Node.js v24.11.0
+[temp-public-encryption] Scaffold failed, skipping install/test
+\n=== single-encryption-premium -> temp-single-encryption ===
+[temp-single-encryption] node:internal/modules/cjs/loader:1423
+[temp-single-encryption]   throw err;
+[temp-single-encryption]   ^
+[temp-single-encryption] 
+[temp-single-encryption] Error: Cannot find module '/home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-poker/dist/create-example.js'
+[temp-single-encryption]     at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)
+[temp-single-encryption]     at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)
+[temp-single-encryption]     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)
+[temp-single-encryption]     at Module._load (node:internal/modules/cjs/loader:1226:37)
+[temp-single-encryption]     at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+[temp-single-encryption]     at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+[temp-single-encryption]     at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+[temp-single-encryption]     at node:internal/main/run_main_module:33:47 {
+[temp-single-encryption]   code: 'MODULE_NOT_FOUND',
+[temp-single-encryption]   requireStack: []
+[temp-single-encryption] }
+[temp-single-encryption] 
+[temp-single-encryption] Node.js v24.11.0
+[temp-single-encryption] Scaffold failed, skipping install/test
+\n=== swaps-premium -> temp-swaps ===
+[temp-swaps] node:internal/modules/cjs/loader:1423
+[temp-swaps]   throw err;
+[temp-swaps]   ^
+[temp-swaps] 
+[temp-swaps] Error: Cannot find module '/home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-poker/dist/create-example.js'
+[temp-swaps]     at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)
+[temp-swaps]     at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)
+[temp-swaps]     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)
+[temp-swaps]     at Module._load (node:internal/modules/cjs/loader:1226:37)
+[temp-swaps]     at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+[temp-swaps]     at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+[temp-swaps]     at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+[temp-swaps]     at node:internal/main/run_main_module:33:47 {
+[temp-swaps]   code: 'MODULE_NOT_FOUND',
+[temp-swaps]   requireStack: []
+[temp-swaps] }
+[temp-swaps] 
+[temp-swaps] Node.js v24.11.0
+[temp-swaps] Scaffold failed, skipping install/test
+\n=== vesting-premium -> temp-vesting ===
+[temp-vesting] node:internal/modules/cjs/loader:1423
+[temp-vesting]   throw err;
+[temp-vesting]   ^
+[temp-vesting] 
+[temp-vesting] Error: Cannot find module '/home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/temp-poker/dist/create-example.js'
+[temp-vesting]     at Module._resolveFilename (node:internal/modules/cjs/loader:1420:15)
+[temp-vesting]     at defaultResolveImpl (node:internal/modules/cjs/loader:1058:19)
+[temp-vesting]     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1063:22)
+[temp-vesting]     at Module._load (node:internal/modules/cjs/loader:1226:37)
+[temp-vesting]     at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+[temp-vesting]     at wrapModuleLoad (node:internal/modules/cjs/loader:244:24)
+[temp-vesting]     at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+[temp-vesting]     at node:internal/main/run_main_module:33:47 {
+[temp-vesting]   code: 'MODULE_NOT_FOUND',
+[temp-vesting]   requireStack: []
+[temp-vesting] }
+[temp-vesting] 
+[temp-vesting] Node.js v24.11.0
+[temp-vesting] Scaffold failed, skipping install/test
+Smoke test run finished: Fri 26 Dec 2025 04:26:38 PM WAT
+-rw-rw-r-- 1 bigfred bigfred 27287 Dec 26 16:26 /home/bigfred/Documents/GitHub/fhEVM Playground/create-fhevm-playground-pro/smoke-tests.log
