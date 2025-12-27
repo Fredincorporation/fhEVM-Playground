@@ -466,9 +466,27 @@ function copyCLI(button, categoryId = null) {
         }
     }
 
-    // Fallback to default commands if no text found
+    // If a categoryId was provided, prefer copying a `git clone && cd` command
+    if (categoryId) {
+        const example = examplesData.find(ex => ex.id === categoryId);
+        if (example && example.repo) {
+            try {
+                // Example repo URLs point to the tree path ending in the example directory
+                // Extract the final directory (e.g. "arithmetic-premium")
+                const parts = example.repo.split('/');
+                const exampleDir = parts[parts.length - 1] || parts[parts.length - 2];
+                // Construct a clone + cd command that lands inside the example subdirectory
+                text = `git clone https://github.com/Fredincorporation/fhEVM-Playground.git && cd fhEVM-Playground/central-repo/examples/${exampleDir}`;
+            } catch (err) {
+                // Fallback to repository tree URL if parsing fails
+                text = example.repo;
+            }
+        }
+    }
+
+    // Final fallback: if no text yet, copy the main GitHub repository URL
     if (!text) {
-        text = 'npx create-fhevm-playground-pro guided';
+        text = 'https://github.com/Fredincorporation/fhEVM-Playground';
     }
 
     copyToClipboard(text, button);

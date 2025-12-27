@@ -8,12 +8,12 @@
     "create-fhevm-playground-pro": "./dist/bin/create-fhevm-playground-pro.js"
   },
   "scripts": {
-    "build": "tsc || true",
+    "build": "tsc",
     "watch": "tsc -w",
     "test": "mocha",
     "start": "npm run build && node dist/bin/create-fhevm-playground-pro.js",
     "batch-update": "npx ts-node scripts/batch-update-fhevm-version.ts",
-    "postinstall": "npm run build || true",
+    "postinstall": "npm run build",
     "prepack": "npm run build"
   },
   "keywords": [
@@ -31,7 +31,8 @@
   "dependencies": {
     "chalk": "^4.1.2",
     "commander": "^11.1.0",
-    "fs-extra": "^11.2.0"
+    "fs-extra": "^11.2.0",
+    "inquirer": "^9.2.7"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^6.1.0",
@@ -39,6 +40,7 @@
     "@types/fs-extra": "^11.0.4",
     "@types/mocha": "^10.0.10",
     "@types/node": "^20.10.6",
+    "@types/inquirer": "^9.0.6",
     "chai": "^6.2.1",
     "dotenv": "^17.2.3",
     "hardhat": "^3.1.0",
