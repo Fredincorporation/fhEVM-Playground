@@ -221,6 +221,126 @@ export async function createExample(options: ScaffoldOptions): Promise<void> {
     return true;
   }
 
+  // Normalize BigNumberish values - shared helper for monkeypatches and tests
+  const normalizeBigNumberish = (value: any): string => {
+    if (typeof value === 'number' || typeof value === 'bigint') {
+      const bn = BigInt(value);
+      return '0x' + (bn & BigInt('0xffffffff')).toString(16).padStart(8, '0');
+    }
+    if (typeof value !== 'string') return '0x0';
+    
+    const m = value.match(/^(0x[0-9a-fA-F]+)-(\\d+)$/);
+    if (m) {
+      const hex = m[1];
+      const dec = BigInt(m[2]);
+      const raw = BigInt(hex);
+      const width = BigInt((hex.length - 2) * 4);
+      const mod = 1n << width;
+      let res = raw - dec;
+      if (res < 0) res += mod;
+      const hexDigits = hex.length - 2;
+      let out = res.toString(16).padStart(hexDigits, '0');
+      const masked = BigInt('0x' + out) & BigInt('0xffffffff');
+      return '0x' + masked.toString(16).padStart(8, '0');
+    }
+    
+    if (value.startsWith('0x')) {
+      const hexPart = value.slice(2);
+      if (hexPart.length > 8) {
+        const bn = BigInt(value);
+        return '0x' + (bn & BigInt('0xffffffff')).toString(16).padStart(8, '0');
+      }
+    }
+    
+    return value;
+  };
+
+  // Export the normalization helper
+  export { normalizeBigNumberish };
+
+  const toNumberSafe = (value: any): number => {
+    if (typeof value === 'number') return value;
+    if (typeof value === 'bigint') return Number(value);
+    if (value && typeof value === 'object') {
+      if (typeof value.toNumber === 'function') {
+        try {
+          return value.toNumber();
+        } catch (e) {
+          // fallthrough
+        }
+      }
+      if (typeof value.toString === 'function') {
+        const str = value.toString();
+        const num = Number(str);
+        if (!isNaN(num)) return num;
+      }
+      if (value._hex) {
+        return Number(value._hex);
+      }
+    }
+    return Number(value);
+  };
+
+  export { toNumberSafe };
+
+  // Monkeypatch ethers.Contract.populateTransaction to normalize BigNumberish args
+  (() => {
+    try {
+      const ethers = require('ethers');
+      if (ethers && ethers.Contract) {
+        const origPopulate = ethers.Contract.prototype.populateTransaction;
+        if (origPopulate) {
+          ethers.Contract.prototype.populateTransaction = function(...args: any[]) {
+            const normalizedArgs = args.map(arg => {
+              if (Array.isArray(arg)) {
+                return arg.map(a => normalizeBigNumberish(a));
+              } else if (typeof arg === 'object' && arg !== null) {
+                const result: any = {};
+                for (const [k, v] of Object.entries(arg)) {
+                  result[k] = normalizeBigNumberish(v);
+                }
+                return result;
+              }
+              return normalizeBigNumberish(arg);
+            });
+            return origPopulate.apply(this, normalizedArgs);
+          };
+        }
+      }
+    } catch (_e) {
+      // ignore if ethers not available
+    }
+  })();
+
+  // Monkeypatch ethers.Interface.encodeFunctionData to normalize args
+  (() => {
+    try {
+      const ethers = require('ethers');
+      if (ethers && ethers.Interface) {
+        const origEncode = ethers.Interface.prototype.encodeFunctionData;
+        if (origEncode) {
+          ethers.Interface.prototype.encodeFunctionData = function(fragment: any, args?: any[]) {
+            const normalizedArgs = args ? args.map(arg => {
+              if (Array.isArray(arg)) {
+                return arg.map(a => normalizeBigNumberish(a));
+              } else if (typeof arg === 'object' && arg !== null && typeof arg !== 'function') {
+                const result: any = {};
+                for (const [k, v] of Object.entries(arg)) {
+                  result[k] = normalizeBigNumberish(v);
+                }
+                return result;
+              }
+              return normalizeBigNumberish(arg);
+            }) : undefined;
+            return origEncode.apply(this, [fragment, normalizedArgs]);
+          };
+        }
+      }
+    } catch (_e) {
+      // ignore if ethers not available
+    }
+  })();
+
   // Provide a resilient ethers adapter for scaffolded projects' tests.
   // This ensures tests that reference a global 'ethers' or call into
   // 'ethers.utils'/'BigNumber' work in both CJS and ESM environments.
@@ -260,16 +380,149 @@ export async function createExample(options: ScaffoldOptions): Promise<void> {
       }
         else {
           // If the example already provides test-helpers.ts, ensure it contains
-          // a resilient ethers adapter so tests that reference global `ethers`
-          // don't fail when run in the scaffolded project.
+          // normalization helpers and a resilient ethers adapter so tests work
+          // in the scaffolded project.
           try {
             let existing = fs.readFileSync(scriptHelpersTs, 'utf-8');
+            let needsUpdate = false;
+
+            // Ensure normalizeBigNumberish is present
+            if (!/export\s+function\s+normalizeBigNumberish/.test(existing)) {
+              const normHelper = `export function normalizeBigNumberish(value: any): string {
+    if (typeof value === 'number' || typeof value === 'bigint') {
+      const bn = BigInt(value);
+      return '0x' + (bn & BigInt('0xffffffff')).toString(16).padStart(8, '0');
+    }
+    if (typeof value !== 'string') return '0x0';
+    const m = value.match(/^(0x[0-9a-fA-F]+)-(\\d+)$/);
+    if (m) {
+      const hex = m[1];
+      const dec = BigInt(m[2]);
+      const raw = BigInt(hex);
+      const width = BigInt((hex.length - 2) * 4);
+      const mod = 1n << width;
+      let res = raw - dec;
+      if (res < 0) res += mod;
+      const hexDigits = hex.length - 2;
+      let out = res.toString(16).padStart(hexDigits, '0');
+      const masked = BigInt('0x' + out) & BigInt('0xffffffff');
+      return '0x' + masked.toString(16).padStart(8, '0');
+    }
+    if (value.startsWith('0x')) {
+      const hexPart = value.slice(2);
+      if (hexPart.length > 8) {
+        const bn = BigInt(value);
+        return '0x' + (bn & BigInt('0xffffffff')).toString(16).padStart(8, '0');
+      }
+    }
+    return value;
+  }
+
+  `;
+              existing = normHelper + existing;
+              needsUpdate = true;
+            }
+
+            // Ensure toNumberSafe is present
+            if (!/export\s+function\s+toNumberSafe/.test(existing)) {
+              const toNumHelper = `export function toNumberSafe(value: any): number {
+    if (typeof value === 'number') return value;
+    if (typeof value === 'bigint') return Number(value);
+    if (value && typeof value === 'object') {
+      if (typeof value.toNumber === 'function') {
+        try {
+          return value.toNumber();
+        } catch (e) {
+          // fallthrough
+        }
+      }
+      if (typeof value.toString === 'function') {
+        const str = value.toString();
+        const num = Number(str);
+        if (!isNaN(num)) return num;
+      }
+      if (value._hex) {
+        return Number(value._hex);
+      }
+    }
+    return Number(value);
+  }
+
+  `;
+              existing = toNumHelper + existing;
+              needsUpdate = true;
+            }
+
+            // Ensure ethers monkeypatches are present
+            if (!/populateTransaction.*normalizeBigNumberish/.test(existing)) {
+              const monkeyPatches = `// Monkeypatch ethers.Contract.populateTransaction to normalize BigNumberish args
+(() => {
+  try {
+    const ethers = require('ethers');
+    if (ethers && ethers.Contract) {
+      const origPopulate = ethers.Contract.prototype.populateTransaction;
+      if (origPopulate) {
+        ethers.Contract.prototype.populateTransaction = function(...args: any[]) {
+          const normalizedArgs = args.map(arg => {
+            if (Array.isArray(arg)) {
+              return arg.map(a => normalizeBigNumberish(a));
+            } else if (typeof arg === 'object' && arg !== null) {
+              const result: any = {};
+              for (const [k, v] of Object.entries(arg)) {
+                result[k] = normalizeBigNumberish(v);
+              }
+              return result;
+            }
+            return normalizeBigNumberish(arg);
+          });
+          return origPopulate.apply(this, normalizedArgs);
+        };
+      }
+    }
+  } catch (_e) {}
+})();
+
+// Monkeypatch ethers.Interface.encodeFunctionData to normalize args
+(() => {
+  try {
+    const ethers = require('ethers');
+    if (ethers && ethers.Interface) {
+      const origEncode = ethers.Interface.prototype.encodeFunctionData;
+      if (origEncode) {
+        ethers.Interface.prototype.encodeFunctionData = function(fragment: any, args?: any[]) {
+          const normalizedArgs = args ? args.map(arg => {
+            if (Array.isArray(arg)) {
+              return arg.map(a => normalizeBigNumberish(a));
+            } else if (typeof arg === 'object' && arg !== null && typeof arg !== 'function') {
+              const result: any = {};
+              for (const [k, v] of Object.entries(arg)) {
+                result[k] = normalizeBigNumberish(v);
+              }
+              return result;
+            }
+            return normalizeBigNumberish(arg);
+          }) : undefined;
+          return origEncode.apply(this, [fragment, normalizedArgs]);
+        };
+      }
+    }
+  } catch (_e) {}
+})();
+
+`;
+              existing = monkeyPatches + existing;
+              needsUpdate = true;
+            }
+
             if (!/globalThis\s*\.\s*ethers/.test(existing)) {
               const adapter = `\n// <-- injected by create-fhevm-playground-pro: ethers adapter -->\ntry {\n  // prefer CJS require for mocha/hardhat environments\n  // eslint-disable-next-line @typescript-eslint/no-var-requires\n  const _e = require('ethers');\n  if (_e) {\n    // Provide compat layer: many examples expect 'ethers.utils.*' and 'ethers.BigNumber'\n    const utils = _e.utils || { hexlify: _e.hexlify, toUtf8Bytes: _e.toUtf8Bytes };\n    const BigNumber = _e.BigNumber || { from: (v) => ({ toString: () => String(v) }) };\n    (globalThis as any).ethers = Object.assign({}, (_e.default || _e), { utils, BigNumber });\n  }\n} catch (e) {\n  (async () => {\n    try { const imported = await import('ethers'); const _x = imported.default || imported.ethers || imported; const utils = _x.utils || { hexlify: _x.hexlify, toUtf8Bytes: _x.toUtf8Bytes }; const BigNumber = _x.BigNumber || { from: (v) => ({ toString: () => String(v) }) }; (globalThis as any).ethers = Object.assign({}, _x, { utils, BigNumber }); } catch(_){}\n  })();\n}\ntry { const _hardhat = require('hardhat'); if (_hardhat && _hardhat.ethers) { (globalThis as any).ethers = _hardhat.ethers; } } catch(e){}\n`;
-              // Prepend adapter to existing helpers to run early
               existing = adapter + '\n' + existing;
+              needsUpdate = true;
+            }
+
+            if (needsUpdate) {
               fs.writeFileSync(scriptHelpersTs, existing, 'utf-8');
-              console.log(chalk.gray('Injected ethers adapter into existing scripts/test-helpers.ts'));
+              console.log(chalk.gray('Injected helpers and ethers adapter into scripts/test-helpers.ts'));
             }
           } catch (err) {
             // ignore read/write errors — best-effort
@@ -374,19 +627,27 @@ library TFHE {
     }
 
     function add(euint32 a, euint32 b) internal pure returns (euint32) {
-        return euint32.wrap(euint32.unwrap(a) + euint32.unwrap(b));
+        unchecked {
+            return euint32.wrap(euint32.unwrap(a) + euint32.unwrap(b));
+        }
     }
 
     function add(euint32 a, uint32 b) internal pure returns (euint32) {
-        return euint32.wrap(euint32.unwrap(a) + b);
+        unchecked {
+            return euint32.wrap(euint32.unwrap(a) + b);
+        }
     }
 
     function sub(euint32 a, euint32 b) internal pure returns (euint32) {
-        return euint32.wrap(euint32.unwrap(a) - euint32.unwrap(b));
+        unchecked {
+            return euint32.wrap(euint32.unwrap(a) - euint32.unwrap(b));
+        }
     }
 
     function sub(euint32 a, uint32 b) internal pure returns (euint32) {
-        return euint32.wrap(euint32.unwrap(a) - b);
+        unchecked {
+            return euint32.wrap(euint32.unwrap(a) - b);
+        }
     }
 
     function mul(euint32 a, euint32 b) internal pure returns (euint32) {

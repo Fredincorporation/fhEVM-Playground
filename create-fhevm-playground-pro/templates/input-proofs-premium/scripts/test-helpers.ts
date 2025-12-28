@@ -35,7 +35,7 @@ export async function getSignatureAndEncryption(data: number | bigint): Promise<
 
   // Mock ciphertext: just encode the plaintext value as hex (not secure!)
   // In Solidity, euint32 is an alias for uint32, so our contracts work with plain uint32 values
-  const hex = '0x' + value.toString(16).padStart(64, '0');
+  const hex = '0x' + value.toString(16).padStart(8, '0');
 
   return {
     ciphertext: hex,
