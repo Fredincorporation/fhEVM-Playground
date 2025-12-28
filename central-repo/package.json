@@ -10,7 +10,7 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "test": "mocha --require ts-node/register 'test/**/*.test.ts'",
+    "test": "npm run test:mock",
     "test:mock": "MOCK=true npx hardhat test",
     "start": "npm run build && node dist/bin/create-fhevm-playground-pro.js",
     "batch-update": "npx ts-node scripts/batch-update-fhevm-version.ts",
