@@ -64,7 +64,7 @@ program
       // Educational paragraph (exact text required)
       console.log(
         chalk.white(
-          "Fully Homomorphic Encryption (FHE) enables computation on encrypted data without decryption — a breakthrough for blockchain privacy. Zama's fhEVM brings this power to Ethereum-compatible chains, allowing confidential balances, private voting, blind auctions, MEV-resistant DeFi, and more, all while preserving verifiability. fhEVM Playground Pro is the premium, fully automated example hub built for Zama's December 2025 bounty: 12 core concept examples covering every fundamental + 7 innovative real-world Pro applications in confidential finance, governance, and gaming. Let's dive in and build something private!"
+          "Fully Homomorphic Encryption (FHE) enables computation on encrypted data without decryption — a breakthrough for blockchain privacy. Zama's fhEVM brings this power to Ethereum-compatible chains, allowing confidential balances, private voting, blind auctions, MEV-resistant DeFi, and more, all while preserving verifiability. fhEVM Playground Pro is the premium, fully automated example hub built for Zama's December 2025 bounty: 14 core concept examples covering every fundamental + 7 innovative real-world Pro applications in confidential finance, governance, and gaming. Let's dive in and build something private!"
         )
       );
 
@@ -75,7 +75,7 @@ program
           name: 'pathChoice',
           message: 'What would you like to explore first?',
           choices: [
-            '1. Core Concepts (Master fhEVM fundamentals – 12 examples)',
+            '1. Core Concepts (Master fhEVM fundamentals – 14 examples)',
             '2. Innovative Pro Apps (Real-world confidential apps – 7 examples)',
           ],
         },
@@ -86,15 +86,17 @@ program
         { title: 'Basic Counter – Encrypted increment & view', id: 'basic-counter' },
         { title: 'Arithmetic Operations – Add, sub, mul on encrypted values', id: 'arithmetic' },
         { title: 'Comparisons & Inequalities – eq, gt, lt on encrypted data', id: 'comparisons' },
-        { title: 'Encryption & Decryption – Single/multiple values', id: 'single-encryption' },
+        { title: 'Single Encryption – User-side encryption of values', id: 'single-encryption' },
+        { title: 'Public Encryption – Contract-side public patterns', id: 'public-encryption' },
         { title: 'Access Control – FHE.allow & allowTransient', id: 'access-control' },
         { title: 'Input Proofs – Why and how to verify client inputs', id: 'input-verification-proofs' },
         { title: 'Anti-Patterns & Edge Cases – Common mistakes to avoid', id: 'anti-patterns-guide' },
         { title: 'Handles & Lifecycle – Symbolic execution and management', id: 'handles-lifecycle' },
-        { title: 'OpenZeppelin ERC7984 – Confidential tokens standard', id: 'oz-erc7984-basic' },
-        { title: 'OZ Wrappers & Swaps – ERC20 ↔ Confidential conversions', id: 'oz-erc20-wrapper' },
+        { title: 'ERC7984 Basic – Modular FHE standard', id: 'erc7984-basic' },
+        { title: 'Private ERC20 – ERC20 with encrypted balances', id: 'private-erc20' },
+        { title: 'Swaps & AMM – Confidential AMM patterns', id: 'swaps' },
         { title: 'Confidential Vesting Wallet', id: 'vesting' },
-        { title: 'Blind Auction Pro – Sealed encrypted bids', id: 'blind-auction' },
+        { title: 'Blind Auction – Sealed encrypted bids', id: 'blind-auction' },
       ];
 
       const proList = [

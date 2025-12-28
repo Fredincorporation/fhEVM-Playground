@@ -1,15 +1,15 @@
 /**
  * Templates Part 1: Basic Categories
- * Includes: basic-counter, arithmetic, comparisons
- * Defines CATEGORIES constant with all 24 categories
+ * Includes: basic-counter, arithmetic, comparisons, and more
+ * Defines CATEGORIES constant with all 21 categories (14 core + 7 Pro)
  */
 
 // ============================================================================
-// CATEGORIES DEFINITION - All 24 Example Categories
+// CATEGORIES DEFINITION - 21 Example Categories (14 Core + 7 Pro)
 // ============================================================================
 
 export const CATEGORIES = [
-  // MANDATORY CORE EXAMPLES (17 categories)
+  // MANDATORY CORE EXAMPLES (14 categories)
   {
     id: 'basic-counter',
     name: 'Basic Counter',
@@ -56,42 +56,6 @@ export const CATEGORIES = [
     keywords: ['encryption', 'public', 'decryption'],
   },
   {
-    id: 'multiple-encryption',
-    name: 'Multiple Encryption',
-    description: 'Encrypt and manage multiple encrypted values',
-    complexity: 'Intermediate',
-    isPro: false,
-    contractName: 'MultipleEncryption',
-    keywords: ['encryption', 'batch', 'multiple'],
-  },
-  {
-    id: 'single-decryption-user',
-    name: 'Single Decryption (User)',
-    description: 'User-authorized decryption with FHE.allow()',
-    complexity: 'Intermediate',
-    isPro: false,
-    contractName: 'SingleDecryptionUser',
-    keywords: ['decryption', 'user-authorized', 'allow'],
-  },
-  {
-    id: 'single-decryption-public',
-    name: 'Single Decryption (Public)',
-    description: 'Public decryption for transparent operations',
-    complexity: 'Intermediate',
-    isPro: false,
-    contractName: 'SingleDecryptionPublic',
-    keywords: ['decryption', 'public', 'reveal'],
-  },
-  {
-    id: 'multiple-decryption',
-    name: 'Multiple Decryption',
-    description: 'Decrypt multiple encrypted values efficiently',
-    complexity: 'Intermediate',
-    isPro: false,
-    contractName: 'MultipleDecryption',
-    keywords: ['decryption', 'batch', 'multiple'],
-  },
-  {
     id: 'access-control',
     name: 'Access Control',
     description: 'Role-based access control with encrypted permissions',
@@ -128,22 +92,22 @@ export const CATEGORIES = [
     keywords: ['handles', 'lifecycle', 'management'],
   },
   {
-    id: 'oz-erc20-wrapper',
-    name: 'OpenZeppelin ERC20 Wrapper',
-    description: 'Wrapper pattern for encrypted ERC20 balance tracking',
-    complexity: 'Advanced',
-    isPro: false,
-    contractName: 'OZErc20Wrapper',
-    keywords: ['erc20', 'wrapper', 'token'],
-  },
-  {
-    id: 'oz-erc7984-basic',
-    name: 'OpenZeppelin ERC7984 Basic',
+    id: 'erc7984-basic',
+    name: 'ERC7984 Basic',
     description: 'Basic ERC7984 modular FHE implementation',
     complexity: 'Advanced',
     isPro: false,
-    contractName: 'OZERC7984Basic',
+    contractName: 'ERC7984Basic',
     keywords: ['erc7984', 'modular', 'fhe'],
+  },
+  {
+    id: 'private-erc20',
+    name: 'Private ERC20',
+    description: 'ERC20 with encrypted balances',
+    complexity: 'Advanced',
+    isPro: false,
+    contractName: 'PrivateERC20',
+    keywords: ['erc20', 'token', 'encrypted'],
   },
   {
     id: 'swaps',

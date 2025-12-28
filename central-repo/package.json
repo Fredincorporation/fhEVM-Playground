@@ -1,7 +1,7 @@
 {
   "name": "create-fhevm-playground-pro",
   "type": "module",
-  "version": "1.0.43",
+  "version": "1.0.47",
   "description": "Premium CLI scaffolding tool for fhEVM examples - Zama's December 2025 Bounty Track",
   "main": "dist/src/cli.js",
   "bin": {
@@ -14,7 +14,6 @@
     "test:mock": "MOCK=true npx hardhat test",
     "start": "npm run build && node dist/bin/create-fhevm-playground-pro.js",
     "batch-update": "npx ts-node scripts/batch-update-fhevm-version.ts",
-    "postinstall": "npm run build",
     "prepack": "npm run build"
   },
   "keywords": [
