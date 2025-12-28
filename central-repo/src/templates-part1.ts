@@ -16,7 +16,7 @@ export const CATEGORIES = [
     description: 'Simple encrypted counter with increment/decrement operations',
     complexity: 'Beginner',
     isPro: false,
-    contractName: 'BasicCounter',
+    contractName: 'BasicCounterPremium',
     keywords: ['counter', 'increment', 'state'],
   },
   {
@@ -25,7 +25,7 @@ export const CATEGORIES = [
     description: 'Add, subtract, multiply encrypted integers',
     complexity: 'Beginner',
     isPro: false,
-    contractName: 'Arithmetic',
+    contractName: 'ArithmeticPremium',
     keywords: ['arithmetic', 'add', 'subtract', 'multiply'],
   },
   {
@@ -34,7 +34,7 @@ export const CATEGORIES = [
     description: 'Greater than, less than, equal comparisons on encrypted values',
     complexity: 'Beginner',
     isPro: false,
-    contractName: 'Comparisons',
+    contractName: 'ComparisonsPremium',
     keywords: ['comparison', 'gt', 'lt', 'eq'],
   },
   {
@@ -43,7 +43,7 @@ export const CATEGORIES = [
     description: 'User-side encryption of a single value',
     complexity: 'Beginner',
     isPro: false,
-    contractName: 'SingleEncryption',
+    contractName: 'SingleEncryptionPremium',
     keywords: ['encryption', 'user-side', 'single'],
   },
   {
@@ -52,7 +52,7 @@ export const CATEGORIES = [
     description: 'Contract-side public encryption/decryption patterns',
     complexity: 'Intermediate',
     isPro: false,
-    contractName: 'PublicEncryption',
+    contractName: 'PublicEncryptionPremium',
     keywords: ['encryption', 'public', 'decryption'],
   },
   {
@@ -61,7 +61,7 @@ export const CATEGORIES = [
     description: 'Role-based access control with encrypted permissions',
     complexity: 'Intermediate',
     isPro: false,
-    contractName: 'AccessControl',
+    contractName: 'AccessControlPremium',
     keywords: ['access', 'roles', 'permissions'],
   },
   {
@@ -70,7 +70,7 @@ export const CATEGORIES = [
     description: 'Input validation with encrypted proofs',
     complexity: 'Advanced',
     isPro: false,
-    contractName: 'InputVerificationProofs',
+    contractName: 'InputProofsPremium',
     keywords: ['verification', 'validation', 'proofs'],
   },
   {
@@ -79,7 +79,7 @@ export const CATEGORIES = [
     description: 'Educational guide showing common FHE anti-patterns',
     complexity: 'Advanced',
     isPro: false,
-    contractName: 'AntiPatternsGuide',
+    contractName: 'AntiPatternsPremium',
     keywords: ['anti-patterns', 'education', 'mistakes'],
   },
   {
@@ -88,7 +88,7 @@ export const CATEGORIES = [
     description: 'Encrypted value handle lifecycle management',
     complexity: 'Advanced',
     isPro: false,
-    contractName: 'HandlesLifecycle',
+    contractName: 'HandlesLifecyclePremium',
     keywords: ['handles', 'lifecycle', 'management'],
   },
   {
@@ -97,7 +97,7 @@ export const CATEGORIES = [
     description: 'Basic ERC7984 modular FHE implementation',
     complexity: 'Advanced',
     isPro: false,
-    contractName: 'ERC7984Basic',
+    contractName: 'ERC7984Premium',
     keywords: ['erc7984', 'modular', 'fhe'],
   },
   {
@@ -106,7 +106,7 @@ export const CATEGORIES = [
     description: 'ERC20 with encrypted balances',
     complexity: 'Advanced',
     isPro: false,
-    contractName: 'PrivateERC20',
+    contractName: 'PrivateERC20Premium',
     keywords: ['erc20', 'token', 'encrypted'],
   },
   {
@@ -115,7 +115,7 @@ export const CATEGORIES = [
     description: 'Simplified AMM with encrypted reserves',
     complexity: 'Advanced',
     isPro: false,
-    contractName: 'Swaps',
+    contractName: 'SwapsPremium',
     keywords: ['dex', 'amm', 'swap'],
   },
   {
@@ -124,7 +124,7 @@ export const CATEGORIES = [
     description: 'Token vesting with encrypted amounts',
     complexity: 'Advanced',
     isPro: false,
-    contractName: 'Vesting',
+    contractName: 'VestingPremium',
     keywords: ['vesting', 'token', 'schedule'],
   },
   {
@@ -133,7 +133,7 @@ export const CATEGORIES = [
     description: 'Private auction with encrypted bids',
     complexity: 'Expert',
     isPro: false,
-    contractName: 'BlindAuction',
+    contractName: 'BlindAuctionPremium',
     keywords: ['auction', 'sealed-bid', 'privacy'],
   },
 
@@ -144,7 +144,7 @@ export const CATEGORIES = [
     description: 'Advanced voting with encrypted vote counts and weights',
     complexity: 'Expert',
     isPro: true,
-    contractName: 'DAOVotingPro',
+    contractName: 'DAOVotingPremium',
     keywords: ['dao', 'voting', 'governance'],
   },
   {
@@ -153,7 +153,7 @@ export const CATEGORIES = [
     description: 'Private lending protocol with encrypted amounts',
     complexity: 'Expert',
     isPro: true,
-    contractName: 'PrivateLendingPro',
+    contractName: 'PrivateLendingPremium',
     keywords: ['lending', 'loan', 'collateral'],
   },
   {
@@ -162,7 +162,7 @@ export const CATEGORIES = [
     description: 'Advanced DEX with MEV-resistant encrypted order books',
     complexity: 'Expert',
     isPro: true,
-    contractName: 'BlindDEXPro',
+    contractName: 'BlindDEXPremium',
     keywords: ['dex', 'orderbook', 'mev'],
   },
   {
@@ -171,7 +171,7 @@ export const CATEGORIES = [
     description: 'Private poker game with encrypted hands',
     complexity: 'Expert',
     isPro: true,
-    contractName: 'PokerGamePro',
+    contractName: 'EncryptedPokerPremium',
     keywords: ['poker', 'game', 'private'],
   },
   {
@@ -180,7 +180,7 @@ export const CATEGORIES = [
     description: 'Private yield farming with encrypted stake amounts',
     complexity: 'Expert',
     isPro: true,
-    contractName: 'YieldFarmingPro',
+    contractName: 'PrivateYieldPremium',
     keywords: ['yield', 'farming', 'rewards'],
   },
   {
@@ -189,7 +189,7 @@ export const CATEGORIES = [
     description: 'MEV-resistant arbitrage with encrypted price feeds',
     complexity: 'Expert',
     isPro: true,
-    contractName: 'MEVArbitragePro',
+    contractName: 'MEVArbitragePremium',
     keywords: ['mev', 'arbitrage', 'dex'],
   },
   {
@@ -198,7 +198,7 @@ export const CATEGORIES = [
     description: 'Privacy-preserving stablecoin with encrypted collateral',
     complexity: 'Expert',
     isPro: true,
-    contractName: 'ConfidentialStablecoinPro',
+    contractName: 'ConfidentialStablecoinPremium',
     keywords: ['stablecoin', 'collateral', 'privacy'],
   },
 ];

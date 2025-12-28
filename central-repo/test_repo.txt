@@ -1,0 +1,16 @@
+[dotenv@17.2.3] injecting env (3) from .env -- tip: 👥 sync secrets across teammates & machines: https://dotenvx.com/ops
+Nothing to compile
+[dotenv@17.2.3] injecting env (2) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+
+
+  PublicEncryptionPremium - Tests
+✅ Gateway initialized (MOCK MODE)
+    ✔ storeEncrypted stores and emits Stored
+    ✔ getStored returns stored ciphertext
+    ✔ publicDecrypt emits event and returns placeholder
+    ✔ allowReencryption requires owner
+    ✔ invalid id reverts
+
+
+  5 passing (1s)
+
