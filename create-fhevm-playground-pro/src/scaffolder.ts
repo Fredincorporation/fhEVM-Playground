@@ -197,6 +197,9 @@ export async function createExample(options: ScaffoldOptions): Promise<void> {
         // Replace BigNumber equality expectations with string-based comparison
         testContent = testContent.replace(/expect\(sum\)\.to\.equal\(ethers\.BigNumber\.from\(([^)]+)\)\);/g, 'expect(sum.toString()).to.equal(String($1));');
         
+        // Fix numeric string literals in test templates (e.g., const max = "4294967295" -> const max = 4294967295)
+        testContent = testContent.replace(/const\s+(\w+)\s*=\s*"(\d+)";/g, 'const $1 = $2;');
+        
         fs.writeFileSync(testPath, testContent);
       }
       
