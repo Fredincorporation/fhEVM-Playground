@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.63 - 2025-12-29
+
+- Rebuild and republish to ensure template fixes are available in npm package (numeric max + ethers v6 gasUsed).
+
 ## 1.0.62 - 2025-12-29
 
 - Fix: Update arithmetic-premium template test to use numeric `max` and ethers v6-compatible gasUsed conversion (fixes scaffolded project test failures).
