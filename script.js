@@ -476,7 +476,7 @@ function copyCLI(button, categoryId = null) {
                 const parts = example.repo.split('/');
                 const exampleDir = parts[parts.length - 1] || parts[parts.length - 2];
                 // Construct a clone + cd command that lands inside the example subdirectory
-                text = `git clone https://github.com/Fredincorporation/fhEVM-Playground.git && cd fhEVM-Playground/central-repo/examples/${exampleDir}`;
+                text = `git clone https://github.com/Fredincorporation/fhEVM-Playground.git && cd fhEVM-Playground/central-repo/examples/${exampleDir} && npm install && npm test`;
             } catch (err) {
                 // Fallback to repository tree URL if parsing fails
                 text = example.repo;
