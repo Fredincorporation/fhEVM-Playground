@@ -223,6 +223,11 @@ export async function createExample(options: ScaffoldOptions): Promise<void> {
 
   // Normalize BigNumberish values - shared helper for monkeypatches and tests
   const normalizeBigNumberish = (value: any): string => {
+    // Convert numeric strings like "4294967295" to numbers first
+    if (typeof value === 'string' && /^\\d+$/.test(value)) {
+      value = Number(value);
+    }
+    
     if (typeof value === 'number' || typeof value === 'bigint') {
       const bn = BigInt(value);
       return '0x' + (bn & BigInt('0xffffffff')).toString(16).padStart(8, '0');
