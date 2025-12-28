@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.61 - 2025-12-28
+
+- Fix: Ensure arithmetic example test uses numeric `max` and ethers v6-compatible `Number(receipt.gasUsed)` conversion in gas assertions.
+
 ## 1.0.60 - 2025-12-28
 
 - Chore(templates): add BigNumberish normalization + `ethers` monkeypatch to template `scripts/test-helpers.ts` so scaffolded premium examples run their test suites out-of-the-box in mock mode.
