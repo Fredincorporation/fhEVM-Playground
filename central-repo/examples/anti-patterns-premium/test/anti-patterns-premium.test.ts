@@ -1,9 +1,11 @@
+import { ethers } from "ethers";
 import { expect } from "chai";
-import { ethers } from "hardhat";
+import hre from "hardhat";
+
 
 // Helpers used across examples for gateway setup and encryption stubs.
 // The exact path may vary depending on workspace layout; adjust if needed.
-import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers";
+import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers.ts";
 
 describe("AntiPatternsPremium", function () {
   let anti: any;
@@ -14,19 +16,19 @@ describe("AntiPatternsPremium", function () {
     anti = await Factory.deploy();
   });
 
-  it.skip("insecureStore stores raw ciphertext and emits event", async () => {
+  it("insecureStore stores raw ciphertext and emits event", async () => {
     const { ciphertext } = await getSignatureAndEncryption(123);
     await expect(anti.insecureStore(ciphertext)).to.emit(anti, "InsecureStored");
     const stored = await anti.rawCiphertext();
     expect(stored).to.equal(ciphertext);
   });
 
-  it.skip("secureStoreEncrypted stores encrypted primitive and emits event", async () => {
+  it("secureStoreEncrypted stores encrypted primitive and emits event", async () => {
     const { ciphertext } = await getSignatureAndEncryption(10);
     await expect(anti.secureStoreEncrypted(ciphertext)).to.emit(anti, "SecureStored");
   });
 
-  it.skip("decryptOnChain reverts to discourage pattern", async () => {
+  it("decryptOnChain reverts to discourage pattern", async () => {
     const { ciphertext } = await getSignatureAndEncryption(1);
     await expect(anti.decryptOnChain(ciphertext)).to.be.revertedWith(
       "Do not decrypt on-chain"
@@ -41,7 +43,7 @@ describe("AntiPatternsPremium", function () {
     expect(sum).to.equal(ethers.BigNumber.from(3));
   });
 
-  it.skip("safeAggregate accepts encrypted inputs and returns an encrypted value", async () => {
+  it("safeAggregate accepts encrypted inputs and returns an encrypted value", async () => {
     const sig1 = await getSignatureAndEncryption(5);
     const sig2 = await getSignatureAndEncryption(7);
     // call should not revert; returned value is an encrypted primitive

@@ -10,7 +10,7 @@ pragma solidity 0.8.24;
  * on-chain while decryption is performed off-chain by the gateway.
  */
 
-import { TFHE, euint32 } from "fhevm/lib/TFHE.sol";
+import { TFHE, euint32 } from "../../fhevm/lib/TFHE.sol";
 
 contract VestingPremium {
     struct Vest {

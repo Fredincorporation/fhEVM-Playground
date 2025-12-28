@@ -1,6 +1,8 @@
+import { ethers } from "ethers";
 import { expect } from "chai";
-import { ethers } from "hardhat";
-import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers";
+import hre from "hardhat";
+
+import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers.ts";
 
 describe("ERC7984Premium", function () {
   let token: any;
@@ -16,7 +18,7 @@ describe("ERC7984Premium", function () {
     token = await Factory.deploy();
   });
 
-  it.skip("owner registers a module and module can mint", async () => {
+  it("owner registers a module and module can mint", async () => {
     await token.connect(owner).registerModule(module.address);
     const { ciphertext } = await getSignatureAndEncryption(500);
     await expect(token.connect(module).mintByModule(alice.address, ciphertext)).to.emit(token, "EncryptedMintByModule");
@@ -24,7 +26,7 @@ describe("ERC7984Premium", function () {
     expect(enc).to.exist;
   });
 
-  it.skip("approveEncrypted and transferFromEncrypted flow", async () => {
+  it("approveEncrypted and transferFromEncrypted flow", async () => {
     // register module and mint some balance to alice
     await token.connect(owner).registerModule(module.address);
     const { ciphertext: minted } = await getSignatureAndEncryption(1000);

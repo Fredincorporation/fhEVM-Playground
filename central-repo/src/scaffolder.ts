@@ -187,29 +187,69 @@ export async function createExample(options: ScaffoldOptions): Promise<void> {
   }
 
   // Create test-helpers file (as .js for compatibility with ESM)
-  const testHelpersPath = path.join(projectDir, 'test', 'test-helpers.js');
-  const testHelpersContent = `const isMocked = process.env.MOCK === 'true';
+  const testHelpersPath = path.join(projectDir, 'test', 'test-helpers.ts');
+  const testHelpersContent = `/**
+ * Mock fhEVM Gateway for local testing
+ * Simulates encrypted operations without cryptographic overhead
+ * Suitable for unit tests and development; not cryptographically secure
+ */
 
-export async function initGateway() {
-  if (isMocked) {
-    console.log('Gateway initialized (mocked mode)');
-  } else {
-    console.log('Gateway initialized');
-  }
+interface MockCiphertext {
+  ciphertext: string; // ABI-encoded euint32 value
+  signature: string;
 }
 
-export async function getSignatureAndEncryption(data) {
-  // In mocked mode, return dummy encrypted values for fast testing
-  // In real mode, this would handle actual FHE cryptographic operations
+let mockMode = true;
+let mockCounter = 0;
+
+/**
+ * Initialize the gateway in mock mode
+ */
+export async function initGateway(): Promise<void> {
+  mockMode = true;
+  mockCounter = 0;
+  console.log('✅ Gateway initialized (MOCK MODE - suitable for testing only)');
+}
+
+/**
+ * Simulate encryption: encode a plaintext value as a mock ciphertext
+ * In real fhEVM, this would call the gateway with actual FHE encryption
+ */
+export async function getSignatureAndEncryption(data: number | bigint): Promise<MockCiphertext> {
+  if (!mockMode) {
+    throw new Error('Real gateway not available; use mock mode for testing');
+  }
+
+  // Convert input to uint32 (simulated)
+  const value = Number(data) & 0xffffffff;
+
+  // Mock ciphertext: just encode the plaintext value as hex (not secure!)
+  // In Solidity, euint32 is an alias for uint32, so our contracts work with plain uint32 values
+  const hex = '0x' + value.toString(16).padStart(64, '0');
+
   return {
-    ciphertext: '0x0000000000000000000000000000000000000000000000000000000000000000',
-    signature: '0x0000000000000000000000000000000000000000000000000000000000000000',
-    encryption: '0x0000000000000000000000000000000000000000000000000000000000000000'
+    ciphertext: hex,
+    signature: '0x' + (++mockCounter).toString(16).padStart(64, '0'),
   };
 }
 
-export function isMockedMode() {
-  return isMocked;
+/**
+ * Check if currently in mocked mode
+ */
+export function isMockedMode(): boolean {
+  return mockMode;
+}
+
+/**
+ * Decrypt mock ciphertext (for debugging/assertions only)
+ * Returns the plaintext value encoded in the mock ciphertext
+ */
+export function decryptMock(ciphertext: string): number {
+  try {
+    return parseInt(ciphertext, 16);
+  } catch {
+    return 0;
+  }
 }
 `;
   fs.writeFileSync(testHelpersPath, testHelpersContent);

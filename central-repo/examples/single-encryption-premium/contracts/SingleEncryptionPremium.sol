@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.24;
 
-import "fhevm/abstracts/EIP712WithModifier.sol";
-import "fhevm/abstracts/Reencrypt.sol";
-import "fhevm/lib/TFHE.sol";
+import "../../fhevm/abstracts/EIP712WithModifier.sol";
+import "../../fhevm/abstracts/Reencrypt.sol";
+import "../../fhevm/lib/TFHE.sol";
 
 /**
  * @title SingleEncryptionPremium

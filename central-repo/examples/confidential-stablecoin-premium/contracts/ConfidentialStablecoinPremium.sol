@@ -14,7 +14,7 @@ pragma solidity 0.8.24;
  *   performed off-chain after decryption/verification.
  */
 
-import { TFHE, euint32 } from "fhevm/lib/TFHE.sol";
+import { TFHE, euint32 } from "../../fhevm/lib/TFHE.sol";
 
 contract ConfidentialStablecoinPremium {
     address public owner;

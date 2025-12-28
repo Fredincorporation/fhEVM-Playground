@@ -1,6 +1,8 @@
+import { ethers } from "ethers";
 import { expect } from "chai";
-import { ethers } from "hardhat";
-import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers";
+import hre from "hardhat";
+
+import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers.ts";
 
 describe("PrivateYieldPremium", function () {
   let yieldContract: any;
@@ -14,7 +16,7 @@ describe("PrivateYieldPremium", function () {
     yieldContract = await Factory.deploy();
   });
 
-  it.skip("staker can stake encrypted amount and owner can accrue reward", async () => {
+  it("staker can stake encrypted amount and owner can accrue reward", async () => {
     const { ciphertext: stake } = await getSignatureAndEncryption(500);
     await expect(yieldContract.connect(staker).stakeEncrypted(stake)).to.emit(yieldContract, "Staked");
 
@@ -25,7 +27,7 @@ describe("PrivateYieldPremium", function () {
     expect(encReward).to.exist;
   });
 
-  it.skip("staker can claim encrypted rewards and event is emitted", async () => {
+  it("staker can claim encrypted rewards and event is emitted", async () => {
     const { ciphertext: stake } = await getSignatureAndEncryption(200);
     await yieldContract.connect(staker).stakeEncrypted(stake);
     const { ciphertext: reward } = await getSignatureAndEncryption(20);

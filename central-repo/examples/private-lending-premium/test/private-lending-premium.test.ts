@@ -1,6 +1,8 @@
+import { ethers } from "ethers";
 import { expect } from "chai";
-import { ethers } from "hardhat";
-import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers";
+import hre from "hardhat";
+
+import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers.ts";
 
 describe("PrivateLendingPremium", function () {
   let lending: any;
@@ -14,7 +16,7 @@ describe("PrivateLendingPremium", function () {
     lending = await Factory.deploy();
   });
 
-  it.skip("creates an offer and borrower accepts it", async () => {
+  it("creates an offer and borrower accepts it", async () => {
     const { ciphertext: principal } = await getSignatureAndEncryption(1000);
     const { ciphertext: collateral } = await getSignatureAndEncryption(1500);
     const tx = await lending.connect(lender).createOffer(principal, collateral, 10);
@@ -23,7 +25,7 @@ describe("PrivateLendingPremium", function () {
     await expect(lending.connect(borrower).acceptOffer(0)).to.emit(lending, "LoanAccepted");
   });
 
-  it.skip("borrower can repay and event emitted", async () => {
+  it("borrower can repay and event emitted", async () => {
     const { ciphertext: principal } = await getSignatureAndEncryption(200);
     const { ciphertext: collateral } = await getSignatureAndEncryption(300);
     await lending.connect(lender).createOffer(principal, collateral, 1);
@@ -32,7 +34,7 @@ describe("PrivateLendingPremium", function () {
     await expect(lending.connect(borrower).repayLoan(0, repay)).to.emit(lending, "LoanRepaid");
   });
 
-  it.skip("lender can liquidate after duration if not repaid", async () => {
+  it("lender can liquidate after duration if not repaid", async () => {
     const { ciphertext: principal } = await getSignatureAndEncryption(500);
     const { ciphertext: collateral } = await getSignatureAndEncryption(700);
     await lending.connect(lender).createOffer(principal, collateral, 1);
@@ -43,7 +45,7 @@ describe("PrivateLendingPremium", function () {
     await expect(lending.connect(lender).liquidate(0)).to.emit(lending, "LoanLiquidated");
   });
 
-  it.skip("cannot accept an already accepted offer", async () => {
+  it("cannot accept an already accepted offer", async () => {
     const { ciphertext: principal } = await getSignatureAndEncryption(100);
     const { ciphertext: collateral } = await getSignatureAndEncryption(120);
     await lending.connect(lender).createOffer(principal, collateral, 5);

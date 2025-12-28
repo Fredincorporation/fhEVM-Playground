@@ -1,7 +1,9 @@
+import { ethers } from "ethers";
 import { expect } from "chai";
-import { ethers } from "hardhat";
+import hre from "hardhat";
+
 import type { PublicEncryption } from "../typechain-types";
-import { getSignatureAndEncryption, initGateway, isMockedMode } from "../scripts/test-helpers";
+import { getSignatureAndEncryption, initGateway, isMockedMode } from "../scripts/test-helpers.ts";
 
 describe("PublicEncryptionPremium - Tests", () => {
     let contract: PublicEncryptionPremium;
@@ -17,13 +19,13 @@ describe("PublicEncryptionPremium - Tests", () => {
         await contract.waitForDeployment();
     });
 
-    it.skip("storeEncrypted stores and emits Stored", async () => {
+    it("storeEncrypted stores and emits Stored", async () => {
         const { ciphertext: enc } = await getSignatureAndEncryption(42);
         const tx = await contract.connect(addr1).storeEncrypted(enc);
         await expect(tx).to.emit(contract, "Stored");
     });
 
-    it.skip("getStored returns stored ciphertext", async () => {
+    it("getStored returns stored ciphertext", async () => {
         const { ciphertext: enc } = await getSignatureAndEncryption(7);
         const tx = await contract.connect(addr1).storeEncrypted(enc);
         const receipt = await tx.wait();
@@ -34,7 +36,7 @@ describe("PublicEncryptionPremium - Tests", () => {
         expect(stored).to.not.be.undefined;
     });
 
-    it.skip("publicDecrypt emits event and returns placeholder", async () => {
+    it("publicDecrypt emits event and returns placeholder", async () => {
         const { ciphertext: enc } = await getSignatureAndEncryption(5);
         const tx = await contract.connect(addr1).storeEncrypted(enc);
         const events = await contract.queryFilter(contract.filters.Stored());
@@ -43,7 +45,7 @@ describe("PublicEncryptionPremium - Tests", () => {
         expect(dec).to.equal(0); // placeholder behavior
     });
 
-    it.skip("allowReencryption requires owner", async () => {
+    it("allowReencryption requires owner", async () => {
         const { ciphertext: enc } = await getSignatureAndEncryption(3);
         const tx = await contract.connect(addr1).storeEncrypted(enc);
         const events = await contract.queryFilter(contract.filters.Stored());

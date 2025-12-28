@@ -1,6 +1,8 @@
+import { ethers } from "ethers";
 import { expect } from "chai";
-import { ethers } from "hardhat";
-import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers";
+import hre from "hardhat";
+
+import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers.ts";
 
 describe("BlindAuctionPremium", function () {
   let auction: any;
@@ -15,7 +17,7 @@ describe("BlindAuctionPremium", function () {
     auction = await Factory.deploy();
   });
 
-  it.skip("accepts encrypted bids and records bidders", async () => {
+  it("accepts encrypted bids and records bidders", async () => {
     const { ciphertext: a } = await getSignatureAndEncryption(100);
     const { ciphertext: b } = await getSignatureAndEncryption(150);
     await expect(auction.connect(alice).submitBid(a)).to.emit(auction, "BidSubmitted");
@@ -24,7 +26,7 @@ describe("BlindAuctionPremium", function () {
     expect(count).to.equal(2);
   });
 
-  it.skip("owner can close bidding and finalize with a provided winner", async () => {
+  it("owner can close bidding and finalize with a provided winner", async () => {
     const { ciphertext: a } = await getSignatureAndEncryption(100);
     const { ciphertext: b } = await getSignatureAndEncryption(150);
     await auction.connect(alice).submitBid(a);

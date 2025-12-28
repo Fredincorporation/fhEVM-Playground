@@ -1,6 +1,8 @@
+import { ethers } from "ethers";
 import { expect } from "chai";
-import { ethers } from "hardhat";
-import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers";
+import hre from "hardhat";
+
+import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers.ts";
 
 describe("PrivateERC20Premium", function () {
   let token: any;
@@ -15,19 +17,19 @@ describe("PrivateERC20Premium", function () {
     token = await Factory.deploy();
   });
 
-  it.skip("owner can mint encrypted balance and event emitted", async () => {
+  it("owner can mint encrypted balance and event emitted", async () => {
     const { ciphertext } = await getSignatureAndEncryption(100);
     await expect(token.connect(owner).mintEncrypted(alice.address, ciphertext)).to.emit(token, "EncryptedMint");
     const enc = await token.encryptedBalanceOf(alice.address);
     expect(enc).to.exist;
   });
 
-  it.skip("non-owner cannot mint", async () => {
+  it("non-owner cannot mint", async () => {
     const { ciphertext } = await getSignatureAndEncryption(50);
     await expect(token.connect(alice).mintEncrypted(bob.address, ciphertext)).to.be.revertedWith("not-owner");
   });
 
-  it.skip("transferEncrypted moves encrypted value between accounts", async () => {
+  it("transferEncrypted moves encrypted value between accounts", async () => {
     const { ciphertext: c1 } = await getSignatureAndEncryption(30);
     const { ciphertext: c2 } = await getSignatureAndEncryption(10);
     await token.connect(owner).mintEncrypted(alice.address, c1);

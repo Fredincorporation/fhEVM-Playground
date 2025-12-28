@@ -1,7 +1,9 @@
+import { ethers } from "ethers";
 import { expect } from "chai";
-import { ethers } from "hardhat";
+import hre from "hardhat";
+
 import type { ComparisonsPremium } from "../typechain-types";
-import { getSignatureAndEncryption, initGateway, isMockedMode } from "../scripts/test-helpers";
+import { getSignatureAndEncryption, initGateway, isMockedMode } from "../scripts/test-helpers.ts";
 
 describe("ComparisonsPremium - Tests", () => {
     let contract: ComparisonsPremium;
@@ -21,14 +23,14 @@ describe("ComparisonsPremium - Tests", () => {
         expect(await contract.getAddress()).to.be.properAddress;
     });
 
-    it.skip("setters work and emit events", async () => {
+    it("setters work and emit events", async () => {
         const { ciphertext: enc1 } = await getSignatureAndEncryption(1);
         const { ciphertext: enc2 } = await getSignatureAndEncryption(2);
         await expect(contract.setA(enc1)).to.emit(contract, "ASet");
         await expect(contract.setB(enc2)).to.emit(contract, "BSet");
     });
 
-    it.skip("gt/lt/eq produce encrypted booleans", async () => {
+    it("gt/lt/eq produce encrypted booleans", async () => {
         const { ciphertext: enc5 } = await getSignatureAndEncryption(5);
         const { ciphertext: enc3 } = await getSignatureAndEncryption(3);
         await contract.setA(enc5);
@@ -43,7 +45,7 @@ describe("ComparisonsPremium - Tests", () => {
         expect(eq).to.not.be.undefined;
     });
 
-    it.skip("selectBasedOnThreshold modifies a based on encrypted comparison", async () => {
+    it("selectBasedOnThreshold modifies a based on encrypted comparison", async () => {
         const { ciphertext: enc7 } = await getSignatureAndEncryption(7);
         const { ciphertext: enc2 } = await getSignatureAndEncryption(2);
         await contract.setA(enc7);

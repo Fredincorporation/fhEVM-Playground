@@ -1,6 +1,8 @@
+import { ethers } from "ethers";
 import { expect } from "chai";
-import { ethers } from "hardhat";
-import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers";
+import hre from "hardhat";
+
+import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers.ts";
 
 describe("HandlesLifecyclePremium", function () {
   let handles: any;
@@ -14,7 +16,7 @@ describe("HandlesLifecyclePremium", function () {
     handles = await Factory.deploy();
   });
 
-  it.skip("creates a handle and exposes owner before expiry", async () => {
+  it("creates a handle and exposes owner before expiry", async () => {
     const { ciphertext } = await getSignatureAndEncryption(42);
     const tx = await handles.connect(owner).createHandle(ciphertext, 3600);
     const rc = await tx.wait();
@@ -25,7 +27,7 @@ describe("HandlesLifecyclePremium", function () {
     expect(ownerAddr).to.equal(owner.address);
   });
 
-  it.skip("transfers a handle to another owner", async () => {
+  it("transfers a handle to another owner", async () => {
     const { ciphertext } = await getSignatureAndEncryption(7);
     const rc = await (await handles.createHandle(ciphertext, 0)).wait();
     const handleId = rc.events?.find((e: any) => e.event === "HandleCreated").args[0];
@@ -35,7 +37,7 @@ describe("HandlesLifecyclePremium", function () {
     expect(newOwner).to.equal(other.address);
   });
 
-  it.skip("expires handle after ttl and metadata becomes inaccessible", async () => {
+  it("expires handle after ttl and metadata becomes inaccessible", async () => {
     const { ciphertext } = await getSignatureAndEncryption(9);
     const rc = await (await handles.createHandle(ciphertext, 1)).wait();
     const handleId = rc.events?.find((e: any) => e.event === "HandleCreated").args[0];

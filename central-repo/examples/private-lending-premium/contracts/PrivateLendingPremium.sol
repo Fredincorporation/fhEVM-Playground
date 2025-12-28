@@ -10,7 +10,7 @@ pragma solidity 0.8.24;
  * of amounts, repayments, and solvency when necessary.
  */
 
-import { TFHE, euint32 } from "fhevm/lib/TFHE.sol";
+import { TFHE, euint32 } from "../../fhevm/lib/TFHE.sol";
 
 contract PrivateLendingPremium {
     address public owner;

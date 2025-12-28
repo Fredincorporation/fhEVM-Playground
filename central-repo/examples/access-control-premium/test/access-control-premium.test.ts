@@ -1,7 +1,8 @@
+import { ethers } from "ethers";
 import { expect } from "chai";
-import { ethers } from "hardhat";
+import hre from "hardhat";
 import type { AccessControlPremium } from "../typechain-types";
-import { getSignatureAndEncryption, initGateway, isMockedMode } from "../scripts/test-helpers";
+import { getSignatureAndEncryption, initGateway, isMockedMode } from "../scripts/test-helpers.ts";
 
 describe("AccessControlPremium - Tests", () => {
     let contract: AccessControlPremium;
@@ -18,14 +19,14 @@ describe("AccessControlPremium - Tests", () => {
         await contract.waitForDeployment();
     });
 
-    it.skip("assignEncryptedRole and getEncryptedRole work", async () => {
+    it("assignEncryptedRole and getEncryptedRole work", async () => {
         const { ciphertext: encAdmin } = await getSignatureAndEncryption(1);
         await expect(contract.assignEncryptedRole(addr1.address, encAdmin)).to.emit(contract, "RoleAssigned");
         const stored = await contract.getEncryptedRole(addr1.address);
         expect(stored).to.not.be.undefined;
     });
 
-    it.skip("hasRoleAtLeast returns encrypted boolean and is callable", async () => {
+    it("hasRoleAtLeast returns encrypted boolean and is callable", async () => {
         const { ciphertext: encAdmin } = await getSignatureAndEncryption(2);
         const { ciphertext: encMin } = await getSignatureAndEncryption(1);
         await contract.assignEncryptedRole(addr1.address, encAdmin);
@@ -38,7 +39,7 @@ describe("AccessControlPremium - Tests", () => {
         await expect(contract.connect(owner).allowTransient(addr2.address)).to.emit(contract, "TransientAllowed");
     });
 
-    it.skip("clearRole deletes role and emits RoleCleared", async () => {
+    it("clearRole deletes role and emits RoleCleared", async () => {
         const { ciphertext: enc } = await getSignatureAndEncryption(1);
         await contract.assignEncryptedRole(addr1.address, enc);
         await expect(contract.clearRole(addr1.address)).to.emit(contract, "RoleCleared");

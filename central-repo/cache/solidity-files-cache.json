@@ -1,0 +1,961 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/access-control-premium/contracts/AccessControlPremium.sol": {
+      "lastModificationDate": 1766901034386,
+      "contentHash": "9e43d26bb1475c1b0fc772dc0af26b15",
+      "sourceName": "examples/access-control-premium/contracts/AccessControlPremium.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../fhevm/abstracts/EIP712WithModifier.sol",
+        "../../fhevm/abstracts/Reencrypt.sol",
+        "../../fhevm/lib/TFHE.sol"
+      ],
+      "versionPragmas": [
+        "0.8.24"
+      ],
+      "artifacts": [
+        "AccessControlPremium"
+      ]
+    },
+    "/home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/fhevm/abstracts/EIP712WithModifier.sol": {
+      "lastModificationDate": 1766901034412,
+      "contentHash": "45c0925b85d49c8cc9c9b8a618537bc8",
+      "sourceName": "examples/fhevm/abstracts/EIP712WithModifier.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.8.24"
+      ],
+      "artifacts": [
+        "EIP712WithModifier"
+      ]
+    },
+    "/home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/fhevm/abstracts/Reencrypt.sol": {
+      "lastModificationDate": 1766901034409,
+      "contentHash": "595aae108a0b31cb3646b2681109a4d9",
+      "sourceName": "examples/fhevm/abstracts/Reencrypt.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.8.24"
+      ],
+      "artifacts": [
+        "Reencrypt"
+      ]
+    },
+    "/home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/fhevm/lib/TFHE.sol": {
+      "lastModificationDate": 1766901034406,
+      "contentHash": "307d45cf2320099bbe0cadc8fd75d3f1",
+      "sourceName": "examples/fhevm/lib/TFHE.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.8.24"
+      ],
+      "artifacts": [
+        "TFHE"
+      ]
+    },
+    "/home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/vesting-premium/contracts/VestingPremium.sol": {
+      "lastModificationDate": 1766901034403,
+      "contentHash": "9449d2e3a1a72e2d85fb9abf594844d2",
+      "sourceName": "examples/vesting-premium/contracts/VestingPremium.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../fhevm/lib/TFHE.sol"
+      ],
+      "versionPragmas": [
+        "0.8.24"
+      ],
+      "artifacts": [
+        "VestingPremium"
+      ]
+    },
+    "/home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/swaps-premium/contracts/SwapsPremium.sol": {
+      "lastModificationDate": 1766901034425,
+      "contentHash": "26f2e28bcc49c134bcffac4aab6ee51d",
+      "sourceName": "examples/swaps-premium/contracts/SwapsPremium.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../fhevm/lib/TFHE.sol"
+      ],
+      "versionPragmas": [
+        "0.8.24"
+      ],
+      "artifacts": [
+        "SwapsPremium"
+      ]
+    },
+    "/home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/single-encryption-premium/contracts/SingleEncryptionPremium.sol": {
+      "lastModificationDate": 1766901034379,
+      "contentHash": "ea99aeaab403f3265ac2faf8c6e12a0c",
+      "sourceName": "examples/single-encryption-premium/contracts/SingleEncryptionPremium.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../fhevm/abstracts/EIP712WithModifier.sol",
+        "../../fhevm/abstracts/Reencrypt.sol",
+        "../../fhevm/lib/TFHE.sol"
+      ],
+      "versionPragmas": [
+        "0.8.24"
+      ],
+      "artifacts": [
+        "SingleEncryptionPremium"
+      ]
+    },
+    "/home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/public-encryption-premium/contracts/PublicEncryptionPremium.sol": {
+      "lastModificationDate": 1766901034390,
+      "contentHash": "8713d00d6226204b7ba73996c1db4dd6",
+      "sourceName": "examples/public-encryption-premium/contracts/PublicEncryptionPremium.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../fhevm/abstracts/EIP712WithModifier.sol",
+        "../../fhevm/abstracts/Reencrypt.sol",
+        "../../fhevm/lib/TFHE.sol"
+      ],
+      "versionPragmas": [
+        "0.8.24"
+      ],
+      "artifacts": [
+        "PublicEncryptionPremium"
+      ]
+    },
+    "/home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/input-proofs-premium/contracts/InputProofsPremium.sol": {
+      "lastModificationDate": 1766901034396,
+      "contentHash": "161e3cf1d39f5fb4a81a391d13a32627",
+      "sourceName": "examples/input-proofs-premium/contracts/InputProofsPremium.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../fhevm/abstracts/EIP712WithModifier.sol",
+        "../../fhevm/abstracts/Reencrypt.sol",
+        "../../fhevm/lib/TFHE.sol"
+      ],
+      "versionPragmas": [
+        "0.8.24"
+      ],
+      "artifacts": [
+        "InputProofsPremium"
+      ]
+    },
+    "/home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/comparisons-premium/contracts/ComparisonsPremium.sol": {
+      "lastModificationDate": 1766901034376,
+      "contentHash": "945200375b2f7556279b8650a6696763",
+      "sourceName": "examples/comparisons-premium/contracts/ComparisonsPremium.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../fhevm/abstracts/EIP712WithModifier.sol",
+        "../../fhevm/abstracts/Reencrypt.sol",
+        "../../fhevm/lib/TFHE.sol"
+      ],
+      "versionPragmas": [
+        "0.8.24"
+      ],
+      "artifacts": [
+        "ComparisonsPremium"
+      ]
+    },
+    "/home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/basic-counter-premium/contracts/BasicCounterPremium.sol": {
+      "lastModificationDate": 1766901034388,
+      "contentHash": "dfe72eb811652ca3bd785807587e0fb6",
+      "sourceName": "examples/basic-counter-premium/contracts/BasicCounterPremium.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../fhevm/abstracts/EIP712WithModifier.sol",
+        "../../fhevm/abstracts/Reencrypt.sol",
+        "../../fhevm/lib/TFHE.sol"
+      ],
+      "versionPragmas": [
+        "0.8.24"
+      ],
+      "artifacts": [
+        "BasicCounterPremium"
+      ]
+    },
+    "/home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/arithmetic-premium/contracts/ArithmeticPremium.sol": {
+      "lastModificationDate": 1766901034423,
+      "contentHash": "3543a2f8daad9f49e132a70ca66832dd",
+      "sourceName": "examples/arithmetic-premium/contracts/ArithmeticPremium.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../fhevm/abstracts/EIP712WithModifier.sol",
+        "../../fhevm/abstracts/Reencrypt.sol",
+        "../../fhevm/lib/TFHE.sol"
+      ],
+      "versionPragmas": [
+        "0.8.24"
+      ],
+      "artifacts": [
+        "ArithmeticPremium"
+      ]
+    },
+    "/home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/private-yield-premium/contracts/PrivateYieldPremium.sol": {
+      "lastModificationDate": 1766901034427,
+      "contentHash": "daa6f6d447929c699d50b5b9d7362fd5",
+      "sourceName": "examples/private-yield-premium/contracts/PrivateYieldPremium.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../fhevm/lib/TFHE.sol"
+      ],
+      "versionPragmas": [
+        "0.8.24"
+      ],
+      "artifacts": [
+        "PrivateYieldPremium"
+      ]
+    },
+    "/home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/private-lending-premium/contracts/PrivateLendingPremium.sol": {
+      "lastModificationDate": 1766901034371,
+      "contentHash": "f4d6160f64eebaf6162e168e82d8c89d",
+      "sourceName": "examples/private-lending-premium/contracts/PrivateLendingPremium.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../fhevm/lib/TFHE.sol"
+      ],
+      "versionPragmas": [
+        "0.8.24"
+      ],
+      "artifacts": [
+        "PrivateLendingPremium"
+      ]
+    },
+    "/home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/private-erc20-premium/contracts/PrivateERC20Premium.sol": {
+      "lastModificationDate": 1766901034374,
+      "contentHash": "782ee28aacf7df2b1e90b03e2ad46af2",
+      "sourceName": "examples/private-erc20-premium/contracts/PrivateERC20Premium.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../fhevm/lib/TFHE.sol"
+      ],
+      "versionPragmas": [
+        "0.8.24"
+      ],
+      "artifacts": [
+        "PrivateERC20Premium"
+      ]
+    },
+    "/home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/mev-arbitrage-premium/contracts/MEVArbitragePremium.sol": {
+      "lastModificationDate": 1766901034377,
+      "contentHash": "b45c6d970811407410989af4ca76c3b7",
+      "sourceName": "examples/mev-arbitrage-premium/contracts/MEVArbitragePremium.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../fhevm/lib/TFHE.sol"
+      ],
+      "versionPragmas": [
+        "0.8.24"
+      ],
+      "artifacts": [
+        "MEVArbitragePremium"
+      ]
+    },
+    "/home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/handles-lifecycle-premium/contracts/HandlesLifecyclePremium.sol": {
+      "lastModificationDate": 1766901034392,
+      "contentHash": "705003af54e4f062fea8a6c8ff162a9c",
+      "sourceName": "examples/handles-lifecycle-premium/contracts/HandlesLifecyclePremium.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../fhevm/lib/TFHE.sol"
+      ],
+      "versionPragmas": [
+        "0.8.24"
+      ],
+      "artifacts": [
+        "HandlesLifecyclePremium"
+      ]
+    },
+    "/home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/erc7984-premium/contracts/ERC7984Premium.sol": {
+      "lastModificationDate": 1766901034400,
+      "contentHash": "b0efc894c9e3ca396b4efc1e21f0d865",
+      "sourceName": "examples/erc7984-premium/contracts/ERC7984Premium.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../fhevm/lib/TFHE.sol"
+      ],
+      "versionPragmas": [
+        "0.8.24"
+      ],
+      "artifacts": [
+        "ERC7984Premium"
+      ]
+    },
+    "/home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/encrypted-poker-premium/contracts/EncryptedPokerPremium.sol": {
+      "lastModificationDate": 1766901034382,
+      "contentHash": "c52d38a01651737986831edb72c286ac",
+      "sourceName": "examples/encrypted-poker-premium/contracts/EncryptedPokerPremium.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../fhevm/lib/TFHE.sol"
+      ],
+      "versionPragmas": [
+        "0.8.24"
+      ],
+      "artifacts": [
+        "EncryptedPokerPremium"
+      ]
+    },
+    "/home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/dao-voting-premium/contracts/DAOVotingPremium.sol": {
+      "lastModificationDate": 1766901034367,
+      "contentHash": "b9a3ffd9cf5dfcf3247fdfc852a99c34",
+      "sourceName": "examples/dao-voting-premium/contracts/DAOVotingPremium.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../fhevm/lib/TFHE.sol"
+      ],
+      "versionPragmas": [
+        "0.8.24"
+      ],
+      "artifacts": [
+        "DAOVotingPremium"
+      ]
+    },
+    "/home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/confidential-stablecoin-premium/contracts/ConfidentialStablecoinPremium.sol": {
+      "lastModificationDate": 1766901034384,
+      "contentHash": "d470225dbc502fa820d34975d649986f",
+      "sourceName": "examples/confidential-stablecoin-premium/contracts/ConfidentialStablecoinPremium.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../fhevm/lib/TFHE.sol"
+      ],
+      "versionPragmas": [
+        "0.8.24"
+      ],
+      "artifacts": [
+        "ConfidentialStablecoinPremium"
+      ]
+    },
+    "/home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/blind-dex-premium/contracts/BlindDEXPremium.sol": {
+      "lastModificationDate": 1766901034420,
+      "contentHash": "54f75b342a8df9aa998d5fd7019a4132",
+      "sourceName": "examples/blind-dex-premium/contracts/BlindDEXPremium.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../fhevm/lib/TFHE.sol"
+      ],
+      "versionPragmas": [
+        "0.8.24"
+      ],
+      "artifacts": [
+        "BlindDEXPremium"
+      ]
+    },
+    "/home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/blind-auction-premium/contracts/BlindAuctionPremium.sol": {
+      "lastModificationDate": 1766901034417,
+      "contentHash": "9ace6d37464f79b416fddc041c58a568",
+      "sourceName": "examples/blind-auction-premium/contracts/BlindAuctionPremium.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../fhevm/lib/TFHE.sol"
+      ],
+      "versionPragmas": [
+        "0.8.24"
+      ],
+      "artifacts": [
+        "BlindAuctionPremium"
+      ]
+    },
+    "/home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/anti-patterns-premium/contracts/AntiPatternsPremium.sol": {
+      "lastModificationDate": 1766901034370,
+      "contentHash": "42f674bc9974a0b4ef54af84a75155a5",
+      "sourceName": "examples/anti-patterns-premium/contracts/AntiPatternsPremium.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../fhevm/lib/TFHE.sol"
+      ],
+      "versionPragmas": [
+        "0.8.24"
+      ],
+      "artifacts": [
+        "AntiPatternsPremium"
+      ]
+    },
+    "/home/bigfred/Documents/GitHub/fhEVM Playground/central-repo/examples/fhevm/gateway.sol": {
+      "lastModificationDate": 1766901034414,
+      "contentHash": "1016ec77123160bf2189b6f7049bf339",
+      "sourceName": "examples/fhevm/gateway.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.8.24"
+      ],
+      "artifacts": [
+        "GatewayHelpers"
+      ]
+    }
+  }
+}

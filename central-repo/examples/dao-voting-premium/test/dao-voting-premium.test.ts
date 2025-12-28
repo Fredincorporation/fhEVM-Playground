@@ -1,6 +1,8 @@
+import { ethers } from "ethers";
 import { expect } from "chai";
-import { ethers } from "hardhat";
-import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers";
+import hre from "hardhat";
+
+import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers.ts";
 
 describe("DAOVotingPremium", function () {
   let dao: any;
@@ -16,7 +18,7 @@ describe("DAOVotingPremium", function () {
     dao = await Factory.deploy();
   });
 
-  it.skip("creates a proposal and accepts encrypted votes", async () => {
+  it("creates a proposal and accepts encrypted votes", async () => {
     const { ciphertext: meta } = await getSignatureAndEncryption(999);
     const rc = await (await dao.createProposal(meta)).wait();
     // proposal id is 0

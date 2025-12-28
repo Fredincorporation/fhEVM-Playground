@@ -1,6 +1,8 @@
+import { ethers } from "ethers";
 import { expect } from "chai";
-import { ethers } from "hardhat";
-import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers";
+import hre from "hardhat";
+
+import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers.ts";
 
 describe("BlindDEXPremium", function () {
   let dex: any;
@@ -15,7 +17,7 @@ describe("BlindDEXPremium", function () {
     dex = await Factory.deploy();
   });
 
-  it.skip("places encrypted orders and reports order count", async () => {
+  it("places encrypted orders and reports order count", async () => {
     const { ciphertext: amountA } = await getSignatureAndEncryption(100);
     const { ciphertext: priceA } = await getSignatureAndEncryption(5);
     const tx = await dex.connect(makerA).placeOrder(amountA, priceA);
@@ -29,7 +31,7 @@ describe("BlindDEXPremium", function () {
     expect(count).to.equal(2);
   });
 
-  it.skip("owner can finalize trade and emits TradeFinalized", async () => {
+  it("owner can finalize trade and emits TradeFinalized", async () => {
     const { ciphertext: amountA } = await getSignatureAndEncryption(50);
     const { ciphertext: priceA } = await getSignatureAndEncryption(5);
     await dex.connect(makerA).placeOrder(amountA, priceA);

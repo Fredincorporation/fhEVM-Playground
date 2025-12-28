@@ -11,7 +11,7 @@ pragma solidity 0.8.24;
  * declared winner address.
  */
 
-import { TFHE, euint32 } from "fhevm/lib/TFHE.sol";
+import { TFHE, euint32 } from "../../fhevm/lib/TFHE.sol";
 
 contract DAOVotingPremium {
     address public owner;

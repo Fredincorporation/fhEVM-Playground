@@ -1,6 +1,8 @@
+import { ethers } from "ethers";
 import { expect } from "chai";
-import { ethers } from "hardhat";
-import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers";
+import hre from "hardhat";
+
+import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers.ts";
 
 describe("SwapsPremium", function () {
   let swaps: any;
@@ -11,7 +13,7 @@ describe("SwapsPremium", function () {
     swaps = await Factory.deploy();
   });
 
-  it.skip("adds liquidity and updates encrypted reserves", async () => {
+  it("adds liquidity and updates encrypted reserves", async () => {
     const { ciphertext: a } = await getSignatureAndEncryption(100);
     const { ciphertext: b } = await getSignatureAndEncryption(200);
     await expect(swaps.addLiquidity(a, b)).to.emit(swaps, "LiquidityAdded");
@@ -20,7 +22,7 @@ describe("SwapsPremium", function () {
     expect(rb).to.exist;
   });
 
-  it.skip("swapAToB emits Swap and adjusts reserves (encrypted)", async () => {
+  it("swapAToB emits Swap and adjusts reserves (encrypted)", async () => {
     const { ciphertext: a } = await getSignatureAndEncryption(1000);
     const { ciphertext: b } = await getSignatureAndEncryption(1000);
     await swaps.addLiquidity(a, b);

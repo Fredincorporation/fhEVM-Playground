@@ -16,7 +16,7 @@ pragma solidity 0.8.24;
  * - Events emit only opaque encrypted primitives (avoid revealing plaintext).
  */
 
-import { TFHE, euint32 } from "fhevm/lib/TFHE.sol";
+import { TFHE, euint32 } from "../../fhevm/lib/TFHE.sol";
 
 contract PrivateERC20Premium {
     address public owner;

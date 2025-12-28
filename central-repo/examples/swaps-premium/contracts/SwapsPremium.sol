@@ -10,7 +10,7 @@ pragma solidity 0.8.24;
  * example — production AMMs require careful design and off-chain tooling.
  */
 
-import { TFHE, euint32 } from "fhevm/lib/TFHE.sol";
+import { TFHE, euint32 } from "../../fhevm/lib/TFHE.sol";
 
 contract SwapsPremium {
     // encrypted reserves for tokenA and tokenB
