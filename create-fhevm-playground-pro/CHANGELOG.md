@@ -3,6 +3,10 @@
 ## 1.0.63 - 2025-12-29
 
 - Rebuild and republish to ensure template fixes are available in npm package (numeric max + ethers v6 gasUsed).
+ 
+## 1.0.64 - 2025-12-29
+
+- Fix: normalizeBigNumberish now accepts numeric-string inputs (e.g. "4294967295") and converts them to numbers before masking; prevents invalid BigNumberish hex like `0x000000-1` during ABI encoding.
 
 ## 1.0.62 - 2025-12-29
 
