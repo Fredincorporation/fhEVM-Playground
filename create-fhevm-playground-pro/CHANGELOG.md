@@ -1,4 +1,9 @@
 # Changelog
+
+## 1.0.66 - 2025-12-29
+
+- Fix: Update scaffolder's injected `normalizeBigNumberish` function to handle numeric-string inputs (e.g., `"4294967295"`) so every scaffolded project handles string numbers correctly without ABI encoding failures.
+
 ## 1.0.65 - 2025-12-29
 
 - Improve: Add numeric-string handling to base-template and central-repo test-helpers for defensive BigNumberish normalization (handles both `"4294967295"` and `4294967295` formats).
