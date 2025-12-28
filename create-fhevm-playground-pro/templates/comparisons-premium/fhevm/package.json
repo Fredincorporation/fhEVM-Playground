@@ -1,0 +1,6 @@
+{
+  "name": "fhevm",
+  "version": "0.0.0",
+  "description": "Local fhevm shim package for examples",
+  "files": ["abstracts", "lib"]
+}

@@ -72,6 +72,9 @@ export async function createExample(options: ScaffoldOptions): Promise<void> {
   // working directory and its parents (for development runs).
   const searchPaths: string[] = [];
 
+  // First, search in the bundled templates directory (for npm published users)
+  searchPaths.push(path.join(__dirname, '..', 'templates', `${exampleDirName}-premium`));
+
   // Search upward from __dirname (package location)
   let dir = path.resolve(__dirname);
   for (let i = 0; i < 5; i++) {
@@ -112,15 +115,27 @@ export async function createExample(options: ScaffoldOptions): Promise<void> {
   }
 
   if (centralRepoExampleDir) {
-    // Overlay contracts and tests from the real example
+    // Overlay contracts, tests, fhevm lib, and scripts from the real example
     const contractsSrc = path.join(centralRepoExampleDir, 'contracts');
     const contractsDest = path.join(projectDir, 'contracts');
     const testSrc = path.join(centralRepoExampleDir, 'test');
     const testDest = path.join(projectDir, 'test');
+    const fhevmSrc = path.join(centralRepoExampleDir, 'fhevm');
+    const fhevmDest = path.join(projectDir, 'fhevm');
+    const scriptsSrc = path.join(centralRepoExampleDir, 'scripts');
+    const scriptsDest = path.join(projectDir, 'scripts');
 
     if (fs.existsSync(contractsSrc)) {
       fs.copySync(contractsSrc, contractsDest, { overwrite: true });
       console.log(chalk.cyan(`Overlaid contracts from ${exampleDirName}-premium`));
+    }
+    if (fs.existsSync(fhevmSrc)) {
+      fs.copySync(fhevmSrc, fhevmDest, { overwrite: true });
+      console.log(chalk.cyan(`Overlaid fhevm library from ${exampleDirName}-premium`));
+    }
+    if (fs.existsSync(scriptsSrc)) {
+      fs.copySync(scriptsSrc, scriptsDest, { overwrite: true });
+      console.log(chalk.cyan(`Overlaid scripts from ${exampleDirName}-premium`));
     }
     if (fs.existsSync(testSrc)) {
       fs.copySync(testSrc, testDest, { overwrite: true });
@@ -137,6 +152,15 @@ export async function createExample(options: ScaffoldOptions): Promise<void> {
           /import\s+{([^}]+)}\s+from\s+"\.\.\/\.\.\/\.\.\/\.\.\/scripts\/test-helpers"/,
           'import { $1 } from "./test-helpers.js"'
         );
+        
+        // Replace imports: import { ethers } from "ethers" -> use hre.ethers
+        // First remove the ethers import
+        testContent = testContent.replace(/import\s*{\s*ethers\s*}\s*from\s*["']ethers["']\s*;?\n/g, '');
+        
+        // Replace ethers.getSigners() with hre.ethers.getSigners()
+        testContent = testContent.replace(/ethers\.getSigners/g, 'hre.ethers.getSigners');
+        testContent = testContent.replace(/ethers\.getContractFactory/g, 'hre.ethers.getContractFactory');
+        testContent = testContent.replace(/ethers\.provider/g, 'hre.ethers.provider');
         
         // Replace hardhat import to work around ESM/CommonJS issues
         // Change: import { ethers } from "hardhat"
