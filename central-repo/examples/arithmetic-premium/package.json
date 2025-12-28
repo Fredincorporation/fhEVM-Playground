@@ -4,7 +4,7 @@
   "description": "fhEVM Example Project",
   "scripts": {
     "build": "hardhat compile",
-    "test": "npm run test:mock",
+    "test": "npm run build && npm run test:mock",
     "test:mock": "MOCK=true npx hardhat test test/*.cjs"
   },
   "keywords": ["fhevm", "hardhat", "solidity"],
