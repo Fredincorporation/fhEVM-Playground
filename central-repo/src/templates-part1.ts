@@ -47,6 +47,15 @@ export const CATEGORIES = [
     keywords: ['encryption', 'user-side', 'single'],
   },
   {
+    id: 'public-encryption',
+    name: 'Public Encryption',
+    description: 'Contract-side public encryption/decryption patterns',
+    complexity: 'Intermediate',
+    isPro: false,
+    contractName: 'PublicEncryption',
+    keywords: ['encryption', 'public', 'decryption'],
+  },
+  {
     id: 'multiple-encryption',
     name: 'Multiple Encryption',
     description: 'Encrypt and manage multiple encrypted values',
