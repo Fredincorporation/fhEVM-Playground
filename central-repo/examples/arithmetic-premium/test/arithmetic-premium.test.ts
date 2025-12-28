@@ -110,7 +110,7 @@ describe("ArithmeticPremium - Premium Tests", () => {
         });
 
         it("handles large operands without reverting (wrap behavior)", async () => {
-            const max = "4294967295";
+            const max = 4294967295;
             const { ciphertext: encMax } = await getSignatureAndEncryption(max);
             await contract.setA(encMax);
             await contract.setB(encMax);
@@ -150,7 +150,7 @@ describe("ArithmeticPremium - Premium Tests", () => {
             await contract.setB(enc2);
             const tx = await contract.addAB();
             const receipt = await tx.wait();
-            expect(receipt.gasUsed.toNumber()).to.be.lessThan(150000);
+            expect(Number(receipt.gasUsed)).to.be.lessThan(150000);
         });
     });
 
