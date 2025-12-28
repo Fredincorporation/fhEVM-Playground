@@ -22,6 +22,11 @@ export default {
 };
 
 export function normalizeBigNumberish(v: string | number | bigint): string {
+  // Convert numeric strings to numbers first
+  if (typeof v === 'string' && /^\d+$/.test(v)) {
+    v = Number(v);
+  }
+  
   if (typeof v === 'number' || typeof v === 'bigint') {
     const bn = BigInt(v);
     // Mask to uint32

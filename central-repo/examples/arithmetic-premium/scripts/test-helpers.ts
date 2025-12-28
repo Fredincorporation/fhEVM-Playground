@@ -22,6 +22,11 @@ function isAddressString(value: any): boolean {
 }
 
 function normalizeBigNumberish(value: any): any {
+  // Convert numeric strings to numbers first
+  if (typeof value === 'string' && /^\d+$/.test(value)) {
+    value = Number(value);
+  }
+  
   // Leave addresses untouched
   if (isAddressString(value)) return value;
 
