@@ -1,7 +1,7 @@
 {
   "name": "create-fhevm-playground-pro",
   "type": "module",
-  "version": "1.0.50",
+  "version": "1.0.51",
   "description": "Premium CLI scaffolding tool for fhEVM examples - Zama's December 2025 Bounty Track",
   "main": "dist/src/cli.js",
   "bin": {

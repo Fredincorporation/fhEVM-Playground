@@ -5,6 +5,32 @@ import chalk from 'chalk';
 import inquirer from 'inquirer';
 import { createExample } from '../src/scaffolder.js';
 import { CATEGORIES } from '../src/templates-index.js';
+import fs from 'fs';
+import path from 'path';
+import { execSync } from 'child_process';
+
+// Auto-update helper: if a newer version exists on npm, re-run using npx@latest
+try {
+  if (!process.env.FHP_SKIP_AUTOUPDATE) {
+    const pkgPath = path.resolve(__dirname, '..', 'package.json');
+    let localVersion = '0.0.0';
+    try { localVersion = JSON.parse(fs.readFileSync(pkgPath, 'utf8')).version; } catch (e) {}
+    try {
+      const latest = execSync('npm view create-fhevm-playground-pro version --silent', { stdio: 'pipe' }).toString().trim();
+      if (latest && latest !== localVersion) {
+        console.log(chalk.yellow(`A newer CLI version (${latest}) is available — re-running with latest.`));
+        const args = process.argv.slice(2).map(a => (a.includes(' ') ? `"${a}"` : a)).join(' ');
+        const cmd = `npx --yes create-fhevm-playground-pro@${latest} ${args}`;
+        execSync(cmd, { stdio: 'inherit', env: { ...process.env, FHP_SKIP_AUTOUPDATE: '1' } });
+        process.exit(0);
+      }
+    } catch (e) {
+      // ignore network/npm errors and continue with local CLI
+    }
+  }
+} catch (e) {
+  // swallow any error to avoid breaking CLI startup
+}
 
 const program = new Command();
 
