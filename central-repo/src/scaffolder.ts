@@ -1188,7 +1188,7 @@ export function mockEbool(value: boolean = true): any {
     version: '1.0.0',
     description: `${categoryData.name} - fhEVM example`,
     scripts: {
-      test: 'hardhat test',
+      test: 'npm run compile && npm run test:mock',
       'test:mock': 'MOCK=true hardhat test',
       compile: 'hardhat compile',
     },
