@@ -138,6 +138,12 @@ export async function createExample(options: ScaffoldOptions): Promise<void> {
       console.log(chalk.cyan(`Overlaid scripts from ${exampleDirName}-premium`));
     }
     if (fs.existsSync(testSrc)) {
+      // Remove base-template placeholder tests before overlaying
+      const exampleTestPath = path.join(testDest, 'example.test.ts');
+      if (fs.existsSync(exampleTestPath)) {
+        fs.removeSync(exampleTestPath);
+      }
+      
       fs.copySync(testSrc, testDest, { overwrite: true });
       console.log(chalk.cyan(`Overlaid tests from ${exampleDirName}-premium`));
       
