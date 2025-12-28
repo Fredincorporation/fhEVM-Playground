@@ -11,6 +11,7 @@
     "build": "tsc",
     "watch": "tsc -w",
     "test": "mocha --require ts-node/register 'test/**/*.test.ts'",
+    "test:mock": "MOCK=true npx hardhat test",
     "start": "npm run build && node dist/bin/create-fhevm-playground-pro.js",
     "batch-update": "npx ts-node scripts/batch-update-fhevm-version.ts",
     "postinstall": "npm run build",
@@ -29,6 +30,8 @@
   "author": "Zama Community",
   "license": "MIT",
   "dependencies": {
+    "@fhevm/hardhat-plugin": "^0.1.0",
+    "@fhevm/solidity": "^0.10.0",
     "chalk": "^4.1.2",
     "commander": "^11.1.0",
     "fhevm": "file:./fhevm",
@@ -36,8 +39,9 @@
     "inquirer": "^9.2.7"
   },
   "devDependencies": {
+    "@fhevm/mock-utils": "^0.1.0",
     "@nomicfoundation/hardhat-chai-matchers": "^2.1.0",
-    "@nomicfoundation/hardhat-ethers": "^4.0.3",
+    "@nomicfoundation/hardhat-ethers": "^3.1.0",
     "@nomicfoundation/hardhat-network-helpers": "^3.0.3",
     "@nomicfoundation/hardhat-toolbox": "^6.1.0",
     "@nomicfoundation/hardhat-verify": "^3.0.8",
@@ -46,6 +50,8 @@
     "@types/inquirer": "^9.0.6",
     "@types/mocha": "^10.0.10",
     "@types/node": "^20.10.6",
+    "@zama-fhe/oracle-solidity": "^0.1.0",
+    "@zama-fhe/relayer-sdk": "^0.2.0",
     "chai": "^6.2.2",
     "dotenv": "^17.2.3",
     "ethers": "^6.16.0",
