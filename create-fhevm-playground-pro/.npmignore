@@ -4,5 +4,7 @@ src/
 tsconfig.json
 .git/
 *.log
-dist/
-!.npmignore
+!dist/
+!base-template/
+!templates/
+.npmignore
