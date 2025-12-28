@@ -26,11 +26,15 @@ library TFHE {
     }
 
     function sub(euint32 a, euint32 b) internal pure returns (euint32) {
-        return euint32.wrap(euint32.unwrap(a) - euint32.unwrap(b));
+        unchecked {
+            return euint32.wrap(euint32.unwrap(a) - euint32.unwrap(b));
+        }
     }
 
     function sub(euint32 a, uint32 b) internal pure returns (euint32) {
-        return euint32.wrap(euint32.unwrap(a) - b);
+        unchecked {
+            return euint32.wrap(euint32.unwrap(a) - b);
+        }
     }
 
     function mul(euint32 a, euint32 b) internal pure returns (euint32) {

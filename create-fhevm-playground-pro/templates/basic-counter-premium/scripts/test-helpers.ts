@@ -56,7 +56,57 @@ export function isMockedMode(): boolean {
  */
 export function decryptMock(ciphertext: string): number {
   try {
-    return parseInt(ciphertext, 16);
+    // accept strings like '0x...-N' produced by TFHE shim; normalize first
+    const norm = normalizeBigNumberish(ciphertext);
+    return Number(BigInt(norm));
+  } catch {
+    return 0;
+  }
+}
+
+/**
+ * Normalize BigNumberish-like strings that may have a trailing "-N" suffix
+ * (e.g. produced by TFHE shim). Returns a hex string representing the
+ * unsigned wrap-around value suitable for ethers encoding, or the numeric
+ * value as a string when appropriate.
+ */
+export function normalizeBigNumberish(v: string | number | bigint): string {
+  if (typeof v === 'number' || typeof v === 'bigint') {
+    return '0x' + BigInt(v).toString(16);
+  }
+  if (typeof v !== 'string') return '0x0';
+
+  const m = v.match(/^(0x[0-9a-fA-F]+)-(\d+)$/);
+  if (!m) return v;
+
+  const hex = m[1];
+  const dec = BigInt(m[2]);
+  const raw = BigInt(hex);
+  const width = BigInt((hex.length - 2) * 4);
+  const mod = 1n << width;
+  let res = raw - dec;
+  if (res < 0) res += mod;
+  // pad to original width
+  const hexDigits = hex.length - 2;
+  let out = res.toString(16).padStart(hexDigits, '0');
+  return '0x' + out;
+}
+
+/**
+ * Safely convert receipt.gasUsed (which may be BigNumber-like) to number
+ */
+export function toNumberSafe(v: any): number {
+  try {
+    if (v == null) return 0;
+    if (typeof v === 'number') return v;
+    if (typeof v === 'bigint') return Number(v);
+    if (typeof v === 'string') return Number(v);
+    if (typeof v.toNumber === 'function') return v.toNumber();
+    if (typeof v.toNumber === 'undefined' && typeof v._hex === 'string') {
+      return Number(BigInt(v._hex));
+    }
+    if (typeof v.toString === 'function') return Number(v.toString());
+    return 0;
   } catch {
     return 0;
   }

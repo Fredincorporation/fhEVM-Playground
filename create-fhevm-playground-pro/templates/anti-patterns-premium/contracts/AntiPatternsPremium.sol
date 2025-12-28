@@ -69,7 +69,7 @@ contract AntiPatternsPremium {
 
     /// @notice Safer: aggregate using encrypted primitives (small arrays only)
     /// @dev Demonstrates on-chain homomorphic addition. Avoid large inputs.
-    function safeAggregate(euint32[] calldata inputs) external view returns (euint32) {
+    function safeAggregate(euint32[] calldata inputs) external pure returns (euint32) {
         require(inputs.length > 0, "empty");
         euint32 acc = inputs[0];
         for (uint256 i = 1; i < inputs.length; i++) {
