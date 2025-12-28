@@ -22,6 +22,12 @@ function isAddressString(value: any): boolean {
 
 function normalizeBigNumberish(value: any): any {
   if (isAddressString(value)) return value;
+  
+  // Convert string numbers like "4294967295" to actual numbers
+  if (typeof value === 'string' && /^\d+$/.test(value)) {
+    value = Number(value);
+  }
+  
   if (isHexString(value)) {
     try {
       const n = BigInt(value);
