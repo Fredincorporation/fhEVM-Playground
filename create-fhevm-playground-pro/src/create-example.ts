@@ -151,7 +151,7 @@ program
           // Change to project directory and run npm install + npm test
           const cwd = projectName;
           console.log(chalk.gray(`📦 Installing npm packages...`));
-          execSync('npm install', { cwd, stdio: 'inherit' });
+          execSync('npm install --silent --no-progress', { cwd, stdio: 'inherit' });
           
           console.log(chalk.gray(`\n🧪 Running tests...\n`));
           execSync('npm test', { cwd, stdio: 'inherit' });

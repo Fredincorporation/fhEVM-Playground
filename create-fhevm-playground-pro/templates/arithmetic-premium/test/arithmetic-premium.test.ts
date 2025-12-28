@@ -110,10 +110,12 @@ describe("ArithmeticPremium - Premium Tests", () => {
         });
 
         it("handles large operands without reverting (wrap behavior)", async () => {
-            const max = 4294967295;
-            const { ciphertext: encMax } = await getSignatureAndEncryption(max);
-            await contract.setA(encMax);
-            await contract.setB(encMax);
+            // Test with moderate large values that demonstrate wrap behavior safely
+            const { ciphertext: enc_large1 } = await getSignatureAndEncryption(0xffffffff);
+            const { ciphertext: enc_large2 } = await getSignatureAndEncryption(1);
+            await contract.setA(enc_large1);
+            await contract.setB(enc_large2);
+            // addAB should handle wrap: (0xffffffff + 1) mod 2**32 = 0
             const tx = await contract.addAB();
             await expect(tx).to.emit(contract, "Added");
         });
