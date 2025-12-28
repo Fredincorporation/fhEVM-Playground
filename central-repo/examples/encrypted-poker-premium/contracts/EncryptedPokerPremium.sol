@@ -10,7 +10,7 @@ pragma solidity 0.8.24;
  * and winner determination off-chain.
  */
 
-import { TFHE, euint32 } from "../../fhevm/lib/TFHE.sol";
+import { TFHE, euint32 } from "../fhevm/lib/TFHE.sol";
 
 contract EncryptedPokerPremium {
     address public owner;

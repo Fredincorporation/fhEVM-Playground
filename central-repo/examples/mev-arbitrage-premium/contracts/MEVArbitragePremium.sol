@@ -12,7 +12,7 @@ pragma solidity 0.8.24;
  * on the complexities of real MEV execution.
  */
 
-import { TFHE, euint32 } from "../../fhevm/lib/TFHE.sol";
+import { TFHE, euint32 } from "../fhevm/lib/TFHE.sol";
 
 contract MEVArbitragePremium {
     address public owner;

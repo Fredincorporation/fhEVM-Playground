@@ -10,7 +10,7 @@ pragma solidity 0.8.24;
  * reward deltas which the contract records and allows claim by staker.
  */
 
-import { TFHE, euint32 } from "../../fhevm/lib/TFHE.sol";
+import { TFHE, euint32 } from "../fhevm/lib/TFHE.sol";
 
 contract PrivateYieldPremium {
     address public owner;

@@ -14,7 +14,7 @@ pragma solidity 0.8.24;
  *   gateway, replay protection, and signature validation.
  */
 
-import { TFHE, euint32 } from "../../fhevm/lib/TFHE.sol";
+import { TFHE, euint32 } from "../fhevm/lib/TFHE.sol";
 
 contract BlindAuctionPremium {
     address public owner;

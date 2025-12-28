@@ -13,7 +13,7 @@ pragma solidity 0.8.24;
  * orderbooks need careful anti-front-running, replay protection, and proofs.
  */
 
-import { TFHE, euint32 } from "../../fhevm/lib/TFHE.sol";
+import { TFHE, euint32 } from "../fhevm/lib/TFHE.sol";
 
 contract BlindDEXPremium {
     address public owner;

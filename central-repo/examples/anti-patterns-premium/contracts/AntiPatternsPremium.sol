@@ -16,7 +16,7 @@ pragma solidity 0.8.24;
  * - Prefer `msg.sender`-based access control (not `tx.origin`).
  */
 
-import { TFHE, euint32, ebool } from "../../fhevm/lib/TFHE.sol";
+import { TFHE, euint32, ebool } from "../fhevm/lib/TFHE.sol";
 
 contract AntiPatternsPremium {
     /// Emitted when insecurely storing raw ciphertext

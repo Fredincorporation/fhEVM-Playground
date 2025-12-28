@@ -11,7 +11,7 @@ pragma solidity 0.8.24;
  * homomorphically.
  */
 
-import { TFHE, euint32 } from "../../fhevm/lib/TFHE.sol";
+import { TFHE, euint32 } from "../fhevm/lib/TFHE.sol";
 
 contract ERC7984Premium {
     address public owner;
