@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.62 - 2025-12-29
+
+- Fix: Update arithmetic-premium template test to use numeric `max` and ethers v6-compatible gasUsed conversion (fixes scaffolded project test failures).
+
 ## 1.0.61 - 2025-12-28
 
 - Fix: Ensure arithmetic example test uses numeric `max` and ethers v6-compatible `Number(receipt.gasUsed)` conversion in gas assertions.
