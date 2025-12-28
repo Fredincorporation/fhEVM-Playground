@@ -12,6 +12,54 @@ interface MockCiphertext {
 let mockMode = true;
 let mockCounter = 0;
 
+function isHexString(value: any): boolean {
+  return typeof value === 'string' && value.startsWith('0x');
+}
+
+function isAddressString(value: any): boolean {
+  return typeof value === 'string' && /^0x[0-9a-fA-F]{40}$/.test(value);
+}
+
+function normalizeBigNumberish(value: any): any {
+  if (isAddressString(value)) return value;
+  if (isHexString(value)) {
+    try {
+      const n = BigInt(value);
+      const masked = Number(n & BigInt(0xffffffff));
+      return '0x' + masked.toString(16).padStart(8, '0');
+    } catch {
+      return value;
+    }
+  }
+  if (Array.isArray(value)) return value.map(normalizeBigNumberish);
+  return value;
+}
+
+try {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const ethers = require('ethers');
+  const origEncode = ethers.Interface.prototype.encodeFunctionData;
+  ethers.Interface.prototype.encodeFunctionData = function(fragment: any, args?: any[]) {
+    const safeArgs = args ? args.map(normalizeBigNumberish) : args;
+    return origEncode.call(this, fragment, safeArgs);
+  };
+
+  const origPopulate = ethers.Contract.prototype.populateTransaction;
+  ethers.Contract.prototype.populateTransaction = function(name: any, ...args: any[]) {
+    if (args && args.length > 0) {
+      const last = args[args.length - 1];
+      const maybeOverrides = (typeof last === 'object' && last !== null && !Array.isArray(last)) ? last : null;
+      const params = maybeOverrides ? args.slice(0, -1) : args.slice(0);
+      const safeParams = params.map(normalizeBigNumberish);
+      const newArgs = maybeOverrides ? [...safeParams, maybeOverrides] : safeParams;
+      return origPopulate.apply(this, [name, ...newArgs]);
+    }
+    return origPopulate.apply(this, [name, ...args]);
+  };
+} catch (e) {
+  // ignore if ethers not available at import-time
+}
+
 /**
  * Initialize the gateway in mock mode
  */
