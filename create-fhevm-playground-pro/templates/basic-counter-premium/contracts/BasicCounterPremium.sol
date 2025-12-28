@@ -210,7 +210,7 @@ contract BasicCounterPremium is EIP712WithModifier, Reencrypt {
      */
     function getCounterIfAuthorized(
         bytes calldata signature
-    ) external view onlySignedPublicKey(signature) returns (uint32) {
+    ) external pure onlySignedPublicKey(signature) returns (uint32) {
         // FHE.allow(encryptedCounter, msg.sender);
         // return TFHE.decrypt(encryptedCounter);
         // Note: Full implementation requires proper signature verification
@@ -352,8 +352,8 @@ contract BasicCounterPremium is EIP712WithModifier, Reencrypt {
         // If isGreater is true (encrypted), add 1
         // If false, add 0 (no change)
         // TFHE.select handles encrypted boolean
-        euint32 increment = TFHE.select(isGreater, TFHE.asEuint32(1), TFHE.asEuint32(0));
-        encryptedCounter = TFHE.add(encryptedCounter, increment);
+        euint32 incrementAmount = TFHE.select(isGreater, TFHE.asEuint32(1), TFHE.asEuint32(0));
+        encryptedCounter = TFHE.add(encryptedCounter, incrementAmount);
         
         emit Incremented(msg.sender, block.timestamp);
     }
