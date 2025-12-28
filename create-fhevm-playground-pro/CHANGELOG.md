@@ -1,5 +1,7 @@
 # Changelog
+## 1.0.65 - 2025-12-29
 
+- Improve: Add numeric-string handling to base-template and central-repo test-helpers for defensive BigNumberish normalization (handles both `"4294967295"` and `4294967295` formats).
 ## 1.0.63 - 2025-12-29
 
 - Rebuild and republish to ensure template fixes are available in npm package (numeric max + ethers v6 gasUsed).
