@@ -1,49 +1,54 @@
-const { ethers } = require("hardhat");;
-const { expect } = require("chai");;
-const hre = require("hardhat");;
+const { ethers } = require("hardhat");
+const { expect } = require("chai");
+const hre = require("hardhat");
 
-import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers.ts";
+const { initGateway, getSignatureAndEncryption, isMockedMode } = require("../scripts/test-helpers.cjs");
 
 describe("VestingPremium", function () {
-  let vesting: any;
-  let creator: any;
-  let beneficiary: any;
+  let vesting;
+  let creator;
+  let beneficiary;
 
   beforeEach(async () => {
     await initGateway();
     [creator, beneficiary] = await ethers.getSigners();
     const Factory = await ethers.getContractFactory("VestingPremium");
     vesting = await Factory.deploy();
+    await vesting.waitForDeployment();
   });
 
   it("creates a vest and beneficiary can claim after release", async () => {
-    const future = Math.floor(Date.now() / 1000) + 2; // 2 seconds in future
+    const latest = await ethers.provider.getBlock('latest');
+    const future = latest.timestamp + 1000; // safely in the future
     const { ciphertext } = await getSignatureAndEncryption(123);
-    const tx = await vesting.createVest(beneficiary.address, ciphertext, future);
-    const rc = await tx.wait();
-    const evt = rc.events?.find((e: any) => e.event === "VestCreated");
-    expect(evt).to.exist;
-    const id = evt.args[0].toNumber ? evt.args[0].toNumber() : Number(evt.args[0]);
+    const v = await ethers.deployContract("VestingPremium");
+    await v.waitForDeployment();
+    // compute id from current vestCount, then create
+    const id = Number(await v.vestCount());
+    const tx = await v.createVest(beneficiary.address, ciphertext, future);
+    await tx.wait();
 
-    // advance time
-    await ethers.provider.send("evm_increaseTime", [3]);
+    // advance time beyond release
+    await ethers.provider.send("evm_increaseTime", [1001]);
     await ethers.provider.send("evm_mine", []);
 
-    await expect(vesting.connect(beneficiary).claimVest(id)).to.emit(vesting, "VestClaimed");
+    await expect(v.connect(beneficiary).claimVest(id)).to.emit(v, "VestClaimed");
   });
 
   it("reverts if non-beneficiary tries to claim", async () => {
-    const future = Math.floor(Date.now() / 1000) + 1;
+    const latest = await ethers.provider.getBlock('latest');
+    const future = latest.timestamp + 1000;
     const { ciphertext } = await getSignatureAndEncryption(50);
-    const tx = await vesting.createVest(beneficiary.address, ciphertext, future);
-    const rc = await tx.wait();
-    const id = rc.events?.find((e: any) => e.event === "VestCreated").args[0];
+    const v = await ethers.deployContract("VestingPremium");
+    await v.waitForDeployment();
+    const id = Number(await v.vestCount());
+    await v.createVest(beneficiary.address, ciphertext, future);
 
-    // advance time
-    await ethers.provider.send("evm_increaseTime", [2]);
+    // advance time beyond release
+    await ethers.provider.send("evm_increaseTime", [1001]);
     await ethers.provider.send("evm_mine", []);
 
-    const [_, other] = await ethers.getSigners();
-    await expect(vesting.connect(other).claimVest(id)).to.be.revertedWith("not-beneficiary");
+    const [, , other] = await ethers.getSigners();
+    await expect(v.connect(other).claimVest(id)).to.be.revertedWith("not-beneficiary");
   });
 });

@@ -1,14 +1,14 @@
-const { ethers } = require("hardhat");;
-const { expect } = require("chai");;
-const hre = require("hardhat");;
+const { ethers } = require("hardhat");
+const { expect } = require("chai");
+const hre = require("hardhat");
 
-import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers.ts";
+const { initGateway, getSignatureAndEncryption, isMockedMode } = require("../scripts/test-helpers.cjs");
 
 describe("EncryptedPokerPremium", function () {
-  let poker: any;
-  let owner: any;
-  let alice: any;
-  let bob: any;
+  let poker;
+  let owner;
+  let alice;
+  let bob;
 
   beforeEach(async () => {
     await initGateway();

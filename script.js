@@ -50,6 +50,16 @@ const examplesData = [
         tags: ['Encryption', 'User', 'Privacy']
     },
     {
+        id: 'public-encryption',
+        name: 'Public Encryption & Decryption',
+        category: 'mandatory',
+        complexity: 'intermediate',
+        description: 'Contract-side public decryption and verification flows.',
+        details: 'Demonstrates public decryption usage patterns and verification in fhEVM contracts.',
+        repo: 'https://github.com/Fredincorporation/fhEVM-Playground/tree/main/central-repo/examples/public-encryption-premium',
+        tags: ['Encryption', 'Public', 'Verification']
+    },
+    {
         id: 'access-control',
         name: 'Access Control (FHE.allow)',
         category: 'mandatory',

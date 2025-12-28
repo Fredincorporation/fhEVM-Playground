@@ -1,13 +1,13 @@
-const { ethers } = require("hardhat");;
-const { expect } = require("chai");;
-const hre = require("hardhat");;
+const { ethers } = require("hardhat");
+const { expect } = require("chai");
+const hre = require("hardhat");
 
-import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers.ts";
+const { initGateway, getSignatureAndEncryption, isMockedMode } = require("../scripts/test-helpers.cjs");
 
 describe("PrivateLendingPremium", function () {
-  let lending: any;
-  let lender: any;
-  let borrower: any;
+  let lending;
+  let lender;
+  let borrower;
 
   beforeEach(async () => {
     await initGateway();

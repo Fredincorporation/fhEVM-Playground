@@ -1,11 +1,11 @@
-const { ethers } = require("hardhat");;
-const { expect } = require("chai");;
-const hre = require("hardhat");;
+const { ethers } = require("hardhat");
+const { expect } = require("chai");
+const hre = require("hardhat");
 
-import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers.ts";
+const { initGateway, getSignatureAndEncryption, isMockedMode } = require("../scripts/test-helpers.cjs");
 
 describe("SwapsPremium", function () {
-  let swaps: any;
+  let swaps;
 
   beforeEach(async () => {
     await initGateway();

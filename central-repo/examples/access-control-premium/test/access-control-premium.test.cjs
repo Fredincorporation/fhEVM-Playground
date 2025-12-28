@@ -1,14 +1,13 @@
-const { ethers } = require("hardhat");;
-const { expect } = require("chai");;
-const hre = require("hardhat");;
-import type { AccessControlPremium } from "../typechain-types";
-import { getSignatureAndEncryption, initGateway, isMockedMode } from "../scripts/test-helpers.ts";
+const { ethers } = require("hardhat");
+const { expect } = require("chai");
+const hre = require("hardhat");
+const { getSignatureAndEncryption, initGateway, isMockedMode } = require("../scripts/test-helpers.cjs");
 
 describe("AccessControlPremium - Tests", () => {
-    let contract: AccessControlPremium;
-    let owner: any;
-    let addr1: any;
-    let addr2: any;
+    let contract;
+    let owner;
+    let addr1;
+    let addr2;
 
     before(async () => { await initGateway(); });
 

@@ -1,16 +1,15 @@
-const { ethers } = require("hardhat");;
-const { expect } = require("chai");;
-const hre = require("hardhat");;
+const { ethers } = require("hardhat");
+const { expect } = require("chai");
+const hre = require("hardhat");
 
-import type { SingleEncryption } from "../typechain-types";
-import { getSignatureAndEncryption, initGateway, isMockedMode } from "../scripts/test-helpers.ts";
+const { getSignatureAndEncryption, initGateway, isMockedMode } = require("../scripts/test-helpers.cjs");
 
 describe("SingleEncryptionPremium - Tests", () => {
-    let contract: SingleEncryptionPremium;
-    let owner: any;
-    let addr1: any;
-    let addr2: any;
-    let addr3: any;
+    let contract;
+    let owner;
+    let addr1;
+    let addr2;
+    let addr3;
 
     before(async () => { await initGateway(); });
 
@@ -27,7 +26,7 @@ describe("SingleEncryptionPremium - Tests", () => {
     });
 
     it("aggregate returns encrypted zero for empty list", async () => {
-        const dummy: string[] = [];
+        const dummy = [];
         const sum = await contract.aggregate(dummy);
         expect(sum).to.not.be.undefined;
     });
@@ -50,7 +49,7 @@ describe("SingleEncryptionPremium - Tests", () => {
     });
 
     it("aggregate reverts when too many addresses", async () => {
-        const arr: string[] = [];
+        const arr = [];
         for (let i = 0; i < 25; i++) { arr.push(owner.address); }
         await expect(contract.aggregate(arr)).to.be.revertedWith("too-many-addrs");
     });
@@ -60,7 +59,7 @@ describe("SingleEncryptionPremium - Tests", () => {
         await contract.connect(addr1).submitEncrypted(enc2);
         await expect(contract.connect(owner).clearSubmissions()).to.emit(contract, "Cleared");
         const count = await contract.getSubmittersCount();
-        expect(count.toNumber()).to.equal(0);
+        expect(Number(count)).to.equal(0);
     });
 
     it("non-owner cannot clear submissions", async () => {
@@ -78,12 +77,12 @@ describe("SingleEncryptionPremium - Tests", () => {
         const { ciphertext: enc4 } = await getSignatureAndEncryption(4);
         await contract.connect(addr1).submitEncrypted(enc4);
         let count = await contract.getSubmittersCount();
-        expect(count.toNumber()).to.equal(1);
+        expect(Number(count)).to.equal(1);
         // Overwrite
         const { ciphertext: enc5 } = await getSignatureAndEncryption(5);
         await contract.connect(addr1).submitEncrypted(enc5);
         count = await contract.getSubmittersCount();
-        expect(count.toNumber()).to.equal(1);
+        expect(Number(count)).to.equal(1);
     });
 
     it("antiPattern_unboundedAggregation exists and callable", async () => {

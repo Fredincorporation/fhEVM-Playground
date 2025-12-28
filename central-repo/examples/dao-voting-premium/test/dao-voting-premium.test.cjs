@@ -1,15 +1,15 @@
-const { ethers } = require("hardhat");;
-const { expect } = require("chai");;
-const hre = require("hardhat");;
+const { ethers } = require("hardhat");
+const { expect } = require("chai");
+const hre = require("hardhat");
 
-import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers.ts";
+const { initGateway, getSignatureAndEncryption, isMockedMode } = require("../scripts/test-helpers.cjs");
 
 describe("DAOVotingPremium", function () {
-  let dao: any;
-  let owner: any;
-  let alice: any;
-  let bob: any;
-  let charlie: any;
+  let dao;
+  let owner;
+  let alice;
+  let bob;
+  let charlie;
 
   beforeEach(async () => {
     await initGateway();
@@ -36,7 +36,7 @@ describe("DAOVotingPremium", function () {
     const { ciphertext: tally } = await getSignatureAndEncryption(2);
     await expect(dao.connect(owner).finalizeVoting(id, alice.address, tally)).to.emit(dao, "VotingFinalized");
 
-    const winner = await dao.proposals(id).then((p: any) => p.winner).catch(() => null);
+    const winner = await dao.proposals(id).then((p) => p.winner).catch(() => null);
     // `proposals` is a public mapping; direct access differs between ethers versions — check winner via contract accessor
     const storedWinner = await dao.proposals(0);
     expect(storedWinner.winner).to.equal(alice.address);

@@ -1,14 +1,21 @@
-const { ethers } = require("hardhat");;
-const { expect } = require("chai");;
-const hre = require("hardhat");;
+const { ethers } = require("hardhat");
+const { expect } = require("chai");
+const hre = require("hardhat");
 
+// Ensure ethers utilities are available (fallback to standalone ethers if needed)
+if (!ethers.utils) {
+  const _ethers = require("ethers");
+  ethers.utils = _ethers.utils;
+  ethers.BigNumber = _ethers.BigNumber;
+}
+const { utils, BigNumber } = require("ethers");
 
 // Helpers used across examples for gateway setup and encryption stubs.
 // The exact path may vary depending on workspace layout; adjust if needed.
-import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers.ts";
+const { initGateway, getSignatureAndEncryption, isMockedMode } = require("../scripts/test-helpers.cjs");
 
 describe("AntiPatternsPremium", function () {
-  let anti: any;
+  let anti;
 
   beforeEach(async () => {
     await initGateway();
@@ -31,16 +38,16 @@ describe("AntiPatternsPremium", function () {
   it("decryptOnChain reverts to discourage pattern", async () => {
     const { ciphertext } = await getSignatureAndEncryption(1);
     await expect(anti.decryptOnChain(ciphertext)).to.be.revertedWith(
-      "Do not decrypt on-chain"
+      "Do not decrypt on-chain; use an off-chain gateway"
     );
   });
 
   it("insecureLoop returns expected sum", async () => {
-    const a = ethers.utils.hexlify(ethers.utils.toUtf8Bytes("a"));
-    const bb = ethers.utils.hexlify(ethers.utils.toUtf8Bytes("bb"));
+    const a = "0x" + Buffer.from("a").toString("hex");
+    const bb = "0x" + Buffer.from("bb").toString("hex");
     const sum = await anti.insecureLoop([a, bb]);
-    // returned as BigNumber
-    expect(sum).to.equal(ethers.BigNumber.from(3));
+    // returned as numeric-like value — compare string form
+    expect(sum.toString()).to.equal("3");
   });
 
   it("safeAggregate accepts encrypted inputs and returns an encrypted value", async () => {

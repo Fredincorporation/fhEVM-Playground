@@ -1,14 +1,13 @@
-const { ethers } = require("hardhat");;
-const { expect } = require("chai");;
-const hre = require("hardhat");;
+const { ethers } = require("hardhat");
+const { expect } = require("chai");
+const hre = require("hardhat");
 
-import type { ComparisonsPremium } from "../typechain-types";
-import { getSignatureAndEncryption, initGateway, isMockedMode } from "../scripts/test-helpers.ts";
+const { getSignatureAndEncryption, initGateway, isMockedMode } = require("../scripts/test-helpers.cjs");
 
 describe("ComparisonsPremium - Tests", () => {
-    let contract: ComparisonsPremium;
-    let owner: any;
-    let addr1: any;
+    let contract;
+    let owner;
+    let addr1;
 
     before(async () => { await initGateway(); });
 

@@ -1,20 +1,19 @@
-const { ethers } = require("hardhat");;
-const { expect } = require("chai");;
-const hre = require("hardhat");;
-
-import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers.ts";
+const { ethers } = require("hardhat");
+const { expect } = require("chai");
+const { initGateway, getSignatureAndEncryption, isMockedMode } = require("../scripts/test-helpers.cjs");
 
 describe("ConfidentialStablecoinPremium", function () {
-  let token: any;
-  let owner: any;
-  let alice: any;
-  let bob: any;
+  let token;
+  let owner;
+  let alice;
+  let bob;
 
   beforeEach(async () => {
     await initGateway();
     [owner, alice, bob] = await ethers.getSigners();
     const Factory = await ethers.getContractFactory("ConfidentialStablecoinPremium");
     token = await Factory.deploy();
+    await token.waitForDeployment();
   });
 
   it("owner mints encrypted amounts and events emitted", async () => {

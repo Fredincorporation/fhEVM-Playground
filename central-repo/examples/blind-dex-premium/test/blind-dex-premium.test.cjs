@@ -1,20 +1,19 @@
-const { ethers } = require("hardhat");;
-const { expect } = require("chai");;
-const hre = require("hardhat");;
-
-import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers.ts";
+const { ethers } = require("hardhat");
+const { expect } = require("chai");
+const { initGateway, getSignatureAndEncryption, isMockedMode } = require("../scripts/test-helpers.cjs");
 
 describe("BlindDEXPremium", function () {
-  let dex: any;
-  let owner: any;
-  let makerA: any;
-  let makerB: any;
+  let dex;
+  let owner;
+  let makerA;
+  let makerB;
 
   beforeEach(async () => {
     await initGateway();
     [owner, makerA, makerB] = await ethers.getSigners();
     const Factory = await ethers.getContractFactory("BlindDEXPremium");
     dex = await Factory.deploy();
+    await dex.waitForDeployment();
   });
 
   it("places encrypted orders and reports order count", async () => {

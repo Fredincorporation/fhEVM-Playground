@@ -1,15 +1,15 @@
-const { ethers } = require("hardhat");;
-const { expect } = require("chai");;
-const hre = require("hardhat");;
+const { ethers } = require("hardhat");
+const { expect } = require("chai");
+const hre = require("hardhat");
 
-import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers.ts";
+const { initGateway, getSignatureAndEncryption, isMockedMode } = require("../scripts/test-helpers.cjs");
 
 describe("ERC7984Premium", function () {
-  let token: any;
-  let owner: any;
-  let module: any;
-  let alice: any;
-  let bob: any;
+  let token;
+  let owner;
+  let module;
+  let alice;
+  let bob;
 
   beforeEach(async () => {
     await initGateway();
