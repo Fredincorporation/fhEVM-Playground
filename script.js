@@ -341,6 +341,15 @@ function copyCodeBlock(button) {
     copyToClipboard(text, button);
 }
 
+// Toggle prerequisites completed visual state for an OS tab
+function togglePrereqs(button) {
+    const pane = button.closest('.tab-pane');
+    if (!pane) return;
+    const completed = pane.classList.toggle('prereqs-complete');
+    button.textContent = completed ? 'Completed ✓' : 'Mark Prerequisites Complete';
+}
+
+
 // ============================================================================
 // Category Card Rendering
 // ============================================================================
