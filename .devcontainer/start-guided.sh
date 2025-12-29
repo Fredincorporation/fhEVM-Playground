@@ -25,9 +25,14 @@ if [ ! -d ./node_modules ]; then
 fi
 
 # Ensure build completed (in case postCreateCommand skipped or failed)
-if [ ! -f ./dist/create-example.js ]; then
+if [ ! -f ./dist/create-example.mjs ]; then
   echo "Building scaffolder..."
   npm run build
+  # Rename to .mjs for ESM support
+  if [ -f ./dist/create-example.js ]; then
+    mv ./dist/create-example.js ./dist/create-example.mjs
+    chmod +x ./dist/create-example.mjs
+  fi
 fi
 
 echo ""
@@ -35,7 +40,7 @@ echo "Launching guided scaffolder (interactive). Use the terminal to interact wi
 echo ""
 
 # Run the built CLI directly (compiled TypeScript in dist/)
-if node ./dist/create-example.js guided; then
+if node ./dist/create-example.mjs guided; then
   mkdir -p "$(dirname "$MARKER")" || true
   touch "$MARKER"
   echo ""
