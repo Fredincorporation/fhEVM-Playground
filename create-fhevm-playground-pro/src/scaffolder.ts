@@ -768,13 +768,14 @@ ${overview}
 ${keyConcepts.map(k => `- ${k}`).join('\n')}
 
 ## Setup & Usage
-\n```bash
+
+\`\`\`bash
 npm install
 npm test          # Run tests in mocked mode (fast)
 # For real fhEVM node:
 docker run -p 8545:8545 ghcr.io/zama-ai/fhevm-node:latest
 npx hardhat test --network localhost 
-```
+\`\`\`
 
 ### Usage notes
 - If you already have many categories, you can extend the helper function later with more specific text for each.
