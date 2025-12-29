@@ -18,11 +18,11 @@ node --version
 ```bash
 # Use sudo (not recommended long-term)
 sudo npm install -g create-fhevm-playground-pro
-
 # Better: Use nvm (Node Version Manager)
 curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 nvm install 18
-npm install -g create-fhevm-playground-pro
+# Use the interactive, zero-install guided flow instead
+npx create-fhevm-playground-pro guided
 ```
 
 ## Running Tests

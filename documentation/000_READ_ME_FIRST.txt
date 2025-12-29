@@ -103,16 +103,19 @@
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🎨 COLOR PALETTE (ZAMA OFFICIAL BRAND)
+🎨 COLOR PALETTE (Site theme: Gold & Black — canonical)
 
-Primary Navy:      #0A1D37 ███████ Dark backgrounds, headers
-Navy Light:        #0F2A4D ███████ Card backgrounds
-Accent Teal:       #00D1FF ███████ Buttons, highlights, links
-Teal Dark:         #00AEEF ███████ Hover states
-Secondary Purple:  #4B2E83 ███████ Gradients, accents
-Text White:        #FFFFFF ███████ Primary text
-Text Gray:         #E0E0E0 ███████ Secondary text
-Background:        #121212 ███████ Dark theme background
+Primary Gold:      #FFD700  (`--color-gold`)     — Primary accent / CTAs
+Deep Gold:         #DAA520  (`--color-gold-dark`)— Darker accent / hover
+Gold Light:        #FFF8DC  (`--color-gold-light`)— Subtle highlights
+Primary Black:     #000000  (`--color-black`)    — Background / high contrast
+Charcoal:          #1A1A1A  (`--color-charcoal`) — Dark surfaces
+Text / UI White:   #FFFFFF  (`--color-white`)    — Main text on dark backgrounds
+Neutral Gray:      #333333  (`--color-gray-dark`)— Muted text / borders
+
+Gradients (CSS variables):
+- `--gradient-primary`: `linear-gradient(135deg, #FFD700 0%, #DAA520 100%)`
+- `--gradient-hero`: `linear-gradient(135deg, #000000 0%, #1A1A1A 50%, #FFD700 100%)`
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

@@ -4,27 +4,27 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│                    ZAMA OFFICIAL BRAND COLORS                      │
+│                    SITE THEME: GOLD & BLACK                         │
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
-│  PRIMARY NAVY (Trust & Encryption Depth)                           │
-│  ██████████ #0A1D37  - Main backgrounds, headers                   │
-│  ██████████ #0F2A4D  - Lighter variant for cards                   │
+│  PRIMARY GOLD (Brand Accent)                                        │
+│  ██████████ #FFD700  (`--color-gold`)    - Primary accent / CTAs     │
+│  ██████████ #DAA520  (`--color-gold-dark`) - Darker accent / hover   │
 │                                                                     │
-│  ACCENT TEAL (Innovation & FHE Clarity)                            │
-│  ██████████ #00D1FF  - Buttons, highlights, links                  │
-│  ██████████ #00AEEF  - Darker variant for hover states             │
+│  GOLD LIGHT                                                         │
+│  ██████████ #FFF8DC  (`--color-gold-light`) - Subtle highlights     │
 │                                                                     │
-│  SECONDARY PURPLE (Encrypted → Transparent)                        │
-│  ██████████ #4B2E83  - Gradient accents, premium feel              │
+│  PRIMARY BLACK & SURFACES                                           │
+│  ██████████ #000000  (`--color-black`)   - Core background / text   │
+│  ██████████ #1A1A1A  (`--color-charcoal`) - Dark surface / cards     │
 │                                                                     │
-│  NEUTRAL TEXT                                                       │
-│  ██████████ #FFFFFF  - Primary text (white on dark)                │
-│  ██████████ #E0E0E0  - Secondary text (light gray)                 │
-│  ██████████ #333333  - Tertiary text (mid gray)                    │
+│  NEUTRALS                                                            │
+│  ██████████ #FFFFFF  (`--color-white`) - UI text on dark backgrounds│
+│  ██████████ #333333  (`--color-gray-dark`) - Muted text / borders    │
 │                                                                     │
-│  BACKGROUND                                                         │
-│  ██████████ #121212  - Main dark background                        │
+│  GRADIENTS (CSS variables)
+│  --gradient-primary: linear-gradient(135deg, #FFD700 0%, #DAA520 100%)
+│  --gradient-hero:    linear-gradient(135deg, #000000 0%, #1A1A1A 50%, #FFD700 100%)
 │                                                                     │
 └─────────────────────────────────────────────────────────────────────┘
 ```

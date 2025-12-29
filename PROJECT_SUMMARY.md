@@ -197,6 +197,8 @@ Each includes:
 - Debugging tips
 - Performance checklist
 
+ - Color palette reference: Primary Gold `#FFD700` (`--color-gold`), Deep Gold `#DAA520` (`--color-gold-dark`), Gold Light `#FFF8DC` (`--color-gold-light`), Primary Black `#000000` (`--color-black`), Charcoal `#1A1A1A` (`--color-charcoal`), UI White `#FFFFFF` (`--color-white`), Neutral Gray `#333333` (`--color-gray-dark`)
+
 ### Design System (`DESIGN_SYSTEM.md`)
 - Color palette with visual swatches
 - Gradient combinations

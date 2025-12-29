@@ -5,7 +5,7 @@ Complete reference for the `create-fhevm-playground-pro` scaffolder.
 ## Installation
 
 ```bash
-npm install -g create-fhevm-playground-pro
+npx create-fhevm-playground-pro guided
 ```
 
 ## Available Commands
@@ -94,7 +94,7 @@ npm run --list
 
 ### Update the scaffolder
 ```bash
-npm install -g create-fhevm-playground-pro@latest
+npx create-fhevm-playground-pro guided
 ```
 
 ### List installed global packages
@@ -126,17 +126,17 @@ export CODESPACE_SKIP_GUIDED=true
 
 ### Custom Installation Path
 ```bash
-NPM_CONFIG_PREFIX=/custom/path npm install -g create-fhevm-playground-pro
+NPM_CONFIG_PREFIX=/custom/path npx create-fhevm-playground-pro guided
 ```
 
 ## Troubleshooting
 
 ### "Command not found"
 - Ensure Node.js is installed: `node --version`
-- Reinstall globally: `npm install -g create-fhevm-playground-pro`
+-- Run interactively with npx: `npx create-fhevm-playground-pro guided`
 
 ### "Permission denied"
-- On macOS/Linux: `sudo npm install -g create-fhevm-playground-pro`
+- On macOS/Linux: `sudo npx create-fhevm-playground-pro guided`
 - Or use a Node version manager like [nvm](https://github.com/nvm-sh/nvm)
 
 ### Project creation fails

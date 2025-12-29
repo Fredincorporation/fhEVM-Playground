@@ -15,11 +15,20 @@ This is a **fully responsive, single-page website** featuring:
 
 ## 🎨 Design Features
 
-### Color Palette (Zama Official Brand)
-- **Primary Navy**: #0A1D37 (trust, encryption depth)
-- **Accent Teal/Cyan**: #00D1FF (innovation, FHE clarity)
-- **Purple Gradient**: #4B2E83 to #00D1FF (encrypted → transparent)
-- **Text**: #FFFFFF (white) on dark backgrounds
+### Color Palette (Site theme: Gold & Black — canonical)
+- **Primary Gold**: #FFD700 (`--color-gold`) — primary accent / call-to-action
+- **Deep Gold**: #DAA520 (`--color-gold-dark`) — darker accent and hover states
+- **Gold Light**: #FFF8DC (`--color-gold-light`) — subtle highlights and surfaces
+- **Primary Black**: #000000 (`--color-black`) — core background and high-contrast text
+- **Charcoal**: #1A1A1A (`--color-charcoal`) — primary dark surface
+- **Text / UI White**: #FFFFFF (`--color-white`) — main text on dark backgrounds
+- **Neutral Gray**: #333333 (`--color-gray-dark`) — muted text / UI borders
+
+**Gradients (CSS variables):**
+- `--gradient-primary`: `linear-gradient(135deg, #FFD700 0%, #DAA520 100%)`
+- `--gradient-hero`: `linear-gradient(135deg, #000000 0%, #1A1A1A 50%, #FFD700 100%)`
+
+Note: These values are the canonical palette defined in `styles/01-fhevm-playground-pro--master-stylesheet.css`.
 
 ### Typography
 - **Display Headings**: Space Grotesk (modern, crypto-aesthetic)
@@ -283,4 +292,12 @@ This landing page template is provided as-is for Zama's fhEVM Playground Pro pro
 
 **Last Updated**: December 29, 2025
 **Version**: 1.0.101 (Production Ready)
+
+
+---
+
+**Full Documentation:** For the complete, navigable documentation (including an expanded Quick Start, Getting Started, CLI reference, and full examples list), see the documentation index:
+
+- [Documentation Home](documentation/README.md)
+- [Quick Start Guide](documentation/quick-start.md)
 

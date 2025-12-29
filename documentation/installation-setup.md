@@ -32,7 +32,7 @@ Detailed setup instructions for Windows, macOS, Linux, and GitHub Codespaces.
 
 ### Step 2: Install the Scaffolder
 ```powershell
-npm install -g create-fhevm-playground-pro
+npx create-fhevm-playground-pro guided
 ```
 
 ### Step 3: Create Your First Project
@@ -64,7 +64,7 @@ npm --version   # Should be v9+
 
 ### Step 3: Install the Scaffolder
 ```bash
-npm install -g create-fhevm-playground-pro
+npx create-fhevm-playground-pro guided
 ```
 
 ### Step 4: Create Your First Project
@@ -103,7 +103,7 @@ npm --version
 
 ### Step 3: Install the Scaffolder
 ```bash
-npm install -g create-fhevm-playground-pro
+npx create-fhevm-playground-pro guided
 ```
 
 ### Step 4: Create Your First Project
@@ -121,7 +121,7 @@ npm test
 - **macOS/Linux**: Verify the installation path is in your `$PATH`
 
 ### "npm: permission denied"
-- On macOS/Linux, try: `sudo npm install -g create-fhevm-playground-pro`
+- On macOS/Linux, try: `sudo npx create-fhevm-playground-pro guided`
 - Or use a Node version manager like [nvm](https://github.com/nvm-sh/nvm)
 
 ### Installation taking too long

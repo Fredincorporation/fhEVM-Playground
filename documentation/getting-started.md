@@ -29,7 +29,7 @@ There are three ways to get started:
 
 ### Standard: Local Installation
 - Install Node.js on your machine
-- Use `npm install -g create-fhevm-playground-pro`
+- Use `npx create-fhevm-playground-pro guided`
 - Create projects with the scaffolder
 
 ### Advanced: From Source
@@ -40,8 +40,8 @@ There are three ways to get started:
 ## Your First Project (5 minutes)
 
 ```bash
-# Install globally
-npm install -g create-fhevm-playground-pro
+# Install via npx (preferred)
+npx create-fhevm-playground-pro guided
 
 # Create a new project
 create-fhevm-playground-pro create --name my-first-fhe --category basic-counter

@@ -11,7 +11,7 @@ Get up and running in ~30 seconds.
 ## Option 1: Global Installation (Recommended)
 
 ```bash
-npm install -g create-fhevm-playground-pro
+npx create-fhevm-playground-pro guided
 create-fhevm-playground-pro create --name my-counter --category basic-counter
 cd my-counter
 npm install
