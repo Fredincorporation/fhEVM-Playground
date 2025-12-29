@@ -19,8 +19,8 @@ Welcome to the fhEVM Playground Pro documentation! This comprehensive guide will
 - [Testing with Mocked Mode](walkthroughs/testing-mocked-mode.md) - Local testing
 - [Deploying to Testnet](walkthroughs/deploying-to-testnet.md) - Go live on testnet
 
-### **24 Complete Examples**
-Browse [24 pre-built examples](examples/README.md) from beginner to expert level.
+### **21 Complete Examples**
+Browse [21 pre-built examples](examples/README.md) from beginner to expert level.
 
 ### **Security & Best Practices**
 - [Security Overview](security/security-overview.md) - Key security considerations
@@ -41,7 +41,7 @@ Browse [24 pre-built examples](examples/README.md) from beginner to expert level
 ```bash
 npm install -g create-fhevm-playground-pro
 create-fhevm-playground-pro create --name my-counter --category basic-counter
-cd my-counter && npm install && npm run test:mock
+cd my-counter && npm install && npm test
 ```
 
 **Result**: ✅ All tests passing!
