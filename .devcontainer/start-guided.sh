@@ -18,18 +18,27 @@ fi
 # Navigate to scaffolder package
 cd /workspaces/fhEVM-Playground/create-fhevm-playground-pro || { echo "create-fhevm-playground-pro not found"; exit 1; }
 
+# Ensure dependencies are installed
+if [ ! -d ./node_modules ]; then
+  echo "Installing dependencies..."
+  npm install --no-audit --no-fund
+fi
+
 # Ensure build completed (in case postCreateCommand skipped or failed)
 if [ ! -f ./dist/create-example.js ]; then
-  echo "Building scaffolder (postCreateCommand may have been skipped)..."
+  echo "Building scaffolder..."
   npm run build
 fi
 
+echo ""
 echo "Launching guided scaffolder (interactive). Use the terminal to interact with prompts."
+echo ""
 
 # Run the built CLI directly (compiled TypeScript in dist/)
 if node ./dist/create-example.js guided; then
   mkdir -p "$(dirname "$MARKER")" || true
   touch "$MARKER"
+  echo ""
   echo "Guided run completed; marker created at $MARKER"
 else
   echo "Guided run failed or was aborted; marker will not be created"
