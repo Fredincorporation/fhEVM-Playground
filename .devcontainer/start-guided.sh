@@ -15,10 +15,14 @@ if [ -f "$MARKER" ]; then
   exit 0
 fi
 
-# Note: npm install and npm run build already ran in postCreateCommand
-# This script just runs the interactive guided CLI on attach
-
+# Navigate to scaffolder package
 cd /workspaces/fhEVM-Playground/create-fhevm-playground-pro || { echo "create-fhevm-playground-pro not found"; exit 1; }
+
+# Ensure build completed (in case postCreateCommand skipped or failed)
+if [ ! -f ./dist/create-example.js ]; then
+  echo "Building scaffolder (postCreateCommand may have been skipped)..."
+  npm run build
+fi
 
 echo "Launching guided scaffolder (interactive). Use the terminal to interact with prompts."
 
