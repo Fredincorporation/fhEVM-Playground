@@ -77,7 +77,7 @@ contract ArithmeticPremium is EIP712WithModifier, Reencrypt {
      * @param handleB Handle for encrypted B
      * @param inputProof Proof for decryption authorization
      */
-    function addAB(uint256 handleA, uint256 handleB, bytes calldata inputProof) external {
+    function addAB(uint256 handleA, uint256 handleB, bytes calldata /* inputProof */) external {
         // In mock mode or real fhEVM, reconstruct euint32 from handles
         // For testing: directly compute with mocked values
         // Note: handleA, handleB, inputProof used by gateway in real fhEVM
@@ -108,7 +108,7 @@ contract ArithmeticPremium is EIP712WithModifier, Reencrypt {
      * @param handleB Handle for encrypted B
      * @param inputProof Proof for decryption authorization
      */
-    function subAB(uint256 handleA, uint256 handleB, bytes calldata inputProof) external {
+    function subAB(uint256 handleA, uint256 handleB, bytes calldata /* inputProof */) external {
         // In mock mode or real fhEVM, reconstruct euint32 from handles
         // For testing: directly compute with mocked values
         // Note: handleA, handleB, inputProof used by gateway in real fhEVM
