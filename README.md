@@ -62,6 +62,29 @@ fhEVM Playground/
    ```
 3. **Navigate to** `http://localhost:8000`
 
+### GitHub Codespaces (Recommended for Development)
+
+**Zero-Install Option**: Click the **"Open in GitHub Codespaces"** button on the landing page or use this URL:
+```
+https://github.com/codespaces/new?repo=Fredincorporation/fhEVM-Playground
+```
+
+**What happens automatically:**
+1. A development container is created with Node.js pre-installed.
+2. Dependencies are installed and the scaffolder is built.
+3. The interactive guided CLI launches in the terminal.
+4. Follow the prompts to generate your first fhEVM example.
+
+**Skip the guided CLI** (if returning to the Codespace):
+- The guided CLI runs once per Codespace. To skip it on subsequent opens, set the env var:
+  ```bash
+  export CODESPACE_SKIP_GUIDED=true
+  ```
+- Or delete the marker file:
+  ```bash
+  rm /workspaces/.fhevm_guided_ran
+  ```
+
 ### GitHub Pages Deployment
 
 1. **Create a GitHub repository** (or use existing one)
@@ -258,5 +281,6 @@ This landing page template is provided as-is for Zama's fhEVM Playground Pro pro
 
 ---
 
-**Last Updated**: December 22, 2025
+**Last Updated**: December 29, 2025
 **Version**: 1.0.0 (Production Ready)
+
