@@ -73,11 +73,11 @@ contract ArithmeticPremium is EIP712WithModifier, Reencrypt {
 
     /**
      * @notice Encrypted addition using handle-based input (gateway pattern)
-     * @param handleA Handle for encrypted A
-     * @param handleB Handle for encrypted B
-     * @param inputProof Proof for decryption authorization
+    * @param handleA Handle for encrypted A
+    * @param handleB Handle for encrypted B
+    *
      */
-    function addAB(uint256 handleA, uint256 handleB, bytes calldata inputProof) external {
+    function addAB(uint256 handleA, uint256 handleB, bytes calldata /* inputProof */) external {
         // In mock mode or real fhEVM, reconstruct euint32 from handles
         // For testing: directly compute with mocked values
         // Note: handleA, handleB, inputProof used by gateway in real fhEVM
@@ -103,16 +103,12 @@ contract ArithmeticPremium is EIP712WithModifier, Reencrypt {
     }
 
     /**
-     * @notice Encrypted subtraction using handle-based input (gateway pattern)
-     * @param handleA Handle for encrypted A
-     * @param handleB Handle for encrypted B
-     * @param inputProof Proof for decryption authorization
+    * @notice Encrypted subtraction using handle-based input (gateway pattern)
      */
-    function subAB(uint256 handleA, uint256 handleB, bytes calldata inputProof) external {
+    function subAB(uint256 /* handleA */, uint256 /* handleB */, bytes calldata /* inputProof */) external {
         // In mock mode or real fhEVM, reconstruct euint32 from handles
         // For testing: directly compute with mocked values
-        // Note: handleA, handleB, inputProof used by gateway in real fhEVM
-        handleA; handleB; inputProof; // silence unused parameter warnings
+        // Note: handleA and handleB are used by gateways in real fhEVM; here they are optional
         encryptedA = TFHE.sub(encryptedA, encryptedB);
         lastResult = encryptedA;
         emit Subtracted(msg.sender);
