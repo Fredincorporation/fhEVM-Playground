@@ -131,19 +131,23 @@ export function decryptMock(ciphertext: string): number {
  * Provides gateway.createEncryptedInput() and gateway.decrypt() methods
  */
 export const gateway = {
-  createEncryptedInput: (contractAddress: string, userAddress: string) => ({
-    add32: (value: bigint | number) => {
-      const plainValue = Number(value) & 0xffffffff;
-      return {
-        encrypt: () => ({
-          handles: [
-            '0x' + plainValue.toString(16).padStart(64, '0'),
-          ],
-          inputProof: '0x' + (++mockCounter).toString(16).padStart(128, '0'),
-        }),
-      };
-    },
-  }),
+  createEncryptedInput: (contractAddress: string, userAddress: string) => {
+    // internal value held until encrypt() is called
+    let current = BigInt(0);
+    const mask = BigInt(0xffffffff);
+    return {
+      add32: (value: bigint | number) => {
+        current = BigInt(value) & mask;
+      },
+      // encrypt returns handles + proof using the current accumulated value
+      encrypt: () => ({
+        handles: [
+          '0x' + current.toString(16).padStart(64, '0'),
+        ],
+        inputProof: '0x' + (++mockCounter).toString(16).padStart(128, '0'),
+      }),
+    };
+  },
   decrypt: async (contractAddress: string, result: string): Promise<bigint> => {
     try {
       const value = BigInt(result);
