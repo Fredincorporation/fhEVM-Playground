@@ -348,7 +348,7 @@ DEVICE WIDTHS TARGETED:
 │ │ ─────────────────────────────────────────────────   │ │
 │ │ Premium Hub for Confidential Smart Contracts        │ │
 │ │ ───────────────────────────────────────────────     │ │
-│ │ A curated collection of ~25 standalone...           │ │
+│ │ A curated collection of ~21 standalone...           │ │
 │ │ ───────────────────────────────────────────────     │ │
 │ │ ┌─────────────────────────────────────────────────┐ │ │
 │ │ │ [Explore Examples]                              │ │ │

@@ -1,0 +1,111 @@
+fhevm-playground-pro/
+├── README.md
+├── LICENSE
+├── package.json
+├── tsconfig.json
+├── .gitignore
+├── .npmignore
+│
+├── bin/
+│   └── create-fhevm-playground-pro.ts
+│
+├── src/
+│   ├── cli.ts
+│   ├── scaffolder.ts
+│   ├── templates.ts
+│   ├── doc-generator.ts
+│   └── utils.ts
+│
+├── scripts/
+│   ├── batch-update-fhevm-version.ts
+│   └── batch-update-fhevm-version.sh
+│
+├── templates/
+│   ├── base-template/
+│   │   ├── package.json.template
+│   │   ├── hardhat.config.ts.template
+│   │   ├── README.md.template
+│   │   └── .env.example
+│   │
+│   └── contracts/
+│       ├── basic-counter/
+│       │   ├── BasicCounter.sol
+│       │   └── BasicCounter.test.ts
+│       ├── arithmetic/
+│       │   ├── Arithmetic.sol
+│       │   └── Arithmetic.test.ts
+│       ├── comparisons/
+│       │   ├── Comparisons.sol
+│       │   └── Comparisons.test.ts
+│       ├── single-encryption/
+│       │   ├── SingleEncryption.sol
+│       │   └── SingleEncryption.test.ts
+│       ├── multiple-encryption/
+│       │   ├── MultipleEncryption.sol
+│       │   └── MultipleEncryption.test.ts
+│       ├── single-decryption-user/
+│       │   ├── SingleDecryptionUser.sol
+│       │   └── SingleDecryptionUser.test.ts
+│       ├── single-decryption-public/
+│       │   ├── SingleDecryptionPublic.sol
+│       │   └── SingleDecryptionPublic.test.ts
+│       ├── multiple-decryption/
+│       │   ├── MultipleDecryption.sol
+│       │   └── MultipleDecryption.test.ts
+│       ├── access-control/
+│       │   ├── AccessControl.sol
+│       │   └── AccessControl.test.ts
+│       ├── input-proofs/
+│       │   ├── InputProofs.sol
+│       │   └── InputProofs.test.ts
+│       ├── anti-patterns/
+│       │   ├── AntiPatterns.sol
+│       │   └── AntiPatterns.test.ts
+│       ├── handles-lifecycle/
+│       │   ├── HandlesLifecycle.sol
+│       │   └── HandlesLifecycle.test.ts
+│       ├── oz-erc7984-basic/
+│       │   ├── ConfidentialToken.sol
+│       │   └── ConfidentialToken.test.ts
+│       ├── oz-erc7984-erc20-wrapper/
+│       │   ├── ERC20Wrapper.sol
+│       │   └── ERC20Wrapper.test.ts
+│       ├── oz-swaps/
+│       │   ├── ConfidentialSwap.sol
+│       │   └── ConfidentialSwap.test.ts
+│       ├── oz-vesting-wallet/
+│       │   ├── ConfidentialVestingWallet.sol
+│       │   └── ConfidentialVestingWallet.test.ts
+│       ├── blind-auction/
+│       │   ├── BlindAuction.sol
+│       │   └── BlindAuction.test.ts
+│       ├── dao-voting-pro/
+│       │   ├── ConfidentialDAO.sol
+│       │   └── ConfidentialDAO.test.ts
+│       ├── private-lending-pro/
+│       │   ├── PrivateLendingPool.sol
+│       │   └── PrivateLendingPool.test.ts
+│       ├── blind-dex-pro/
+│       │   ├── BlindDEX.sol
+│       │   └── BlindDEX.test.ts
+│       ├── encrypted-poker-pro/
+│       │   ├── EncryptedPoker.sol
+│       │   └── EncryptedPoker.test.ts
+│       ├── private-yield-pro/
+│       │   ├── PrivateYieldFarming.sol
+│       │   └── PrivateYieldFarming.test.ts
+│       ├── mev-arbitrage-pro/
+│       │   ├── MEVArbitrage.sol
+│       │   └── MEVArbitrage.test.ts
+│       └── confidential-stablecoin-pro/
+│           ├── ConfidentialStablecoin.sol
+│           └── ConfidentialStablecoin.test.ts
+│
+├── docs/
+│   ├── CONTRIBUTING.md
+│   ├── ARCHITECTURE.md
+│   └── EXAMPLES_INDEX.md
+│
+└── .github/
+    └── workflows/
+        └── test.yml
