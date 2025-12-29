@@ -79,7 +79,7 @@ contract PrivateLendingPremium {
     }
 
     /// Borrower repays the loan (off-chain verification recommended)
-    function repayLoan(uint256 id, euint32 /*repayEncrypted*/) external {
+    function repayLoan(uint256 id, euint32 _repayEncrypted) external {
         LoanOffer storage o = offers[id];
         require(o.exists, "no-offer");
         require(o.active, "not-active");

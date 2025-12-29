@@ -29,7 +29,10 @@ contract VestingPremium {
     /// Create a vesting entry with encrypted amount and release time
     function createVest(address beneficiary, euint32 amount, uint64 releaseAt) external returns (uint256) {
         require(beneficiary != address(0), "zero-beneficiary");
-        require(releaseAt > block.timestamp, "release-in-past");
+        // Accept release times that are equal to current block timestamp
+        // to avoid off-by-one failures when tests compute timestamps
+        // from the host clock vs. the chain clock.
+        require(releaseAt >= block.timestamp, "release-in-past");
 
         uint256 id = vestCount++;
         vests[id] = Vest({

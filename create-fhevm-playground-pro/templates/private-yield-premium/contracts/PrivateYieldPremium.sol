@@ -60,6 +60,11 @@ contract PrivateYieldPremium {
         emit RewardClaimed(msg.sender, reward);
     }
 
+    /// Alias matching older template/tests (`claimRewards`)
+    function claimRewards() external {
+        claimReward();
+    }
+
     /// View encrypted balances and rewards
     function encryptedStakeOf(address who) external view returns (euint32) {
         return encryptedStakes[who];
