@@ -227,6 +227,11 @@ export async function createExample(options: ScaffoldOptions): Promise<void> {
 
   // Normalize BigNumberish values - shared helper for monkeypatches and tests
   const normalizeBigNumberish = (value: any): string => {
+    // SKIP addresses: they are 40 hex chars (20 bytes), must not be masked to 32-bit
+    if (typeof value === 'string' && value.startsWith('0x') && value.length === 42) {
+      return value; // Valid Ethereum address
+    }
+    
     // Convert numeric strings like "4294967295" to numbers first
     if (typeof value === 'string' && /^\\d+$/.test(value)) {
       value = Number(value);
@@ -398,6 +403,10 @@ export async function createExample(options: ScaffoldOptions): Promise<void> {
             // Ensure normalizeBigNumberish is present
             if (!/export\s+function\s+normalizeBigNumberish/.test(existing)) {
               const normHelper = `export function normalizeBigNumberish(value: any): string {
+    // SKIP addresses: they are 40 hex chars (20 bytes), must not be masked to 32-bit
+    if (typeof value === 'string' && value.startsWith('0x') && value.length === 42) {
+      return value; // Valid Ethereum address
+    }
     if (typeof value === 'number' || typeof value === 'bigint') {
       const bn = BigInt(value);
       return '0x' + (bn & BigInt('0xffffffff')).toString(16).padStart(8, '0');
