@@ -60,6 +60,14 @@ contract PrivateYieldPremium {
         emit RewardClaimed(msg.sender, reward);
     }
 
+    /// Alias for backward compatibility (same logic as claimReward)
+    function claimRewards() external {
+        euint32 reward = encryptedRewards[msg.sender];
+        // Note: isZero validation skipped for fhevm 0.6.0 compatibility
+        encryptedRewards[msg.sender] = TFHE.asEuint32(0);
+        emit RewardClaimed(msg.sender, reward);
+    }
+
     /// View encrypted balances and rewards
     function encryptedStakeOf(address who) external view returns (euint32) {
         return encryptedStakes[who];

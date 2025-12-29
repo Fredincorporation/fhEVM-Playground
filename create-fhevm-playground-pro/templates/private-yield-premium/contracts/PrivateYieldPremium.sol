@@ -53,16 +53,19 @@ contract PrivateYieldPremium {
 
     /// Staker claims their encrypted rewards (recorded on-chain; off-chain
     /// gateway handles decryption and payout)
-    function claimReward() external {
+    function claimRewards() external {
         euint32 reward = encryptedRewards[msg.sender];
         // Note: isZero validation skipped for fhevm 0.6.0 compatibility
         encryptedRewards[msg.sender] = TFHE.asEuint32(0);
         emit RewardClaimed(msg.sender, reward);
     }
 
-    /// Alias matching older template/tests (`claimRewards`)
-    function claimRewards() external {
-        claimReward();
+    /// Alias for backward compatibility (same logic as claimRewards)
+    function claimReward() external {
+        euint32 reward = encryptedRewards[msg.sender];
+        // Note: isZero validation skipped for fhevm 0.6.0 compatibility
+        encryptedRewards[msg.sender] = TFHE.asEuint32(0);
+        emit RewardClaimed(msg.sender, reward);
     }
 
     /// View encrypted balances and rewards
