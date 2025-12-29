@@ -1,11 +1,8 @@
-import { ethers } from "ethers";
 import { expect } from "chai";
 import hre from "hardhat";
 
-
-// Helpers used across examples for gateway setup and encryption stubs.
-// The exact path may vary depending on workspace layout; adjust if needed.
 import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers.ts";
+
 
 describe("AntiPatternsPremium", function () {
   let anti: any;
@@ -36,11 +33,13 @@ describe("AntiPatternsPremium", function () {
   });
 
   it("insecureLoop returns expected sum", async () => {
-    const a = ethers.utils.hexlify(ethers.utils.toUtf8Bytes("a"));
-    const bb = ethers.utils.hexlify(ethers.utils.toUtf8Bytes("bb"));
+    // insecureLoop sums the byte lengths of inputs, so "a" (1 byte) + "bb" (2 bytes) = 3
+    const a = ethers.toUtf8Bytes("a");
+    const bb = ethers.toUtf8Bytes("bb");
     const sum = await anti.insecureLoop([a, bb]);
-    // returned as BigNumber
-    expect(sum).to.equal(ethers.BigNumber.from(3));
+    // returned as number or BigNumber; handle both
+    const sumNum = typeof sum === "bigint" ? Number(sum) : (sum.toNumber ? sum.toNumber() : Number(sum));
+    expect(sumNum).to.equal(3);
   });
 
   it("safeAggregate accepts encrypted inputs and returns an encrypted value", async () => {

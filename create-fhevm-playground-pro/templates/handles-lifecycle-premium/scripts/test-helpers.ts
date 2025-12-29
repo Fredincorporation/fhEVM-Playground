@@ -23,6 +23,8 @@ function isAddressString(value: any): boolean {
 function normalizeBigNumberish(value: any): any {
   if (isAddressString(value)) return value;
   if (isHexString(value)) {
+    // Don't normalize bytes32 (66 chars) or longer byte hex strings
+    if (value.length === 66 || value.length > 10) return value;
     try {
       const n = BigInt(value);
       const masked = Number(n & BigInt(0xffffffff));

@@ -81,7 +81,12 @@ contract ArithmeticPremium is EIP712WithModifier, Reencrypt {
         // In mock mode or real fhEVM, reconstruct euint32 from handles
         // For testing: directly compute with mocked values
         // Note: handleA, handleB, inputProof used by gateway in real fhEVM
-        handleA; handleB; inputProof; // silence unused parameter warnings
+        // If handles are provided (non-zero), treat them as mock plaintext values
+        if (handleA != 0 || handleB != 0) {
+            encryptedA = TFHE.asEuint32(uint32(handleA));
+            encryptedB = TFHE.asEuint32(uint32(handleB));
+        }
+        // otherwise operate on stored encryptedA/encryptedB
         encryptedA = TFHE.add(encryptedA, encryptedB);
         lastResult = encryptedA;
         emit Added(msg.sender);

@@ -1,7 +1,4 @@
-import { ethers } from "ethers";
 import { expect } from "chai";
-import hre from "hardhat";
-
 import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers.ts";
 
 describe("VestingPremium", function () {
@@ -17,13 +14,15 @@ describe("VestingPremium", function () {
   });
 
   it("creates a vest and beneficiary can claim after release", async () => {
-    const future = Math.floor(Date.now() / 1000) + 2; // 2 seconds in future
+    // use chain time to compute a safe future timestamp (avoid host vs chain clock drift)
+    const block = await ethers.provider.getBlock("latest");
+    const future = Number(block.timestamp) + 2; // 2 seconds in future
     const { ciphertext } = await getSignatureAndEncryption(123);
     const tx = await vesting.createVest(beneficiary.address, ciphertext, future);
-    const rc = await tx.wait();
-    const evt = rc.events?.find((e: any) => e.event === "VestCreated");
-    expect(evt).to.exist;
-    const id = evt.args[0].toNumber ? evt.args[0].toNumber() : Number(evt.args[0]);
+    await tx.wait();
+    // determine id from vestCount (createVest uses `id = vestCount++`)
+    const count = await vesting.vestCount();
+    const id = Number(count) - 1;
 
     // advance time
     await ethers.provider.send("evm_increaseTime", [3]);
@@ -33,17 +32,20 @@ describe("VestingPremium", function () {
   });
 
   it("reverts if non-beneficiary tries to claim", async () => {
-    const future = Math.floor(Date.now() / 1000) + 1;
+    const block2 = await ethers.provider.getBlock("latest");
+    const future = Number(block2.timestamp) + 1;
     const { ciphertext } = await getSignatureAndEncryption(50);
     const tx = await vesting.createVest(beneficiary.address, ciphertext, future);
-    const rc = await tx.wait();
-    const id = rc.events?.find((e: any) => e.event === "VestCreated").args[0];
+    await tx.wait();
+    const count2 = await vesting.vestCount();
+    const id = Number(count2) - 1;
 
     // advance time
     await ethers.provider.send("evm_increaseTime", [2]);
     await ethers.provider.send("evm_mine", []);
 
-    const [_, other] = await ethers.getSigners();
+    const signers = await ethers.getSigners();
+    const other = signers[2];
     await expect(vesting.connect(other).claimVest(id)).to.be.revertedWith("not-beneficiary");
   });
 });

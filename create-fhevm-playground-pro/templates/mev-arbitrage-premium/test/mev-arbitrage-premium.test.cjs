@@ -2,6 +2,9 @@ const { expect } = require("chai");
 const hre = require("hardhat");
 const { ethers } = hre;
 
+// ensure `sym` is defined in this module scope (works if a TS bridge set global.sym)
+const sym = typeof global.sym !== 'undefined' ? global.sym : ethers.id("PAIRA").slice(0, 66);
+
 const { initGateway, getSignatureAndEncryption } = require("../scripts/test-helpers.cjs");
 
 describe("MEVArbitragePremium", function () {
