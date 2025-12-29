@@ -79,12 +79,13 @@ contract PrivateLendingPremium {
     }
 
     /// Borrower repays the loan (off-chain verification recommended)
-    function repayLoan(uint256 id, euint32 _repayEncrypted) external {
+    function repayLoan(uint256 id, euint32 /* repayEncrypted */) external {
         LoanOffer storage o = offers[id];
         require(o.exists, "no-offer");
         require(o.active, "not-active");
         require(o.borrower == msg.sender, "not-borrower");
         // In production, gateway verifies repayment covers principal+interest.
+        // Parameter repayEncrypted can be used here when implementing full repayment logic
         o.repaid = true;
         o.active = false;
         emit LoanRepaid(id, msg.sender);
