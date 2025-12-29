@@ -1,8 +1,4 @@
-/**
- * Mock fhEVM Gateway for local testing
- * Simulates encrypted operations without cryptographic overhead
- * Suitable for unit tests and development; not cryptographically secure
- */
+
 
 interface MockCiphertext {
   ciphertext: string; // ABI-encoded euint32 value
@@ -148,8 +144,14 @@ export const gateway = {
       }),
     };
   },
-  decrypt: async (contractAddress: string, result: string): Promise<bigint> => {
+  decrypt: async (contractAddress: string, result: any): Promise<bigint> => {
     try {
+      // Accept hex/string/number/ethers.BigNumber
+      if (result && typeof result === 'object' && typeof result.toString === 'function') {
+        const s = result.toString();
+        const value = BigInt(s);
+        return value & BigInt('0xffffffff');
+      }
       const value = BigInt(result);
       return value & BigInt('0xffffffff');
     } catch {
