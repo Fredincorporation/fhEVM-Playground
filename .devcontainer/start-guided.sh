@@ -21,7 +21,7 @@ cd /workspaces/fhEVM-Playground/create-fhevm-playground-pro || { echo "create-fh
 # Ensure dependencies are installed
 if [ ! -d ./node_modules ]; then
   echo "Installing dependencies..."
-  npm install --no-audit --no-fund
+  npm install --no-audit --no-fund --legacy-peer-deps
 fi
 
 # Ensure build completed (in case postCreateCommand skipped or failed)
