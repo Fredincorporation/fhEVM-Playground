@@ -1,4 +1,7 @@
 import { expect } from "chai";
+
+// Ensure hardhat is registered before tests run
+require("hardhat");
 import hre from "hardhat";
 
 import { initGateway, getSignatureAndEncryption, isMockedMode } from "../scripts/test-helpers.ts";
