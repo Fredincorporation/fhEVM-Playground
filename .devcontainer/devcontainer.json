@@ -1,9 +1,9 @@
 {
-  "name": "fhEVM Playground Devcontainer",
+  "name": "fhEVM Playground - Guided Scaffolder",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
   "forwardPorts": [],
-  "postCreateCommand": "npm config set yes true",
-  "postAttachCommand": "bash -lc '.devcontainer/start-guided.sh'",
+  "postCreateCommand": "cd /workspaces/fhEVM-Playground/create-fhevm-playground-pro && npm install --no-audit --no-fund && npm run build",
+  "postAttachCommand": "bash /workspaces/fhEVM-Playground/.devcontainer/start-guided.sh",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -14,4 +14,3 @@
   },
   "remoteUser": "node"
 }
-        "dbaeumer.vscode-eslint",

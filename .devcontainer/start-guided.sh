@@ -15,20 +15,10 @@ if [ -f "$MARKER" ]; then
   exit 0
 fi
 
-# Navigate to scaffolder package and run the guided CLI.
-# This script runs on Codespaces attach. It installs deps and builds,
-# then starts the interactive guided scaffolder.
+# Note: npm install and npm run build already ran in postCreateCommand
+# This script just runs the interactive guided CLI on attach
 
-cd "$(dirname "$(dirname "$0")")" || exit 1
-
-echo "Preparing create-fhevm-playground-pro..."
-cd create-fhevm-playground-pro || { echo "create-fhevm-playground-pro not found"; exit 1; }
-
-echo "Installing dependencies (this may take a moment)..."
-npm install --no-audit --no-fund
-
-echo "Building scaffolder..."
-npm run build
+cd /workspaces/fhEVM-Playground/create-fhevm-playground-pro || { echo "create-fhevm-playground-pro not found"; exit 1; }
 
 echo "Launching guided scaffolder (interactive). Use the terminal to interact with prompts."
 
