@@ -1,4 +1,3 @@
-import { ethers } from "ethers";
 import { expect } from "chai";
 import hre from "hardhat";
 
@@ -12,8 +11,8 @@ describe("EncryptedPokerPremium", function () {
 
   beforeEach(async () => {
     await initGateway();
-    [owner, alice, bob] = await ethers.getSigners();
-    const Factory = await ethers.getContractFactory("EncryptedPokerPremium");
+    [owner, alice, bob] = await hre.ethers.getSigners();
+    const Factory = await hre.ethers.getContractFactory("EncryptedPokerPremium");
     poker = await Factory.deploy();
   });
 
