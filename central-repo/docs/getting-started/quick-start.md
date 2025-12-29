@@ -16,13 +16,15 @@ npm --version
 ## Installation
 
 ```bash
-npm install -g create-fhevm-playground-pro
+# Recommended: run the create command via npx (no global install required)
+npx create-fhevm-playground-pro create --name my-counter --category basic-counter
 ```
 
 ## Create Your First Example
 
 ```bash
-create-fhevm-playground-pro create --name my-counter --category basic-counter
+# If you used npx above this is the same command; otherwise run the create subcommand via npx
+npx create-fhevm-playground-pro create --name my-counter --category basic-counter
 cd my-counter
 npm install
 npm run test:mock

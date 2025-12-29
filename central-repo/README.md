@@ -9,12 +9,7 @@ A comprehensive, production-ready CLI scaffolding tool for creating fhEVM smart 
 ### Installation
 
 ```bash
-npm install -g create-fhevm-playground-pro
-```
-
-Or use without global installation:
-
-```bash
+# Recommended: use `npx` to run the create command without global install
 npx create-fhevm-playground-pro create --name my-example --category basic-counter
 ```
 

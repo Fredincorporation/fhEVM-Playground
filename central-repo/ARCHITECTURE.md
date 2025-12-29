@@ -552,8 +552,7 @@ const scaffolder = new Scaffolder({
 
 ### Package Distribution
 - Published to npm registry
-- Installed globally: `npm install -g create-fhevm-playground-pro`
-- Or used via npx: `npx create-fhevm-playground-pro`
+- Use via npx (no global install required): `npx create-fhevm-playground-pro create --name my-counter --category basic-counter`
 
 ### Binary Location
 - Registered in package.json `bin` field

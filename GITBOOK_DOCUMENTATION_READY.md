@@ -190,8 +190,8 @@ cat book.json              # View GitBook config
 ### User Creates Project
 
 ```bash
-npm install -g create-fhevm-playground-pro
-create-fhevm-playground-pro create --name my-voting --category dao-voting-pro --pro
+# Use npx to run the create command without installing globally
+npx create-fhevm-playground-pro create --name my-voting --category dao-voting-pro --pro
 cd my-voting
 ```
 

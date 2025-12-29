@@ -64,6 +64,6 @@ Each scaffold includes:
 
 - First-time users: Start with `guided` mode for the complete experience
 - Scripting/CI/CD: Use the `create` command with options
-- Global install: `npm install -g create-fhevm-playground-pro` to skip npx delays
+Recommended (no global install): `npx create-fhevm-playground-pro create --name my-counter --category basic-counter`
 
 See the full project site and GitHub repository for more details.

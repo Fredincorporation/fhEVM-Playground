@@ -17,7 +17,8 @@ node --version
 ### "Permission denied" when installing globally
 ```bash
 # Use sudo (not recommended long-term)
-sudo npm install -g create-fhevm-playground-pro
+# Recommended: use npx to create an example without global install
+npx create-fhevm-playground-pro create --name my-counter --category basic-counter
 # Better: Use nvm (Node Version Manager)
 curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 nvm install 18

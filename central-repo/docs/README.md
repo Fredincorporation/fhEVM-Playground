@@ -39,8 +39,8 @@ Browse [24 pre-built examples](examples/README.md) from beginner to expert level
 ## 🚀 Quick Start (30 seconds)
 
 ```bash
-npm install -g create-fhevm-playground-pro
-create-fhevm-playground-pro create --name my-counter --category basic-counter
+# Use npx to run the create command without installing globally
+npx create-fhevm-playground-pro create --name my-counter --category basic-counter
 cd my-counter && npm install && npm run test:mock
 ```
 
