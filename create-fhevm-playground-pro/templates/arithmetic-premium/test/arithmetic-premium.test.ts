@@ -109,42 +109,43 @@ describe("ArithmeticPremium - Premium Tests", () => {
             expect(tx).to.not.be.undefined;
         });
 
-        it("handles large operands without reverting (wrap behavior)", async () => {
-            // euint32 wraps on overflow: max = 2^32 - 1 = 4294967295
-            // Demonstrate wraparound with positive values only:
-            // - max + 10 should wrap to 9 (mod 2^32)
-            // - 0 - 10 should wrap to max - 9 (mod 2^32)
-            
-            const MAX_UINT32 = 4294967295n; // 2^32 - 1
-            
-            // Test 1: Addition wraparound
-            // A = max, B = 10 => A + B = 4294967305 mod 2^32 = 9
-            const { ciphertext: encMax } = await getSignatureAndEncryption(Number(MAX_UINT32));
-            const { ciphertext: enc10 } = await getSignatureAndEncryption(10);
-            
-            await contract.setA(encMax);
-            await contract.setB(enc10);
-            
-            // Perform addition (should not revert, wrap internally)
-            let tx = await contract.addAB();
-            await expect(tx).to.emit(contract, "Added");
-            
-            // Test 2: Subtraction wraparound
-            // A = 0, B = 10 => A - B = -10 mod 2^32 = max - 9
-            const { ciphertext: enc0 } = await getSignatureAndEncryption(0);
-            await contract.setA(enc0);
-            await contract.setB(enc10);
-            
-            tx = await contract.subAB();
-            await expect(tx).to.emit(contract, "Subtracted");
-            
-            // Test 3: Edge case - max + 1 should wrap to 0
-            const { ciphertext: enc1 } = await getSignatureAndEncryption(1);
-            await contract.setA(encMax);
-            await contract.setB(enc1);
-            
-            tx = await contract.addAB();
-            await expect(tx).to.emit(contract, "Added");
+        it("handles large operands without reverting (wrap behavior)", async function () {
+            const max = 4294967295n; // 2**32 - 1
+            const overflowAmount = 10n;
+
+            // Test 1: Addition wraparound using gateway
+            // max + 10 should wrap to 9 (mod 2^32)
+            const inputA = gateway.createEncryptedInput(await contract.getAddress(), owner.address);
+            inputA.add32(max);
+            const encryptedA = inputA.encrypt();
+
+            const inputB = gateway.createEncryptedInput(await contract.getAddress(), owner.address);
+            inputB.add32(overflowAmount);
+            const encryptedB = inputB.encrypt();
+
+            // Call addAB with handle-based inputs
+            await contract.addAB(encryptedA.handles[0], encryptedB.handles[0], encryptedA.inputProof);
+
+            // Get and decrypt the result
+            const resultHandleAdd = await contract.getLastResult();
+            const decryptedAdd = await gateway.decrypt(await contract.getAddress(), resultHandleAdd);
+            expect(decryptedAdd).to.equal(9n); // Wrapped: (max + 10) mod 2**32 = 9
+
+            // Test 2: Subtraction wraparound using gateway
+            // 0 - 1 should wrap to max (mod 2^32)
+            const inputZero = gateway.createEncryptedInput(await contract.getAddress(), owner.address);
+            inputZero.add32(0n);
+            const encryptedZero = inputZero.encrypt();
+
+            const inputOne = gateway.createEncryptedInput(await contract.getAddress(), owner.address);
+            inputOne.add32(1n);
+            const encryptedOne = inputOne.encrypt();
+
+            await contract.subAB(encryptedZero.handles[0], encryptedOne.handles[0], encryptedZero.inputProof);
+
+            const resultHandleSub = await contract.getLastResult();
+            const decryptedSub = await gateway.decrypt(await contract.getAddress(), resultHandleSub);
+            expect(decryptedSub).to.equal(max); // Wrapped: (0 - 1) mod 2**32 = max
         });
     });
 
