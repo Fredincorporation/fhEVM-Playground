@@ -93,3 +93,10 @@ library TFHE {
         return euint32.unwrap(a);
     }
 }
+    // No-op seal for example shim: the real fhEVM provides `FHE.sealOutput`
+    // which marks view outputs as sealed for the gateway. Here we expose
+    // a same-surface helper so examples can call it without needing the
+    // real runtime. This is a compile-time no-op.
+    function sealOutput(euint32 a) internal pure returns (euint32) {
+        return a;
+    }

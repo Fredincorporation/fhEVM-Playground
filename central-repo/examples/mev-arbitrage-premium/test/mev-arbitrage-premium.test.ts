@@ -1,4 +1,4 @@
-import { ethers } from "ethers";
+import { ethers } from "hardhat";
 import { expect } from "chai";
 import hre from "hardhat";
 

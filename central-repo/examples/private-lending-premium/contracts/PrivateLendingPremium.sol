@@ -29,11 +29,15 @@ contract PrivateLendingPremium {
 
     uint256 public offerCount;
     mapping(uint256 => LoanOffer) public offers;
+    // Encrypted rewards attached to offers (recorded by owner/gateway)
+    mapping(uint256 => euint32) public offerRewards;
 
     event LoanOfferCreated(uint256 indexed id, address indexed lender);
     event LoanAccepted(uint256 indexed id, address indexed borrower, uint64 startAt);
     event LoanRepaid(uint256 indexed id, address indexed borrower);
     event LoanLiquidated(uint256 indexed id, address indexed lender);
+    event RewardsAccrued(uint256 indexed id, euint32 encryptedReward);
+    event RewardsClaimed(address indexed claimer, uint256 indexed id, euint32 encryptedReward);
 
     modifier onlyOwner() {
         require(msg.sender == owner, "not-owner");
@@ -96,6 +100,23 @@ contract PrivateLendingPremium {
         // Off-chain gateway would provide evidence; here we just mark liquidation.
         o.active = false;
         emit LoanLiquidated(id, msg.sender);
+    }
+
+    /// Owner/gateway can accrue encrypted rewards for an offer
+    function accrueReward(uint256 id, euint32 encryptedReward) external onlyOwner {
+        require(offers[id].exists, "no-offer");
+        offerRewards[id] = TFHE.add(offerRewards[id], encryptedReward);
+        emit RewardsAccrued(id, encryptedReward);
+    }
+
+    /// Claim encrypted rewards for an offer (recorded on-chain; off-chain gateway pays out)
+    function claimRewards(uint256 id) external {
+        LoanOffer storage o = offers[id];
+        require(o.exists, "no-offer");
+        require(msg.sender == o.borrower || msg.sender == o.lender, "not-authorized");
+        euint32 reward = offerRewards[id];
+        offerRewards[id] = TFHE.asEuint32(0);
+        emit RewardsClaimed(msg.sender, id, reward);
     }
 
     /// Helper to inspect an offer (amounts remain encrypted)

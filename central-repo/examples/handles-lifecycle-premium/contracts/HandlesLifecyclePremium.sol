@@ -85,7 +85,9 @@ contract HandlesLifecyclePremium {
     /// View encrypted metadata (callers may receive encrypted payload)
     function metadataOf(bytes32 handleId) external view returns (euint32) {
         require(!isExpired(handleId), "expired");
-        return handles[handleId].metadata;
+        // Seal the view output so gateways that expect sealed outputs
+        // (real fhEVM) can recognise this as a confidential return value.
+        return TFHE.sealOutput(handles[handleId].metadata);
     }
 
     /// Batch expire handles that are past their expiry timestamp (gas-bounded)

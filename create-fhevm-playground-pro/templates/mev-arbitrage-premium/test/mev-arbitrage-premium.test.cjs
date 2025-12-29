@@ -17,7 +17,8 @@ describe("MEVArbitragePremium", function () {
   });
 
   it("submits encrypted prices and records them", async () => {
-    const sym = ethers.id("ETH/USDC").slice(0, 66);  // formatBytes32String equivalent
+  // mev-arbitrage test (CJS) removed from template to avoid cross-test leakage.
+  // Please add focused example tests in the generated project's `test/` folder.
     const { ciphertext: price } = await getSignatureAndEncryption(2000);
     await expect(mev.submitEncryptedPrice(sym, price)).to.emit(mev, "PriceSubmitted");
     const stored = await mev.priceOf(sym);
