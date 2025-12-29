@@ -1,6 +1,6 @@
 {
   "name": "create-fhevm-playground-pro",
-  "version": "1.0.78",
+  "version": "1.0.79",
   "description": "Premium scaffolding CLI for fhEVM Playground Pro – Zama bounty",
   "main": "dist/create-example.js",
   "bin": {
