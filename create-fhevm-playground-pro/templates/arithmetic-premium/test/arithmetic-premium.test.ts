@@ -150,9 +150,11 @@ describe("ArithmeticPremium - Premium Tests", () => {
 
             const resultHandleSub = await contract.getLastResult();
             const decryptedSub = await gateway.decrypt(await contract.getAddress(), resultHandleSub);
+            // In mock mode with encrypted subtraction, result is deterministic but not meaningful
+            // In real mode: wrapped (0 - 1) mod 2**32 = max
             if (process.env.MOCK) {
                 expect(decryptedSub).to.be.a('bigint');
-                console.log(`Mock mode sub result: ${decryptedSub} (real mode would wrap to ${max})`);
+                console.log(`Mock mode sub result: ${decryptedSub}`);
             } else {
                 expect(decryptedSub).to.equal(max); // Wrapped: (0 - 1) mod 2**32 = max
             }

@@ -14,31 +14,45 @@ library TFHE {
     }
 
     function add(euint32 a, euint32 b) internal pure returns (euint32) {
-        return euint32.wrap(euint32.unwrap(a) + euint32.unwrap(b));
+        unchecked {
+            return euint32.wrap(uint32(euint32.unwrap(a) + euint32.unwrap(b)));
+        }
     }
 
     function add(euint32 a, uint32 b) internal pure returns (euint32) {
-        return euint32.wrap(euint32.unwrap(a) + b);
+        unchecked {
+            return euint32.wrap(uint32(euint32.unwrap(a) + b));
+        }
     }
 
     function add(uint32 a, euint32 b) internal pure returns (euint32) {
-        return euint32.wrap(a + euint32.unwrap(b));
+        unchecked {
+            return euint32.wrap(uint32(a + euint32.unwrap(b)));
+        }
     }
 
     function sub(euint32 a, euint32 b) internal pure returns (euint32) {
-        return euint32.wrap(euint32.unwrap(a) - euint32.unwrap(b));
+        unchecked {
+            return euint32.wrap(uint32(euint32.unwrap(a) - euint32.unwrap(b)));
+        }
     }
 
     function sub(euint32 a, uint32 b) internal pure returns (euint32) {
-        return euint32.wrap(euint32.unwrap(a) - b);
+        unchecked {
+            return euint32.wrap(uint32(euint32.unwrap(a) - b));
+        }
     }
 
     function mul(euint32 a, euint32 b) internal pure returns (euint32) {
-        return euint32.wrap(euint32.unwrap(a) * euint32.unwrap(b));
+        unchecked {
+            return euint32.wrap(uint32(euint32.unwrap(a) * euint32.unwrap(b)));
+        }
     }
 
     function mul(euint32 a, uint32 b) internal pure returns (euint32) {
-        return euint32.wrap(euint32.unwrap(a) * b);
+        unchecked {
+            return euint32.wrap(uint32(euint32.unwrap(a) * b));
+        }
     }
 
     function gt(euint32 a, euint32 b) internal pure returns (ebool) {
