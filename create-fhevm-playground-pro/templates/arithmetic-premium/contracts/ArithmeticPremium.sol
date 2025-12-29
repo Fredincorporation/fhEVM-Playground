@@ -80,6 +80,8 @@ contract ArithmeticPremium is EIP712WithModifier, Reencrypt {
     function addAB(uint256 handleA, uint256 handleB, bytes calldata inputProof) external {
         // In mock mode or real fhEVM, reconstruct euint32 from handles
         // For testing: directly compute with mocked values
+        // Note: handleA, handleB, inputProof used by gateway in real fhEVM
+        handleA; handleB; inputProof; // silence unused parameter warnings
         encryptedA = TFHE.add(encryptedA, encryptedB);
         lastResult = encryptedA;
         emit Added(msg.sender);
@@ -104,6 +106,8 @@ contract ArithmeticPremium is EIP712WithModifier, Reencrypt {
     function subAB(uint256 handleA, uint256 handleB, bytes calldata inputProof) external {
         // In mock mode or real fhEVM, reconstruct euint32 from handles
         // For testing: directly compute with mocked values
+        // Note: handleA, handleB, inputProof used by gateway in real fhEVM
+        handleA; handleB; inputProof; // silence unused parameter warnings
         encryptedA = TFHE.sub(encryptedA, encryptedB);
         lastResult = encryptedA;
         emit Subtracted(msg.sender);

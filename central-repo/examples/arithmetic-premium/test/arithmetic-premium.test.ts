@@ -3,7 +3,7 @@ import { expect } from "chai";
 import hre from "hardhat";
 
 import type { ArithmeticPremium } from "../typechain-types";
-import { getSignatureAndEncryption, initGateway, isMockedMode } from "../scripts/test-helpers.ts";
+import { getSignatureAndEncryption, initGateway, isMockedMode, gateway } from "../scripts/test-helpers.ts";
 
 describe("ArithmeticPremium - Premium Tests", () => {
     let contract: ArithmeticPremium;
