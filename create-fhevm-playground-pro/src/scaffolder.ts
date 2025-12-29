@@ -165,9 +165,10 @@ export async function createExample(options: ScaffoldOptions): Promise<void> {
 
         // Ensure tests use hre.ethers where appropriate and provide a local `ethers` alias
         // Replace ethers.getSigners() etc with hre.ethers.* so calls using hre work
-        testContent = testContent.replace(/ethers\.getSigners/g, 'hre.ethers.getSigners');
-        testContent = testContent.replace(/ethers\.getContractFactory/g, 'hre.ethers.getContractFactory');
-        testContent = testContent.replace(/ethers\.provider/g, 'hre.ethers.provider');
+        // BUT avoid double-replacing (don't turn hre.ethers.X into hre.hre.ethers.X)
+        testContent = testContent.replace(/(?<!hre\.)ethers\.getSigners/g, 'hre.ethers.getSigners');
+        testContent = testContent.replace(/(?<!hre\.)ethers\.getContractFactory/g, 'hre.ethers.getContractFactory');
+        testContent = testContent.replace(/(?<!hre\.)ethers\.provider/g, 'hre.ethers.provider');
 
         // Don't create a top-level ethers alias (may be uninitialized). Instead,
         // ensure an `ethers` alias is created inside `beforeEach` after initGateway.
