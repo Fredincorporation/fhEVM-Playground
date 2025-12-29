@@ -110,13 +110,40 @@ describe("ArithmeticPremium - Premium Tests", () => {
         });
 
         it("handles large operands without reverting (wrap behavior)", async () => {
-            // Test with moderate large values that demonstrate wrap behavior safely
-            const { ciphertext: enc_large1 } = await getSignatureAndEncryption(0xffffffff);
-            const { ciphertext: enc_large2 } = await getSignatureAndEncryption(1);
-            await contract.setA(enc_large1);
-            await contract.setB(enc_large2);
-            // addAB should handle wrap: (0xffffffff + 1) mod 2**32 = 0
-            const tx = await contract.addAB();
+            // euint32 wraps on overflow: max = 2^32 - 1 = 4294967295
+            // Demonstrate wraparound with positive values only:
+            // - max + 10 should wrap to 9 (mod 2^32)
+            // - 0 - 10 should wrap to max - 9 (mod 2^32)
+            
+            const MAX_UINT32 = 4294967295n; // 2^32 - 1
+            
+            // Test 1: Addition wraparound
+            // A = max, B = 10 => A + B = 4294967305 mod 2^32 = 9
+            const { ciphertext: encMax } = await getSignatureAndEncryption(Number(MAX_UINT32));
+            const { ciphertext: enc10 } = await getSignatureAndEncryption(10);
+            
+            await contract.setA(encMax);
+            await contract.setB(enc10);
+            
+            // Perform addition (should not revert, wrap internally)
+            let tx = await contract.addAB();
+            await expect(tx).to.emit(contract, "Added");
+            
+            // Test 2: Subtraction wraparound
+            // A = 0, B = 10 => A - B = -10 mod 2^32 = max - 9
+            const { ciphertext: enc0 } = await getSignatureAndEncryption(0);
+            await contract.setA(enc0);
+            await contract.setB(enc10);
+            
+            tx = await contract.subAB();
+            await expect(tx).to.emit(contract, "Subtracted");
+            
+            // Test 3: Edge case - max + 1 should wrap to 0
+            const { ciphertext: enc1 } = await getSignatureAndEncryption(1);
+            await contract.setA(encMax);
+            await contract.setB(enc1);
+            
+            tx = await contract.addAB();
             await expect(tx).to.emit(contract, "Added");
         });
     });
