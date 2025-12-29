@@ -6,6 +6,11 @@ import path from 'path';
 import fs from 'fs-extra';
 import { execSync } from 'child_process';
 import chalk from 'chalk';
+import { fileURLToPath } from 'url';
+
+// ESM __dirname replacement
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Category ID to example directory name mapping
 // Supports both short names (e.g., 'blind-dex') and full category keys (e.g., 'blind-dex-pro')
