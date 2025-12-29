@@ -14,6 +14,7 @@ describe("HandlesLifecyclePremium", function () {
     [owner, other] = await ethers.getSigners();
     const Factory = await ethers.getContractFactory("HandlesLifecyclePremium");
     handles = await Factory.deploy();
+    await handles.waitForDeployment();
   });
 
   it("creates a handle and exposes owner before expiry", async () => {

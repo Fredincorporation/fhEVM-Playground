@@ -60,7 +60,7 @@ describe("SingleEncryptionPremium - Tests", () => {
         await contract.connect(addr1).submitEncrypted(enc2);
         await expect(contract.connect(owner).clearSubmissions()).to.emit(contract, "Cleared");
         const count = await contract.getSubmittersCount();
-        expect(count.toNumber()).to.equal(0);
+        expect(Number(count)).to.equal(0);
     });
 
     it("non-owner cannot clear submissions", async () => {
@@ -78,12 +78,12 @@ describe("SingleEncryptionPremium - Tests", () => {
         const { ciphertext: enc4 } = await getSignatureAndEncryption(4);
         await contract.connect(addr1).submitEncrypted(enc4);
         let count = await contract.getSubmittersCount();
-        expect(count.toNumber()).to.equal(1);
+        expect(Number(count)).to.equal(1);
         // Overwrite
         const { ciphertext: enc5 } = await getSignatureAndEncryption(5);
         await contract.connect(addr1).submitEncrypted(enc5);
         count = await contract.getSubmittersCount();
-        expect(count.toNumber()).to.equal(1);
+        expect(Number(count)).to.equal(1);
     });
 
     it("antiPattern_unboundedAggregation exists and callable", async () => {

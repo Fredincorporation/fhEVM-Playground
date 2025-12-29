@@ -17,7 +17,8 @@ describe("VestingPremium", function () {
   });
 
   it("creates a vest and beneficiary can claim after release", async () => {
-    const future = Math.floor(Date.now() / 1000) + 2; // 2 seconds in future
+    const latest = await ethers.provider.getBlock('latest');
+    const future = latest.timestamp + 2; // 2 seconds in future
     const { ciphertext } = await getSignatureAndEncryption(123);
     const tx = await vesting.createVest(beneficiary.address, ciphertext, future);
     const rc = await tx.wait();
@@ -33,7 +34,8 @@ describe("VestingPremium", function () {
   });
 
   it("reverts if non-beneficiary tries to claim", async () => {
-    const future = Math.floor(Date.now() / 1000) + 1;
+    const latest = await ethers.provider.getBlock('latest');
+    const future = latest.timestamp + 1;
     const { ciphertext } = await getSignatureAndEncryption(50);
     const tx = await vesting.createVest(beneficiary.address, ciphertext, future);
     const rc = await tx.wait();
