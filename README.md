@@ -282,5 +282,5 @@ This landing page template is provided as-is for Zama's fhEVM Playground Pro pro
 ---
 
 **Last Updated**: December 29, 2025
-**Version**: 1.0.0 (Production Ready)
+**Version**: 1.0.101 (Production Ready)
 

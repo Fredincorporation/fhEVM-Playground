@@ -728,12 +728,64 @@ library TFHE {
 `;
   fs.writeFileSync(injectShimsPath, injectShimsContent, 'utf-8');
 
-  // Update README to mention category
+  // Generate a professional, GitBook-compatible README for the scaffolded example
   const readmePath = path.join(projectDir, 'README.md');
-  if (fs.existsSync(readmePath)) {
-    let r = fs.readFileSync(readmePath, 'utf-8');
-    r = `# ${options.name}\n\nCategory: ${options.category}\n\n` + r;
-    fs.writeFileSync(readmePath, r, 'utf-8');
+  try {
+    const proSuffix = options.isPro ? ' (Premium Bonus)' : '';
+    const humanize = (s: string) => s.replace(/[-_]+/g, ' ').replace(/\b\w/g, (m) => m.toUpperCase());
+    const humanCategory = humanize(options.category || options.name);
+
+    // Provide a slightly more specific overview for known categories (extendable)
+    let overview = `This example demonstrates ${humanCategory} using fhEVM and the TFHE primitives. It shows typical usage patterns for encrypted data types, how to operate on them in-contract, and how to test the flows in a mocked environment.`;
+    if (/arithmetic/.test(options.category)) {
+      overview = 'This example shows how to perform basic arithmetic operations (add, subtract, multiply) on encrypted uint32 values using fhEVM. It highlights homomorphic properties and common usage patterns.';
+    } else if (/voting|dao/.test(options.category)) {
+      overview = 'This example demonstrates confidential DAO-style voting where individual votes remain encrypted while allowing homomorphic tallying. It focuses on privacy-preserving aggregation patterns.';
+    } else if (/erc7984|erc20|token/.test(options.category)) {
+      overview = 'This example implements encrypted token patterns and wrappers that interact with OpenZeppelin-compatible flows while preserving confidentiality of balances.';
+    }
+
+    // Key concepts (small, 2-5 bullets) - lightweight defaults with category hints
+    let keyConcepts = [
+      'fhEVM TFHE types and primitives (euint32, ebool)',
+      'Writing contracts that operate on encrypted values',
+      'Testing in mocked fhEVM mode with scaffolded helpers'
+    ];
+    if (/arithmetic/.test(options.category)) {
+      keyConcepts = ['Homomorphic addition / subtraction / multiplication (euint32)', 'TFHE helper library usage', 'Mocked-mode tests for arithmetic flows'];
+    } else if (/voting|dao/.test(options.category)) {
+      keyConcepts = ['Homomorphic tallying of encrypted votes', 'Handle lifecycle and proofs', 'Privacy-preserving governance patterns'];
+    }
+
+    const readmeContent = `# fhEVM Playground Pro – ${options.name}
+
+**Category**: ${options.category}${proSuffix}
+
+## Overview
+${overview}
+
+## Key Concepts Covered
+${keyConcepts.map(k => `- ${k}`).join('\n')}
+
+## Setup & Usage
+\n```bash
+npm install
+npm test          # Run tests in mocked mode (fast)
+# For real fhEVM node:
+docker run -p 8545:8545 ghcr.io/zama-ai/fhevm-node:latest
+npx hardhat test --network localhost 
+```
+
+### Usage notes
+- If you already have many categories, you can extend the helper function later with more specific text for each.
+- The generated READMEs will be simple but structured enough to be useful and look good when viewed on GitHub or imported to GitBook.
+- After adding this, regenerate a few examples to verify the READMEs appear and look decent.
+`;
+
+    fs.writeFileSync(readmePath, readmeContent, 'utf-8');
+    console.log(chalk.gray(`Wrote README.md for ${options.name}`));
+  } catch (err) {
+    console.log(chalk.yellow('Failed to write README.md:'), err && (err as Error).message);
   }
 
   // Initialize git if available
