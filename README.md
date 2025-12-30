@@ -154,7 +154,7 @@ Modify `.nav-menu` in `index.html`:
 In `index.html`, update the YouTube iframe `src`:
 
 ```html
-<iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID"></iframe>
+<iframe src="https://www.youtube.com/embed/xG4oGn5tSeI" title="fhEVM Playground Pro Demo"></iframe>
 ```
 
 ### Update Footer Links

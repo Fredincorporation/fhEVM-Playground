@@ -437,12 +437,13 @@
             <p class="section-subtitle">Watch a professional walkthrough of fhEVM Playground Pro</p>
             <div class="video-container">
                 <iframe 
+                    id="demoVideo"
                     width="100%" 
                     height="600" 
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ?modestbranding=1&rel=0" 
+                    src="https://www.youtube.com/embed/xG4oGn5tSeI?modestbranding=1&rel=0&enablejsapi=1" 
                     title="fhEVM Playground Pro Demo"
                     frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; autoplay" 
                     allowfullscreen>
                 </iframe>
                 <p class="video-note">Placeholder video. Replace with actual fhEVM Playground Pro walkthrough.</p>
@@ -546,6 +547,24 @@ npm run test</code>
         // Initialize theme
         if (typeof initThemeToggle === 'function') {
             initThemeToggle();
+        }
+    </script>
+    <script>
+        // Load YouTube Iframe API and mute the demo video on ready so it stays muted until user unmutes
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var demoPlayer;
+        function onYouTubeIframeAPIReady() {
+            demoPlayer = new YT.Player('demoVideo', {
+                events: {
+                    'onReady': function(event) {
+                        try { event.target.mute(); } catch (e) { /* ignore */ }
+                    }
+                }
+            });
         }
     </script>
 </body>
